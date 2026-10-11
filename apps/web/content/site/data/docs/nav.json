@@ -1,0 +1,1347 @@
+{
+ "pathOf": {
+  "guide:intro": "/docs",
+  "guide:install": "/docs/installation",
+  "guide:cli": "/docs/cli",
+  "guide:mcp": "/docs/mcp",
+  "guide:accounts": "/docs/accounts",
+  "guide:theming": "/docs/theming",
+  "kit:sales": "/docs/kits/sales",
+  "kit:support": "/docs/kits/support",
+  "kit:marketing": "/docs/kits/marketing",
+  "kit:engineering": "/docs/kits/engineering",
+  "kit:operations": "/docs/kits/operations",
+  "workflow:sales/inbound-lead-qualifier": "/docs/workflows/sales/inbound-lead-qualifier",
+  "workflow:sales/account-research-brief": "/docs/workflows/sales/account-research-brief",
+  "workflow:sales/outbound-first-line-writer": "/docs/workflows/sales/outbound-first-line-writer",
+  "workflow:sales/pre-call-brief": "/docs/workflows/sales/pre-call-brief",
+  "workflow:sales/call-to-crm": "/docs/workflows/sales/call-to-crm",
+  "workflow:sales/stale-deal-nudger": "/docs/workflows/sales/stale-deal-nudger",
+  "workflow:sales/crm-hygiene": "/docs/workflows/sales/crm-hygiene",
+  "workflow:sales/champion-job-change-tracker": "/docs/workflows/sales/champion-job-change-tracker",
+  "workflow:sales/proposal-generator": "/docs/workflows/sales/proposal-generator",
+  "workflow:sales/reply-classifier": "/docs/workflows/sales/reply-classifier",
+  "workflow:sales/website-visitor-to-lead": "/docs/workflows/sales/website-visitor-to-lead",
+  "workflow:sales/weekly-pipeline-digest": "/docs/workflows/sales/weekly-pipeline-digest",
+  "workflow:support/ticket-triage": "/docs/workflows/support/ticket-triage",
+  "workflow:support/grounded-reply-drafts": "/docs/workflows/support/grounded-reply-drafts",
+  "workflow:support/refund-and-return-handler": "/docs/workflows/support/refund-and-return-handler",
+  "workflow:support/support-qa-scorer": "/docs/workflows/support/support-qa-scorer",
+  "workflow:support/churn-signal-detector": "/docs/workflows/support/churn-signal-detector",
+  "workflow:support/knowledge-base-gap-finder": "/docs/workflows/support/knowledge-base-gap-finder",
+  "workflow:support/bug-report-to-issue": "/docs/workflows/support/bug-report-to-issue",
+  "workflow:support/csat-nps-theme-analysis": "/docs/workflows/support/csat-nps-theme-analysis",
+  "workflow:support/onboarding-check-ins": "/docs/workflows/support/onboarding-check-ins",
+  "workflow:support/sla-breach-early-warning": "/docs/workflows/support/sla-breach-early-warning",
+  "workflow:support/multilingual-reply-layer": "/docs/workflows/support/multilingual-reply-layer",
+  "workflow:support/weekly-support-ops-report": "/docs/workflows/support/weekly-support-ops-report",
+  "workflow:marketing/content-repurposer": "/docs/workflows/marketing/content-repurposer",
+  "workflow:marketing/video-to-blog-and-show-notes": "/docs/workflows/marketing/video-to-blog-and-show-notes",
+  "workflow:marketing/seo-brief": "/docs/workflows/marketing/seo-brief",
+  "workflow:marketing/content-refresh-finder": "/docs/workflows/marketing/content-refresh-finder",
+  "workflow:marketing/social-publishing-queue": "/docs/workflows/marketing/social-publishing-queue",
+  "workflow:marketing/competitor-monitor": "/docs/workflows/marketing/competitor-monitor",
+  "workflow:marketing/brand-mention-listener": "/docs/workflows/marketing/brand-mention-listener",
+  "workflow:marketing/newsletter-curator": "/docs/workflows/marketing/newsletter-curator",
+  "workflow:marketing/weekly-ad-performance-report": "/docs/workflows/marketing/weekly-ad-performance-report",
+  "workflow:marketing/review-and-testimonial-harvester": "/docs/workflows/marketing/review-and-testimonial-harvester",
+  "workflow:marketing/event-follow-up-sequence": "/docs/workflows/marketing/event-follow-up-sequence",
+  "workflow:marketing/lead-magnet-delivery-and-nurture": "/docs/workflows/marketing/lead-magnet-delivery-and-nurture",
+  "workflow:engineering/incident-triage": "/docs/workflows/engineering/incident-triage",
+  "workflow:engineering/pr-review-trigger": "/docs/workflows/engineering/pr-review-trigger",
+  "workflow:engineering/release-notes-from-prs": "/docs/workflows/engineering/release-notes-from-prs",
+  "workflow:engineering/dependency-and-cve-watcher": "/docs/workflows/engineering/dependency-and-cve-watcher",
+  "workflow:engineering/issue-groomer": "/docs/workflows/engineering/issue-groomer",
+  "workflow:engineering/daily-standup-digest": "/docs/workflows/engineering/daily-standup-digest",
+  "workflow:engineering/error-spike-summary": "/docs/workflows/engineering/error-spike-summary",
+  "workflow:engineering/docs-drift-checker": "/docs/workflows/engineering/docs-drift-checker",
+  "workflow:engineering/flaky-test-tracker": "/docs/workflows/engineering/flaky-test-tracker",
+  "workflow:engineering/daily-cloud-cost-digest": "/docs/workflows/engineering/daily-cloud-cost-digest",
+  "workflow:engineering/new-hire-repo-tour": "/docs/workflows/engineering/new-hire-repo-tour",
+  "workflow:engineering/changelog-to-launch-posts": "/docs/workflows/engineering/changelog-to-launch-posts",
+  "workflow:operations/invoice-and-receipt-capture": "/docs/workflows/operations/invoice-and-receipt-capture",
+  "workflow:operations/weekly-kpi-report": "/docs/workflows/operations/weekly-kpi-report",
+  "workflow:operations/contract-intake": "/docs/workflows/operations/contract-intake",
+  "workflow:operations/spend-anomaly-detection": "/docs/workflows/operations/spend-anomaly-detection",
+  "workflow:operations/meeting-notes-to-action-items": "/docs/workflows/operations/meeting-notes-to-action-items",
+  "workflow:operations/vendor-onboarding": "/docs/workflows/operations/vendor-onboarding",
+  "workflow:operations/failed-payment-recovery": "/docs/workflows/operations/failed-payment-recovery",
+  "workflow:operations/month-end-close-checklist": "/docs/workflows/operations/month-end-close-checklist",
+  "workflow:operations/internal-qa-over-company-docs": "/docs/workflows/operations/internal-qa-over-company-docs",
+  "workflow:operations/access-checklist-on-off-boarding": "/docs/workflows/operations/access-checklist-on-off-boarding",
+  "workflow:operations/purchase-request-approvals": "/docs/workflows/operations/purchase-request-approvals",
+  "workflow:operations/investor-update-draft": "/docs/workflows/operations/investor-update-draft",
+  "agent:sales/account-research": "/docs/agents/sales/account-research",
+  "agent:sales/inbound-qualifier": "/docs/agents/sales/inbound-qualifier",
+  "agent:sales/outbound-personaliser": "/docs/agents/sales/outbound-personaliser",
+  "agent:sales/meeting-prep-and-follow-up": "/docs/agents/sales/meeting-prep-and-follow-up",
+  "agent:sales/crm-hygiene": "/docs/agents/sales/crm-hygiene",
+  "agent:sales/proposal-drafter": "/docs/agents/sales/proposal-drafter",
+  "agent:sales/rfp-responder": "/docs/agents/sales/rfp-responder",
+  "agent:sales/objection-coach": "/docs/agents/sales/objection-coach",
+  "agent:sales/territory-planner": "/docs/agents/sales/territory-planner",
+  "agent:sales/win-loss-analyst": "/docs/agents/sales/win-loss-analyst",
+  "agent:marketing/content-repurposer": "/docs/agents/marketing/content-repurposer",
+  "agent:marketing/seo-brief-and-refresh": "/docs/agents/marketing/seo-brief-and-refresh",
+  "agent:marketing/competitor-watcher": "/docs/agents/marketing/competitor-watcher",
+  "agent:marketing/ad-performance-analyst": "/docs/agents/marketing/ad-performance-analyst",
+  "agent:marketing/newsletter-editor": "/docs/agents/marketing/newsletter-editor",
+  "agent:marketing/brand-voice-editor": "/docs/agents/marketing/brand-voice-editor",
+  "agent:marketing/trend-scout": "/docs/agents/marketing/trend-scout",
+  "agent:marketing/landing-page-critic": "/docs/agents/marketing/landing-page-critic",
+  "agent:marketing/community-manager": "/docs/agents/marketing/community-manager",
+  "agent:marketing/launch-planner": "/docs/agents/marketing/launch-planner",
+  "agent:support/ticket-triage": "/docs/agents/support/ticket-triage",
+  "agent:support/grounded-answer": "/docs/agents/support/grounded-answer",
+  "agent:support/refund-decision": "/docs/agents/support/refund-decision",
+  "agent:support/support-qa-reviewer": "/docs/agents/support/support-qa-reviewer",
+  "agent:support/churn-risk-watcher": "/docs/agents/support/churn-risk-watcher",
+  "agent:support/docs-gap-finder": "/docs/agents/support/docs-gap-finder",
+  "agent:support/voice-of-customer-analyst": "/docs/agents/support/voice-of-customer-analyst",
+  "agent:support/macro-writer": "/docs/agents/support/macro-writer",
+  "agent:support/escalation-summariser": "/docs/agents/support/escalation-summariser",
+  "agent:support/onboarding-coach": "/docs/agents/support/onboarding-coach",
+  "agent:engineering/pr-reviewer": "/docs/agents/engineering/pr-reviewer",
+  "agent:engineering/incident-triage": "/docs/agents/engineering/incident-triage",
+  "agent:engineering/release-notes-writer": "/docs/agents/engineering/release-notes-writer",
+  "agent:engineering/dependency-and-cve-fixer": "/docs/agents/engineering/dependency-and-cve-fixer",
+  "agent:engineering/test-writer": "/docs/agents/engineering/test-writer",
+  "agent:engineering/issue-groomer": "/docs/agents/engineering/issue-groomer",
+  "agent:engineering/migration-assistant": "/docs/agents/engineering/migration-assistant",
+  "agent:engineering/docs-writer": "/docs/agents/engineering/docs-writer",
+  "agent:engineering/on-call-handoff": "/docs/agents/engineering/on-call-handoff",
+  "agent:engineering/cost-optimiser": "/docs/agents/engineering/cost-optimiser",
+  "agent:operations/invoice-extractor": "/docs/agents/operations/invoice-extractor",
+  "agent:operations/kpi-reporter": "/docs/agents/operations/kpi-reporter",
+  "agent:operations/contract-analyst": "/docs/agents/operations/contract-analyst",
+  "agent:operations/spend-anomaly": "/docs/agents/operations/spend-anomaly",
+  "agent:operations/meeting-to-tasks": "/docs/agents/operations/meeting-to-tasks",
+  "agent:operations/internal-knowledge": "/docs/agents/operations/internal-knowledge",
+  "agent:operations/close-assistant": "/docs/agents/operations/close-assistant",
+  "agent:operations/vendor-risk-reviewer": "/docs/agents/operations/vendor-risk-reviewer",
+  "agent:operations/investor-update-writer": "/docs/agents/operations/investor-update-writer",
+  "agent:operations/policy-qa": "/docs/agents/operations/policy-qa",
+  "component:chat-thread": "/docs/components/chat-thread",
+  "component:streaming-message": "/docs/components/streaming-message",
+  "component:prompt-input": "/docs/components/prompt-input",
+  "component:tool-call-card": "/docs/components/tool-call-card",
+  "component:citation-chip": "/docs/components/citation-chip",
+  "component:reasoning-disclosure": "/docs/components/reasoning-disclosure",
+  "component:model-picker": "/docs/components/model-picker",
+  "component:file-drop": "/docs/components/file-drop",
+  "component:voice-input-orb": "/docs/components/voice-input-orb",
+  "component:token-cost-meter": "/docs/components/token-cost-meter",
+  "component:approval-card": "/docs/components/approval-card",
+  "component:run-timeline": "/docs/components/run-timeline",
+  "component:step-status-list": "/docs/components/step-status-list",
+  "component:diff-viewer": "/docs/components/diff-viewer",
+  "component:human-handoff-banner": "/docs/components/human-handoff-banner",
+  "component:confidence-badge": "/docs/components/confidence-badge",
+  "component:retry-undo-toast": "/docs/components/retry-undo-toast",
+  "component:agent-avatar": "/docs/components/agent-avatar",
+  "component:data-grid": "/docs/components/data-grid",
+  "component:kpi-stat": "/docs/components/kpi-stat",
+  "component:sparkline": "/docs/components/sparkline",
+  "component:line-chart": "/docs/components/line-chart",
+  "component:area-chart": "/docs/components/area-chart",
+  "component:bar-chart": "/docs/components/bar-chart",
+  "component:donut-chart": "/docs/components/donut-chart",
+  "component:funnel-chart": "/docs/components/funnel-chart",
+  "component:cohort-heatmap": "/docs/components/cohort-heatmap",
+  "component:activity-timeline": "/docs/components/activity-timeline",
+  "component:command-palette": "/docs/components/command-palette",
+  "component:combobox": "/docs/components/combobox",
+  "component:date-range-picker": "/docs/components/date-range-picker",
+  "component:multi-select-tags": "/docs/components/multi-select-tags",
+  "component:number-field": "/docs/components/number-field",
+  "component:rich-text-editor": "/docs/components/rich-text-editor",
+  "component:cron-schedule-picker": "/docs/components/cron-schedule-picker",
+  "component:variable-mapper": "/docs/components/variable-mapper",
+  "component:sidebar": "/docs/components/sidebar",
+  "component:top-bar-workspace-switcher": "/docs/components/top-bar-workspace-switcher",
+  "component:tabs": "/docs/components/tabs",
+  "component:empty-state": "/docs/components/empty-state",
+  "component:skeletons": "/docs/components/skeletons",
+  "component:notification-center": "/docs/components/notification-center",
+  "component:settings-section": "/docs/components/settings-section",
+  "component:kanban-column": "/docs/components/kanban-column",
+  "component:node-canvas-viewer": "/docs/components/node-canvas-viewer",
+  "component:node-card": "/docs/components/node-card",
+  "component:connector-line": "/docs/components/connector-line",
+  "component:run-log-viewer": "/docs/components/run-log-viewer",
+  "component:trigger-picker": "/docs/components/trigger-picker",
+  "component:credential-slot": "/docs/components/credential-slot",
+  "block:hero-split-demo": "/docs/blocks/hero-split-demo",
+  "block:hero-centered-terminal": "/docs/blocks/hero-centered-terminal",
+  "block:hero-product-shot": "/docs/blocks/hero-product-shot",
+  "block:hero-kit-pipeline": "/docs/blocks/hero-kit-pipeline",
+  "block:feature-grid": "/docs/blocks/feature-grid",
+  "block:bento-features": "/docs/blocks/bento-features",
+  "block:pricing-table": "/docs/blocks/pricing-table",
+  "block:pricing-calculator": "/docs/blocks/pricing-calculator",
+  "block:testimonials-wall": "/docs/blocks/testimonials-wall",
+  "block:logo-cloud": "/docs/blocks/logo-cloud",
+  "block:faq": "/docs/blocks/faq",
+  "block:cta-band": "/docs/blocks/cta-band",
+  "block:waitlist": "/docs/blocks/waitlist",
+  "block:changelog-page": "/docs/blocks/changelog-page",
+  "block:comparison-page": "/docs/blocks/comparison-page",
+  "block:saas-metrics": "/docs/blocks/saas-metrics",
+  "block:sales-pipeline": "/docs/blocks/sales-pipeline",
+  "block:support-operations": "/docs/blocks/support-operations",
+  "block:marketing-attribution": "/docs/blocks/marketing-attribution",
+  "block:agent-operations": "/docs/blocks/agent-operations",
+  "block:ai-cost-usage": "/docs/blocks/ai-cost-usage",
+  "block:incident-board": "/docs/blocks/incident-board",
+  "block:finance-overview": "/docs/blocks/finance-overview",
+  "block:contact-list": "/docs/blocks/contact-list",
+  "block:contact-profile": "/docs/blocks/contact-profile",
+  "block:deal-pipeline-board": "/docs/blocks/deal-pipeline-board",
+  "block:lead-scoring-table": "/docs/blocks/lead-scoring-table",
+  "block:email-sequence-editor": "/docs/blocks/email-sequence-editor",
+  "block:task-inbox": "/docs/blocks/task-inbox",
+  "block:company-profile": "/docs/blocks/company-profile",
+  "block:import-mapper": "/docs/blocks/import-mapper",
+  "block:funnel-analysis": "/docs/blocks/funnel-analysis",
+  "block:cohort-retention": "/docs/blocks/cohort-retention",
+  "block:ab-test-readout": "/docs/blocks/ab-test-readout",
+  "block:report-builder": "/docs/blocks/report-builder",
+  "block:chart-builder": "/docs/blocks/chart-builder",
+  "block:segment-builder": "/docs/blocks/segment-builder",
+  "block:anomaly-feed": "/docs/blocks/anomaly-feed",
+  "block:agent-chat-workspace": "/docs/blocks/agent-chat-workspace",
+  "block:approval-inbox": "/docs/blocks/approval-inbox",
+  "block:workflow-run-history": "/docs/blocks/workflow-run-history",
+  "block:knowledge-base-manager": "/docs/blocks/knowledge-base-manager",
+  "block:prompt-eval-playground": "/docs/blocks/prompt-eval-playground",
+  "block:agent-settings": "/docs/blocks/agent-settings",
+  "block:sign-in-sign-up": "/docs/blocks/sign-in-sign-up",
+  "block:onboarding-wizard": "/docs/blocks/onboarding-wizard",
+  "block:settings": "/docs/blocks/settings",
+  "block:billing-and-plans": "/docs/blocks/billing-and-plans",
+  "block:team-and-roles": "/docs/blocks/team-and-roles",
+  "block:api-keys": "/docs/blocks/api-keys",
+  "ref:cli": "/docs/reference/cli",
+  "ref:mcp": "/docs/reference/mcp",
+  "ref:registry": "/docs/reference/registry",
+  "ref:licence": "/docs/reference/licence",
+  "ref:refunds": "/docs/reference/refunds",
+  "ref:changelog": "/docs/reference/changelog"
+ },
+ "groups": [
+  {
+   "key": "start",
+   "title": "Get started",
+   "defaultOpen": true,
+   "items": [
+    {
+     "id": "guide:intro",
+     "title": "Introduction"
+    },
+    {
+     "id": "guide:install",
+     "title": "Installation"
+    },
+    {
+     "id": "guide:cli",
+     "title": "CLI"
+    },
+    {
+     "id": "guide:mcp",
+     "title": "MCP and AI tools"
+    },
+    {
+     "id": "guide:accounts",
+     "title": "Accounts and licences"
+    },
+    {
+     "id": "guide:theming",
+     "title": "Theming"
+    }
+   ]
+  },
+  {
+   "key": "kits",
+   "title": "Kits",
+   "defaultOpen": true,
+   "items": [
+    {
+     "id": "kit:sales",
+     "title": "Sales kit"
+    },
+    {
+     "id": "kit:support",
+     "title": "Support kit"
+    },
+    {
+     "id": "kit:marketing",
+     "title": "Marketing kit"
+    },
+    {
+     "id": "kit:engineering",
+     "title": "Engineering kit"
+    },
+    {
+     "id": "kit:operations",
+     "title": "Operations kit"
+    }
+   ]
+  },
+  {
+   "key": "workflows",
+   "title": "Workflows",
+   "defaultOpen": false,
+   "sections": [
+    {
+     "label": "Sales",
+     "items": [
+      {
+       "id": "workflow:sales/inbound-lead-qualifier",
+       "title": "Inbound lead qualifier"
+      },
+      {
+       "id": "workflow:sales/account-research-brief",
+       "title": "Account research brief"
+      },
+      {
+       "id": "workflow:sales/outbound-first-line-writer",
+       "title": "Outbound first-line writer"
+      },
+      {
+       "id": "workflow:sales/pre-call-brief",
+       "title": "Pre-call brief"
+      },
+      {
+       "id": "workflow:sales/call-to-crm",
+       "title": "Call to CRM"
+      },
+      {
+       "id": "workflow:sales/stale-deal-nudger",
+       "title": "Stale deal nudger"
+      },
+      {
+       "id": "workflow:sales/crm-hygiene",
+       "title": "CRM hygiene"
+      },
+      {
+       "id": "workflow:sales/champion-job-change-tracker",
+       "title": "Champion job-change tracker"
+      },
+      {
+       "id": "workflow:sales/proposal-generator",
+       "title": "Proposal generator"
+      },
+      {
+       "id": "workflow:sales/reply-classifier",
+       "title": "Reply classifier",
+       "badge": "Free"
+      },
+      {
+       "id": "workflow:sales/website-visitor-to-lead",
+       "title": "Website visitor to lead"
+      },
+      {
+       "id": "workflow:sales/weekly-pipeline-digest",
+       "title": "Weekly pipeline digest",
+       "badge": "Free"
+      }
+     ]
+    },
+    {
+     "label": "Support",
+     "items": [
+      {
+       "id": "workflow:support/ticket-triage",
+       "title": "Ticket triage"
+      },
+      {
+       "id": "workflow:support/grounded-reply-drafts",
+       "title": "Grounded reply drafts with approval"
+      },
+      {
+       "id": "workflow:support/refund-and-return-handler",
+       "title": "Refund and return handler"
+      },
+      {
+       "id": "workflow:support/support-qa-scorer",
+       "title": "Support QA scorer"
+      },
+      {
+       "id": "workflow:support/churn-signal-detector",
+       "title": "Churn signal detector"
+      },
+      {
+       "id": "workflow:support/knowledge-base-gap-finder",
+       "title": "Knowledge base gap finder"
+      },
+      {
+       "id": "workflow:support/bug-report-to-issue",
+       "title": "Bug report to issue"
+      },
+      {
+       "id": "workflow:support/csat-nps-theme-analysis",
+       "title": "CSAT and NPS theme analysis",
+       "badge": "Free"
+      },
+      {
+       "id": "workflow:support/onboarding-check-ins",
+       "title": "Onboarding check-ins from product events"
+      },
+      {
+       "id": "workflow:support/sla-breach-early-warning",
+       "title": "SLA breach early warning"
+      },
+      {
+       "id": "workflow:support/multilingual-reply-layer",
+       "title": "Multilingual reply layer"
+      },
+      {
+       "id": "workflow:support/weekly-support-ops-report",
+       "title": "Weekly support operations report",
+       "badge": "Free"
+      }
+     ]
+    },
+    {
+     "label": "Marketing",
+     "items": [
+      {
+       "id": "workflow:marketing/content-repurposer",
+       "title": "Content repurposer"
+      },
+      {
+       "id": "workflow:marketing/video-to-blog-and-show-notes",
+       "title": "Video or podcast to blog post and show notes"
+      },
+      {
+       "id": "workflow:marketing/seo-brief",
+       "title": "SEO brief from keyword and live results"
+      },
+      {
+       "id": "workflow:marketing/content-refresh-finder",
+       "title": "Content refresh finder"
+      },
+      {
+       "id": "workflow:marketing/social-publishing-queue",
+       "title": "Social publishing queue with approval"
+      },
+      {
+       "id": "workflow:marketing/competitor-monitor",
+       "title": "Competitor monitor"
+      },
+      {
+       "id": "workflow:marketing/brand-mention-listener",
+       "title": "Brand mention listener",
+       "badge": "Free"
+      },
+      {
+       "id": "workflow:marketing/newsletter-curator",
+       "title": "Newsletter curator",
+       "badge": "Free"
+      },
+      {
+       "id": "workflow:marketing/weekly-ad-performance-report",
+       "title": "Weekly ad performance report"
+      },
+      {
+       "id": "workflow:marketing/review-and-testimonial-harvester",
+       "title": "Review and testimonial harvester"
+      },
+      {
+       "id": "workflow:marketing/event-follow-up-sequence",
+       "title": "Webinar and event follow-up sequence"
+      },
+      {
+       "id": "workflow:marketing/lead-magnet-delivery-and-nurture",
+       "title": "Lead magnet delivery and nurture"
+      }
+     ]
+    },
+    {
+     "label": "Engineering",
+     "items": [
+      {
+       "id": "workflow:engineering/incident-triage",
+       "title": "Incident triage"
+      },
+      {
+       "id": "workflow:engineering/pr-review-trigger",
+       "title": "PR review trigger"
+      },
+      {
+       "id": "workflow:engineering/release-notes-from-prs",
+       "title": "Release notes from merged PRs"
+      },
+      {
+       "id": "workflow:engineering/dependency-and-cve-watcher",
+       "title": "Dependency and CVE watcher"
+      },
+      {
+       "id": "workflow:engineering/issue-groomer",
+       "title": "Issue groomer"
+      },
+      {
+       "id": "workflow:engineering/daily-standup-digest",
+       "title": "Daily standup digest",
+       "badge": "Free"
+      },
+      {
+       "id": "workflow:engineering/error-spike-summary",
+       "title": "Error spike summary with owner routing"
+      },
+      {
+       "id": "workflow:engineering/docs-drift-checker",
+       "title": "Docs drift checker"
+      },
+      {
+       "id": "workflow:engineering/flaky-test-tracker",
+       "title": "Flaky test tracker",
+       "badge": "Free"
+      },
+      {
+       "id": "workflow:engineering/daily-cloud-cost-digest",
+       "title": "Daily cloud cost digest"
+      },
+      {
+       "id": "workflow:engineering/new-hire-repo-tour",
+       "title": "New hire repo tour generator"
+      },
+      {
+       "id": "workflow:engineering/changelog-to-launch-posts",
+       "title": "Changelog to launch posts"
+      }
+     ]
+    },
+    {
+     "label": "Operations",
+     "items": [
+      {
+       "id": "workflow:operations/invoice-and-receipt-capture",
+       "title": "Invoice and receipt capture"
+      },
+      {
+       "id": "workflow:operations/weekly-kpi-report",
+       "title": "Weekly KPI report",
+       "badge": "Free"
+      },
+      {
+       "id": "workflow:operations/contract-intake",
+       "title": "Contract intake and renewal reminders"
+      },
+      {
+       "id": "workflow:operations/spend-anomaly-detection",
+       "title": "Spend anomaly detection"
+      },
+      {
+       "id": "workflow:operations/meeting-notes-to-action-items",
+       "title": "Meeting notes to action items",
+       "badge": "Free"
+      },
+      {
+       "id": "workflow:operations/vendor-onboarding",
+       "title": "Vendor onboarding"
+      },
+      {
+       "id": "workflow:operations/failed-payment-recovery",
+       "title": "Failed payment recovery sequence"
+      },
+      {
+       "id": "workflow:operations/month-end-close-checklist",
+       "title": "Month-end close checklist automation"
+      },
+      {
+       "id": "workflow:operations/internal-qa-over-company-docs",
+       "title": "Internal Q&A over company docs in Slack"
+      },
+      {
+       "id": "workflow:operations/access-checklist-on-off-boarding",
+       "title": "Employee onboarding and offboarding access checklist"
+      },
+      {
+       "id": "workflow:operations/purchase-request-approvals",
+       "title": "Purchase request approvals"
+      },
+      {
+       "id": "workflow:operations/investor-update-draft",
+       "title": "Investor update draft"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "agents",
+   "title": "Agents",
+   "defaultOpen": false,
+   "sections": [
+    {
+     "label": "Sales",
+     "items": [
+      {
+       "id": "agent:sales/account-research",
+       "title": "Account research"
+      },
+      {
+       "id": "agent:sales/inbound-qualifier",
+       "title": "Inbound qualifier"
+      },
+      {
+       "id": "agent:sales/outbound-personaliser",
+       "title": "Outbound personaliser"
+      },
+      {
+       "id": "agent:sales/meeting-prep-and-follow-up",
+       "title": "Meeting prep and follow-up"
+      },
+      {
+       "id": "agent:sales/crm-hygiene",
+       "title": "CRM hygiene"
+      },
+      {
+       "id": "agent:sales/proposal-drafter",
+       "title": "Proposal drafter"
+      },
+      {
+       "id": "agent:sales/rfp-responder",
+       "title": "RFP responder",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:sales/objection-coach",
+       "title": "Objection coach",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:sales/territory-planner",
+       "title": "Territory planner",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:sales/win-loss-analyst",
+       "title": "Win-loss analyst",
+       "badge": "Soon"
+      }
+     ]
+    },
+    {
+     "label": "Support",
+     "items": [
+      {
+       "id": "agent:support/ticket-triage",
+       "title": "Ticket triage"
+      },
+      {
+       "id": "agent:support/grounded-answer",
+       "title": "Grounded answer agent with citations"
+      },
+      {
+       "id": "agent:support/refund-decision",
+       "title": "Refund decision agent with approval"
+      },
+      {
+       "id": "agent:support/support-qa-reviewer",
+       "title": "Support QA reviewer"
+      },
+      {
+       "id": "agent:support/churn-risk-watcher",
+       "title": "Churn risk watcher"
+      },
+      {
+       "id": "agent:support/docs-gap-finder",
+       "title": "Docs gap finder"
+      },
+      {
+       "id": "agent:support/voice-of-customer-analyst",
+       "title": "Voice of customer analyst",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:support/macro-writer",
+       "title": "Macro writer",
+       "badge": "Free"
+      },
+      {
+       "id": "agent:support/escalation-summariser",
+       "title": "Escalation summariser",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:support/onboarding-coach",
+       "title": "Onboarding coach",
+       "badge": "Soon"
+      }
+     ]
+    },
+    {
+     "label": "Marketing",
+     "items": [
+      {
+       "id": "agent:marketing/content-repurposer",
+       "title": "Content repurposer"
+      },
+      {
+       "id": "agent:marketing/seo-brief-and-refresh",
+       "title": "SEO brief and refresh"
+      },
+      {
+       "id": "agent:marketing/competitor-watcher",
+       "title": "Competitor watcher"
+      },
+      {
+       "id": "agent:marketing/ad-performance-analyst",
+       "title": "Ad performance analyst"
+      },
+      {
+       "id": "agent:marketing/newsletter-editor",
+       "title": "Newsletter editor"
+      },
+      {
+       "id": "agent:marketing/brand-voice-editor",
+       "title": "Brand voice editor"
+      },
+      {
+       "id": "agent:marketing/trend-scout",
+       "title": "Trend scout",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:marketing/landing-page-critic",
+       "title": "Landing page critic",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:marketing/community-manager",
+       "title": "Community manager",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:marketing/launch-planner",
+       "title": "Launch planner",
+       "badge": "Soon"
+      }
+     ]
+    },
+    {
+     "label": "Engineering",
+     "items": [
+      {
+       "id": "agent:engineering/pr-reviewer",
+       "title": "PR reviewer"
+      },
+      {
+       "id": "agent:engineering/incident-triage",
+       "title": "Incident triage"
+      },
+      {
+       "id": "agent:engineering/release-notes-writer",
+       "title": "Release notes writer",
+       "badge": "Free"
+      },
+      {
+       "id": "agent:engineering/dependency-and-cve-fixer",
+       "title": "Dependency and CVE fixer"
+      },
+      {
+       "id": "agent:engineering/test-writer",
+       "title": "Test writer"
+      },
+      {
+       "id": "agent:engineering/issue-groomer",
+       "title": "Issue groomer"
+      },
+      {
+       "id": "agent:engineering/migration-assistant",
+       "title": "Migration assistant",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:engineering/docs-writer",
+       "title": "Docs writer",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:engineering/on-call-handoff",
+       "title": "On-call handoff",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:engineering/cost-optimiser",
+       "title": "Cloud cost optimiser",
+       "badge": "Soon"
+      }
+     ]
+    },
+    {
+     "label": "Operations",
+     "items": [
+      {
+       "id": "agent:operations/invoice-extractor",
+       "title": "Invoice and receipt extractor"
+      },
+      {
+       "id": "agent:operations/kpi-reporter",
+       "title": "KPI reporter"
+      },
+      {
+       "id": "agent:operations/contract-analyst",
+       "title": "Contract analyst"
+      },
+      {
+       "id": "agent:operations/spend-anomaly",
+       "title": "Spend anomaly"
+      },
+      {
+       "id": "agent:operations/meeting-to-tasks",
+       "title": "Meeting to tasks",
+       "badge": "Free"
+      },
+      {
+       "id": "agent:operations/internal-knowledge",
+       "title": "Internal knowledge"
+      },
+      {
+       "id": "agent:operations/close-assistant",
+       "title": "Month-end close assistant",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:operations/vendor-risk-reviewer",
+       "title": "Vendor risk reviewer",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:operations/investor-update-writer",
+       "title": "Investor update writer",
+       "badge": "Soon"
+      },
+      {
+       "id": "agent:operations/policy-qa",
+       "title": "Policy Q&A",
+       "badge": "Soon"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "components",
+   "title": "Components",
+   "defaultOpen": false,
+   "sections": [
+    {
+     "label": "AI interaction",
+     "items": [
+      {
+       "id": "component:chat-thread",
+       "title": "Chat thread"
+      },
+      {
+       "id": "component:streaming-message",
+       "title": "Streaming message",
+       "badge": "Free"
+      },
+      {
+       "id": "component:prompt-input",
+       "title": "Prompt input with slash commands",
+       "badge": "Free"
+      },
+      {
+       "id": "component:tool-call-card",
+       "title": "Tool-call card"
+      },
+      {
+       "id": "component:citation-chip",
+       "title": "Citation chip",
+       "badge": "Free"
+      },
+      {
+       "id": "component:reasoning-disclosure",
+       "title": "Reasoning disclosure"
+      },
+      {
+       "id": "component:model-picker",
+       "title": "Model picker"
+      },
+      {
+       "id": "component:file-drop",
+       "title": "File drop with parsing state"
+      },
+      {
+       "id": "component:voice-input-orb",
+       "title": "Voice input orb"
+      },
+      {
+       "id": "component:token-cost-meter",
+       "title": "Token and cost meter",
+       "badge": "Free"
+      }
+     ]
+    },
+    {
+     "label": "Agent control",
+     "items": [
+      {
+       "id": "component:approval-card",
+       "title": "Approval card"
+      },
+      {
+       "id": "component:run-timeline",
+       "title": "Run timeline",
+       "badge": "Free"
+      },
+      {
+       "id": "component:step-status-list",
+       "title": "Step status list",
+       "badge": "Free"
+      },
+      {
+       "id": "component:diff-viewer",
+       "title": "Diff viewer"
+      },
+      {
+       "id": "component:human-handoff-banner",
+       "title": "Human handoff banner"
+      },
+      {
+       "id": "component:confidence-badge",
+       "title": "Confidence badge",
+       "badge": "Free"
+      },
+      {
+       "id": "component:retry-undo-toast",
+       "title": "Retry and undo toast"
+      },
+      {
+       "id": "component:agent-avatar",
+       "title": "Agent avatar with status"
+      }
+     ]
+    },
+    {
+     "label": "Data display",
+     "items": [
+      {
+       "id": "component:data-grid",
+       "title": "Data grid"
+      },
+      {
+       "id": "component:kpi-stat",
+       "title": "KPI stat with delta",
+       "badge": "Free"
+      },
+      {
+       "id": "component:sparkline",
+       "title": "Sparkline",
+       "badge": "Free"
+      },
+      {
+       "id": "component:line-chart",
+       "title": "Line chart"
+      },
+      {
+       "id": "component:area-chart",
+       "title": "Area chart"
+      },
+      {
+       "id": "component:bar-chart",
+       "title": "Bar chart"
+      },
+      {
+       "id": "component:donut-chart",
+       "title": "Donut chart"
+      },
+      {
+       "id": "component:funnel-chart",
+       "title": "Funnel chart"
+      },
+      {
+       "id": "component:cohort-heatmap",
+       "title": "Cohort heatmap"
+      },
+      {
+       "id": "component:activity-timeline",
+       "title": "Activity timeline"
+      }
+     ]
+    },
+    {
+     "label": "Inputs",
+     "items": [
+      {
+       "id": "component:command-palette",
+       "title": "Command palette"
+      },
+      {
+       "id": "component:combobox",
+       "title": "Combobox"
+      },
+      {
+       "id": "component:date-range-picker",
+       "title": "Date range picker"
+      },
+      {
+       "id": "component:multi-select-tags",
+       "title": "Multi-select tags"
+      },
+      {
+       "id": "component:number-field",
+       "title": "Number field",
+       "badge": "Free"
+      },
+      {
+       "id": "component:rich-text-editor",
+       "title": "Rich text editor"
+      },
+      {
+       "id": "component:cron-schedule-picker",
+       "title": "Cron schedule picker"
+      },
+      {
+       "id": "component:variable-mapper",
+       "title": "Variable mapper"
+      }
+     ]
+    },
+    {
+     "label": "Shell and layout",
+     "items": [
+      {
+       "id": "component:sidebar",
+       "title": "Sidebar"
+      },
+      {
+       "id": "component:top-bar-workspace-switcher",
+       "title": "Top bar with workspace switcher"
+      },
+      {
+       "id": "component:tabs",
+       "title": "Tabs",
+       "badge": "Free"
+      },
+      {
+       "id": "component:empty-state",
+       "title": "Empty state",
+       "badge": "Free"
+      },
+      {
+       "id": "component:skeletons",
+       "title": "Skeletons",
+       "badge": "Free"
+      },
+      {
+       "id": "component:notification-center",
+       "title": "Notification center"
+      },
+      {
+       "id": "component:settings-section",
+       "title": "Settings section"
+      },
+      {
+       "id": "component:kanban-column",
+       "title": "Kanban column",
+       "badge": "Free"
+      }
+     ]
+    },
+    {
+     "label": "Workflow",
+     "items": [
+      {
+       "id": "component:node-canvas-viewer",
+       "title": "Node canvas viewer"
+      },
+      {
+       "id": "component:node-card",
+       "title": "Node card"
+      },
+      {
+       "id": "component:connector-line",
+       "title": "Connector line",
+       "badge": "Free"
+      },
+      {
+       "id": "component:run-log-viewer",
+       "title": "Run log viewer"
+      },
+      {
+       "id": "component:trigger-picker",
+       "title": "Trigger picker"
+      },
+      {
+       "id": "component:credential-slot",
+       "title": "Credential slot"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "blocks",
+   "title": "Blocks",
+   "defaultOpen": false,
+   "sections": [
+    {
+     "label": "Landing pages",
+     "items": [
+      {
+       "id": "block:hero-split-demo",
+       "title": "Hero: split with live demo"
+      },
+      {
+       "id": "block:hero-centered-terminal",
+       "title": "Hero: centered with terminal"
+      },
+      {
+       "id": "block:hero-product-shot",
+       "title": "Hero: product screenshot with depth"
+      },
+      {
+       "id": "block:hero-kit-pipeline",
+       "title": "Hero: kit pipeline"
+      },
+      {
+       "id": "block:feature-grid",
+       "title": "Feature grid"
+      },
+      {
+       "id": "block:bento-features",
+       "title": "Bento features"
+      },
+      {
+       "id": "block:pricing-table",
+       "title": "Pricing table"
+      },
+      {
+       "id": "block:pricing-calculator",
+       "title": "Pricing calculator"
+      },
+      {
+       "id": "block:testimonials-wall",
+       "title": "Testimonials wall"
+      },
+      {
+       "id": "block:logo-cloud",
+       "title": "Logo cloud"
+      },
+      {
+       "id": "block:faq",
+       "title": "FAQ"
+      },
+      {
+       "id": "block:cta-band",
+       "title": "CTA band"
+      },
+      {
+       "id": "block:waitlist",
+       "title": "Waitlist"
+      },
+      {
+       "id": "block:changelog-page",
+       "title": "Changelog page"
+      },
+      {
+       "id": "block:comparison-page",
+       "title": "Comparison page"
+      }
+     ]
+    },
+    {
+     "label": "Dashboards",
+     "items": [
+      {
+       "id": "block:saas-metrics",
+       "title": "SaaS metrics dashboard"
+      },
+      {
+       "id": "block:sales-pipeline",
+       "title": "Sales pipeline dashboard"
+      },
+      {
+       "id": "block:support-operations",
+       "title": "Support operations dashboard"
+      },
+      {
+       "id": "block:marketing-attribution",
+       "title": "Marketing attribution dashboard"
+      },
+      {
+       "id": "block:agent-operations",
+       "title": "Agent operations monitor"
+      },
+      {
+       "id": "block:ai-cost-usage",
+       "title": "AI cost and usage dashboard"
+      },
+      {
+       "id": "block:incident-board",
+       "title": "Incident board"
+      },
+      {
+       "id": "block:finance-overview",
+       "title": "Finance overview"
+      }
+     ]
+    },
+    {
+     "label": "CRM",
+     "items": [
+      {
+       "id": "block:contact-list",
+       "title": "Contact list"
+      },
+      {
+       "id": "block:contact-profile",
+       "title": "Contact profile with activity timeline"
+      },
+      {
+       "id": "block:deal-pipeline-board",
+       "title": "Deal pipeline board"
+      },
+      {
+       "id": "block:lead-scoring-table",
+       "title": "Lead scoring table"
+      },
+      {
+       "id": "block:email-sequence-editor",
+       "title": "Email sequence editor"
+      },
+      {
+       "id": "block:task-inbox",
+       "title": "Task inbox"
+      },
+      {
+       "id": "block:company-profile",
+       "title": "Company profile"
+      },
+      {
+       "id": "block:import-mapper",
+       "title": "Import mapper"
+      }
+     ]
+    },
+    {
+     "label": "Analytics",
+     "items": [
+      {
+       "id": "block:funnel-analysis",
+       "title": "Funnel analysis"
+      },
+      {
+       "id": "block:cohort-retention",
+       "title": "Cohort retention"
+      },
+      {
+       "id": "block:ab-test-readout",
+       "title": "A/B test readout"
+      },
+      {
+       "id": "block:report-builder",
+       "title": "Report builder"
+      },
+      {
+       "id": "block:chart-builder",
+       "title": "Chart builder"
+      },
+      {
+       "id": "block:segment-builder",
+       "title": "Segment builder"
+      },
+      {
+       "id": "block:anomaly-feed",
+       "title": "Anomaly feed"
+      }
+     ]
+    },
+    {
+     "label": "Agent apps",
+     "items": [
+      {
+       "id": "block:agent-chat-workspace",
+       "title": "Agent chat workspace"
+      },
+      {
+       "id": "block:approval-inbox",
+       "title": "Approval inbox"
+      },
+      {
+       "id": "block:workflow-run-history",
+       "title": "Workflow run history"
+      },
+      {
+       "id": "block:knowledge-base-manager",
+       "title": "Knowledge base manager"
+      },
+      {
+       "id": "block:prompt-eval-playground",
+       "title": "Prompt and eval playground"
+      },
+      {
+       "id": "block:agent-settings",
+       "title": "Agent settings"
+      }
+     ]
+    },
+    {
+     "label": "App shell",
+     "items": [
+      {
+       "id": "block:sign-in-sign-up",
+       "title": "Sign in and sign up"
+      },
+      {
+       "id": "block:onboarding-wizard",
+       "title": "Onboarding wizard"
+      },
+      {
+       "id": "block:settings",
+       "title": "Settings page"
+      },
+      {
+       "id": "block:billing-and-plans",
+       "title": "Billing and plans"
+      },
+      {
+       "id": "block:team-and-roles",
+       "title": "Team and roles"
+      },
+      {
+       "id": "block:api-keys",
+       "title": "API keys"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "key": "ref",
+   "title": "Reference",
+   "defaultOpen": true,
+   "items": [
+    {
+     "id": "ref:cli",
+     "title": "CLI commands"
+    },
+    {
+     "id": "ref:mcp",
+     "title": "MCP tools"
+    },
+    {
+     "id": "ref:registry",
+     "title": "Registry API"
+    },
+    {
+     "id": "ref:licence",
+     "title": "Licence"
+    },
+    {
+     "id": "ref:refunds",
+     "title": "Refunds"
+    },
+    {
+     "id": "ref:changelog",
+     "title": "Changelog"
+    }
+   ]
+  }
+ ]
+}
