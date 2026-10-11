@@ -2386,23 +2386,23 @@ export const homeCopy = {
       "links": [
         {
           "label": "Kits",
-          "href": "#kits"
+          "href": "/kits"
         },
         {
           "label": "Workflows",
-          "href": "#workflows"
+          "href": "/workflows"
         },
         {
           "label": "Agents",
-          "href": "#agents"
+          "href": "/agents"
         },
         {
           "label": "UI",
-          "href": "#ui"
+          "href": "/ui"
         },
         {
           "label": "Pricing",
-          "href": "#pricing"
+          "href": "/pricing"
         }
       ]
     },
@@ -2420,7 +2420,7 @@ export const homeCopy = {
         },
         {
           "label": "Changelog",
-          "href": "/changelog"
+          "href": "/docs/reference/changelog"
         },
         {
           "label": "llms.txt",
@@ -2437,7 +2437,7 @@ export const homeCopy = {
       "links": [
         {
           "label": "Studio",
-          "href": "#studio"
+          "href": "https://www.thedoomstudio.com/"
         },
         {
           "label": "About",
@@ -2462,11 +2462,11 @@ export const homeCopy = {
         },
         {
           "label": "Licence",
-          "href": "/licence"
+          "href": "/docs/reference/licence"
         },
         {
           "label": "Refunds",
-          "href": "/refunds"
+          "href": "/docs/reference/refunds"
         },
         {
           "label": "Privacy",
@@ -2476,6 +2476,7 @@ export const homeCopy = {
     }
   ],
   "footer": {
+    "copyrightOwner": "Doom Studio",
     "description": "Production-ready workflows, agents and UI components, packaged as kits for every team.",
     "status": "Sample nightly results",
     "builtWith": "Built with our own components"
