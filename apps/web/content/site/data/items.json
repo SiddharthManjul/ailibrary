@@ -1,0 +1,5531 @@
+{
+ "workflows": [
+  {
+   "id": "sales/inbound-lead-qualifier",
+   "kit": "sales",
+   "n": "1",
+   "slug": "inbound-lead-qualifier",
+   "title": "Inbound lead qualifier",
+   "summary": "A form submission becomes an enriched, scored lead in the CRM, and the right rep gets a Slack message with the reason, all within 60 seconds.",
+   "free": false,
+   "kitHero": true,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "HubSpot",
+    "Salesforce",
+    "Pipedrive",
+    "Slack",
+    "Teams",
+    "Typeform",
+    "Webflow",
+    "Apollo"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:sales/inbound-lead-qualifier",
+   "docPath": "/docs/workflows/sales/inbound-lead-qualifier"
+  },
+  {
+   "id": "sales/account-research-brief",
+   "kit": "sales",
+   "n": "2",
+   "slug": "account-research-brief",
+   "title": "Account research brief",
+   "summary": "Paste a domain (or trigger from a new CRM company) and get a one-page brief: what they do, size, stack, recent news, hiring signals and three angles to open with.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "HubSpot",
+    "Salesforce",
+    "Pipedrive",
+    "Slack"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:sales/account-research-brief",
+   "docPath": "/docs/workflows/sales/account-research-brief"
+  },
+  {
+   "id": "sales/outbound-first-line-writer",
+   "kit": "sales",
+   "n": "3",
+   "slug": "outbound-first-line-writer",
+   "title": "Outbound first-line writer",
+   "summary": "Upload or sync a lead list and get, per lead, a personal opening line plus the specific reason it is relevant, written to the sheet or sequencer.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Google Sheets",
+    "Apollo"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "db",
+    "globe"
+   ],
+   "docId": "workflow:sales/outbound-first-line-writer",
+   "docPath": "/docs/workflows/sales/outbound-first-line-writer"
+  },
+  {
+   "id": "sales/pre-call-brief",
+   "kit": "sales",
+   "n": "4",
+   "slug": "pre-call-brief",
+   "title": "Pre-call brief",
+   "summary": "One hour before any external meeting, the rep gets a brief in Slack or email: who is attending, their roles, account history from the CRM, open deal status, last conversation summary and three suggested questions.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "HubSpot",
+    "Salesforce",
+    "Pipedrive",
+    "Slack",
+    "Gmail",
+    "Outlook"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:sales/pre-call-brief",
+   "docPath": "/docs/workflows/sales/pre-call-brief"
+  },
+  {
+   "id": "sales/call-to-crm",
+   "kit": "sales",
+   "n": "5",
+   "slug": "call-to-crm",
+   "title": "Call to CRM",
+   "summary": "When a call recording is ready, the CRM gets a summary, next steps, updated deal fields and a drafted follow-up email waiting for the rep's approval.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "HubSpot",
+    "Salesforce",
+    "Pipedrive",
+    "Gmail",
+    "Outlook",
+    "Gong"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:sales/call-to-crm",
+   "docPath": "/docs/workflows/sales/call-to-crm"
+  },
+  {
+   "id": "sales/stale-deal-nudger",
+   "kit": "sales",
+   "n": "6",
+   "slug": "stale-deal-nudger",
+   "title": "Stale deal nudger",
+   "summary": "Every weekday morning, each rep gets a short list of their deals that have gone quiet, with a specific suggested next action for each based on the deal's history.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "HubSpot",
+    "Salesforce",
+    "Pipedrive",
+    "Slack"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:sales/stale-deal-nudger",
+   "docPath": "/docs/workflows/sales/stale-deal-nudger"
+  },
+  {
+   "id": "sales/crm-hygiene",
+   "kit": "sales",
+   "n": "7",
+   "slug": "crm-hygiene",
+   "title": "CRM hygiene",
+   "summary": "Every night the CRM is cleaned: duplicate contacts and companies merged or flagged, fields normalised (country, phone, title, industry), and records missing key data listed for owners.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "HubSpot",
+    "Salesforce",
+    "Pipedrive"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:sales/crm-hygiene",
+   "docPath": "/docs/workflows/sales/crm-hygiene"
+  },
+  {
+   "id": "sales/champion-job-change-tracker",
+   "kit": "sales",
+   "n": "8",
+   "slug": "champion-job-change-tracker",
+   "title": "Champion job-change tracker",
+   "summary": "Watches your past champions and customers, and when one moves to a new company, creates a lead at the new company with context and alerts the account owner.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Apollo"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "globe",
+    "check"
+   ],
+   "docId": "workflow:sales/champion-job-change-tracker",
+   "docPath": "/docs/workflows/sales/champion-job-change-tracker"
+  },
+  {
+   "id": "sales/proposal-generator",
+   "kit": "sales",
+   "n": "9",
+   "slug": "proposal-generator",
+   "title": "Proposal generator",
+   "summary": "From a deal's fields and call notes, generates a branded proposal (scope, pricing table, timeline, terms), routes it for internal approval, then sends it for e-signature and updates the deal when signed.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:sales/proposal-generator",
+   "docPath": "/docs/workflows/sales/proposal-generator"
+  },
+  {
+   "id": "sales/reply-classifier",
+   "kit": "sales",
+   "n": "10",
+   "slug": "reply-classifier",
+   "title": "Reply classifier",
+   "summary": "Every reply to outbound email is classified (interested, not now, referral, unsubscribe, out of office, wrong person, bounce) and handled: interested replies go to the rep instantly, unsubscribes are honoured everywhere, out-of-office dates pause the sequence until the person returns.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make",
+    "Zapier"
+   ],
+   "apps": [
+    "HubSpot",
+    "Gmail",
+    "Outlook",
+    "Apollo"
+   ],
+   "thumbNodes": [
+    "mail",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:sales/reply-classifier",
+   "docPath": "/docs/workflows/sales/reply-classifier"
+  },
+  {
+   "id": "sales/website-visitor-to-lead",
+   "kit": "sales",
+   "n": "11",
+   "slug": "website-visitor-to-lead",
+   "title": "Website visitor to lead",
+   "summary": "Turns identified company visits to high-intent pages into account alerts and leads with the right contact suggested, so reps call the companies already reading the pricing page.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "check",
+    "check"
+   ],
+   "docId": "workflow:sales/website-visitor-to-lead",
+   "docPath": "/docs/workflows/sales/website-visitor-to-lead"
+  },
+  {
+   "id": "sales/weekly-pipeline-digest",
+   "kit": "sales",
+   "n": "12",
+   "slug": "weekly-pipeline-digest",
+   "title": "Weekly pipeline digest",
+   "summary": "Every Monday, the team gets a digest: pipeline created, moved, won and lost, coverage against target, slipping deals, and the three things worth discussing in the pipeline meeting.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Zapier"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:sales/weekly-pipeline-digest",
+   "docPath": "/docs/workflows/sales/weekly-pipeline-digest"
+  },
+  {
+   "id": "support/ticket-triage",
+   "kit": "support",
+   "n": "1",
+   "slug": "ticket-triage",
+   "title": "Ticket triage",
+   "summary": "Every new ticket gets category, priority, language, sentiment and intent set within seconds, is routed to the right team or person, and urgent ones page the on-call lead.",
+   "free": false,
+   "kitHero": true,
+   "platforms": [
+    "n8n",
+    "Make",
+    "Zapier"
+   ],
+   "apps": [
+    "HubSpot",
+    "Salesforce",
+    "Slack",
+    "Zendesk",
+    "Intercom",
+    "Freshdesk",
+    "Gmail",
+    "Outlook",
+    "PagerDuty",
+    "Stripe"
+   ],
+   "thumbNodes": [
+    "mail",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:support/ticket-triage",
+   "docPath": "/docs/workflows/support/ticket-triage"
+  },
+  {
+   "id": "support/grounded-reply-drafts",
+   "kit": "support",
+   "n": "2",
+   "slug": "grounded-reply-drafts",
+   "title": "Grounded reply drafts with approval",
+   "summary": "For each triaged ticket in an eligible category, drafts a reply grounded only in the knowledge base and policies, with citations and a confidence score, and puts it in front of an agent to approve, edit or reject.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "Zendesk",
+    "Intercom",
+    "Notion",
+    "Google Drive"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "mail",
+    "chat"
+   ],
+   "docId": "workflow:support/grounded-reply-drafts",
+   "docPath": "/docs/workflows/support/grounded-reply-drafts"
+  },
+  {
+   "id": "support/refund-and-return-handler",
+   "kit": "support",
+   "n": "3",
+   "slug": "refund-and-return-handler",
+   "title": "Refund and return handler",
+   "summary": "Refund and return requests are checked against policy and order data, a recommended decision is prepared with the math, and an approver executes it in one click.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "Stripe"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "dollar",
+    "check"
+   ],
+   "docId": "workflow:support/refund-and-return-handler",
+   "docPath": "/docs/workflows/support/refund-and-return-handler"
+  },
+  {
+   "id": "support/support-qa-scorer",
+   "kit": "support",
+   "n": "4",
+   "slug": "support-qa-scorer",
+   "title": "Support QA scorer",
+   "summary": "Each week, samples closed tickets per agent and scores them against your QA rubric (accuracy, tone, resolution, policy), with coaching notes, so leads review 5 flagged tickets instead of 50 random ones.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack",
+    "Google Sheets"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "db"
+   ],
+   "docId": "workflow:support/support-qa-scorer",
+   "docPath": "/docs/workflows/support/support-qa-scorer"
+  },
+  {
+   "id": "support/churn-signal-detector",
+   "kit": "support",
+   "n": "5",
+   "slug": "churn-signal-detector",
+   "title": "Churn signal detector",
+   "summary": "Combines negative ticket sentiment, usage drops, failed payments and cancellation language into one risk score per account and alerts the owner with the evidence and a suggested save play.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Stripe"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "dollar",
+    "check"
+   ],
+   "docId": "workflow:support/churn-signal-detector",
+   "docPath": "/docs/workflows/support/churn-signal-detector"
+  },
+  {
+   "id": "support/knowledge-base-gap-finder",
+   "kit": "support",
+   "n": "6",
+   "slug": "knowledge-base-gap-finder",
+   "title": "Knowledge base gap finder",
+   "summary": "Finds questions customers keep asking that the knowledge base does not answer, clusters them, and drafts new articles for review.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "check",
+    "check"
+   ],
+   "docId": "workflow:support/knowledge-base-gap-finder",
+   "docPath": "/docs/workflows/support/knowledge-base-gap-finder"
+  },
+  {
+   "id": "support/bug-report-to-issue",
+   "kit": "support",
+   "n": "7",
+   "slug": "bug-report-to-issue",
+   "title": "Bug report to issue",
+   "summary": "Support tickets that report bugs become clean engineering issues in Linear or Jira, deduplicated against open issues, with steps to reproduce, environment and affected customers, and the ticket is linked so support hears when it ships.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Linear",
+    "Jira",
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "git",
+    "check"
+   ],
+   "docId": "workflow:support/bug-report-to-issue",
+   "docPath": "/docs/workflows/support/bug-report-to-issue"
+  },
+  {
+   "id": "support/csat-nps-theme-analysis",
+   "kit": "support",
+   "n": "8",
+   "slug": "csat-nps-theme-analysis",
+   "title": "CSAT and NPS theme analysis",
+   "summary": "Weekly, groups CSAT and NPS comments into themes with counts, trends and example quotes, so product and support see what is driving scores.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:support/csat-nps-theme-analysis",
+   "docPath": "/docs/workflows/support/csat-nps-theme-analysis"
+  },
+  {
+   "id": "support/onboarding-check-ins",
+   "kit": "support",
+   "n": "9",
+   "slug": "onboarding-check-ins",
+   "title": "Onboarding check-ins from product events",
+   "summary": "New accounts get timely, specific check-ins based on what they have and have not done in the product (not a fixed drip), and stuck accounts are flagged to their CSM.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:support/onboarding-check-ins",
+   "docPath": "/docs/workflows/support/onboarding-check-ins"
+  },
+  {
+   "id": "support/sla-breach-early-warning",
+   "kit": "support",
+   "n": "10",
+   "slug": "sla-breach-early-warning",
+   "title": "SLA breach early warning",
+   "summary": "Warns the team before tickets breach SLA: at 75% of the time budget the assignee is pinged, at 90% the lead, with a single view of everything at risk.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Zapier"
+   ],
+   "apps": [
+    "Slack",
+    "Zendesk",
+    "Intercom",
+    "Freshdesk"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "mail"
+   ],
+   "docId": "workflow:support/sla-breach-early-warning",
+   "docPath": "/docs/workflows/support/sla-breach-early-warning"
+  },
+  {
+   "id": "support/multilingual-reply-layer",
+   "kit": "support",
+   "n": "11",
+   "slug": "multilingual-reply-layer",
+   "title": "Multilingual reply layer",
+   "summary": "Agents read every ticket in their language and reply in their language; the customer receives a natural reply in theirs, with a glossary that keeps product terms consistent.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "check",
+    "check"
+   ],
+   "docId": "workflow:support/multilingual-reply-layer",
+   "docPath": "/docs/workflows/support/multilingual-reply-layer"
+  },
+  {
+   "id": "support/weekly-support-ops-report",
+   "kit": "support",
+   "n": "12",
+   "slug": "weekly-support-ops-report",
+   "title": "Weekly support operations report",
+   "summary": "Every Monday: volume, backlog, first response and resolution times, SLA attainment, CSAT, top categories and what changed, per team.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:support/weekly-support-ops-report",
+   "docPath": "/docs/workflows/support/weekly-support-ops-report"
+  },
+  {
+   "id": "marketing/content-repurposer",
+   "kit": "marketing",
+   "n": "1",
+   "slug": "content-repurposer",
+   "title": "Content repurposer",
+   "summary": "One article or video becomes an X thread, a LinkedIn post, a newsletter blurb and carousel copy, in the brand's voice, queued for approval and then scheduled.",
+   "free": false,
+   "kitHero": true,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "Slack",
+    "Teams",
+    "LinkedIn",
+    "Buffer",
+    "Webflow"
+   ],
+   "thumbNodes": [
+    "rss",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:marketing/content-repurposer",
+   "docPath": "/docs/workflows/marketing/content-repurposer"
+  },
+  {
+   "id": "marketing/video-to-blog-and-show-notes",
+   "kit": "marketing",
+   "n": "2",
+   "slug": "video-to-blog-and-show-notes",
+   "title": "Video or podcast to blog post and show notes",
+   "summary": "A new video or podcast episode becomes a publish-ready blog draft, show notes with timestamps and chapter markers, and a pull-quote list, saved as a draft in the CMS.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [],
+   "thumbNodes": [
+    "rss",
+    "spark",
+    "check",
+    "check"
+   ],
+   "docId": "workflow:marketing/video-to-blog-and-show-notes",
+   "docPath": "/docs/workflows/marketing/video-to-blog-and-show-notes"
+  },
+  {
+   "id": "marketing/seo-brief",
+   "kit": "marketing",
+   "n": "3",
+   "slug": "seo-brief",
+   "title": "SEO brief from keyword and live results",
+   "summary": "Type a keyword and get a writer-ready brief built from the current top results: search intent, outline, questions to answer, entities to cover, internal links and a target length.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "Slack",
+    "Notion"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "chat",
+    "file"
+   ],
+   "docId": "workflow:marketing/seo-brief",
+   "docPath": "/docs/workflows/marketing/seo-brief"
+  },
+  {
+   "id": "marketing/content-refresh-finder",
+   "kit": "marketing",
+   "n": "4",
+   "slug": "content-refresh-finder",
+   "title": "Content refresh finder",
+   "summary": "Monthly, finds pages losing clicks or rankings in Search Console and turns each into a refresh brief explaining what dropped and what to update.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Notion"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "file",
+    "check"
+   ],
+   "docId": "workflow:marketing/content-refresh-finder",
+   "docPath": "/docs/workflows/marketing/content-refresh-finder"
+  },
+  {
+   "id": "marketing/social-publishing-queue",
+   "kit": "marketing",
+   "n": "5",
+   "slug": "social-publishing-queue",
+   "title": "Social publishing queue with approval",
+   "summary": "A single queue (sheet, Notion or Airtable) where anyone can add posts; each post goes through approval and then publishes at its slot, with the live link written back.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make",
+    "Zapier"
+   ],
+   "apps": [
+    "Google Sheets",
+    "Notion",
+    "Buffer"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "db",
+    "file"
+   ],
+   "docId": "workflow:marketing/social-publishing-queue",
+   "docPath": "/docs/workflows/marketing/social-publishing-queue"
+  },
+  {
+   "id": "marketing/competitor-monitor",
+   "kit": "marketing",
+   "n": "6",
+   "slug": "competitor-monitor",
+   "title": "Competitor monitor",
+   "summary": "Weekly, checks competitors' pricing pages, changelogs and key pages, diffs them against last week, and sends a short report of what actually changed and why it matters.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:marketing/competitor-monitor",
+   "docPath": "/docs/workflows/marketing/competitor-monitor"
+  },
+  {
+   "id": "marketing/brand-mention-listener",
+   "kit": "marketing",
+   "n": "7",
+   "slug": "brand-mention-listener",
+   "title": "Brand mention listener",
+   "summary": "Finds mentions of the brand and products across Reddit, Hacker News, X and news, filters noise, and posts the ones worth answering to Slack with a suggested reply.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:marketing/brand-mention-listener",
+   "docPath": "/docs/workflows/marketing/brand-mention-listener"
+  },
+  {
+   "id": "marketing/newsletter-curator",
+   "kit": "marketing",
+   "n": "8",
+   "slug": "newsletter-curator",
+   "title": "Newsletter curator",
+   "summary": "Collects the week's saved links and feed items, ranks them for the audience, writes short blurbs and assembles a draft issue in the email platform.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:marketing/newsletter-curator",
+   "docPath": "/docs/workflows/marketing/newsletter-curator"
+  },
+  {
+   "id": "marketing/weekly-ad-performance-report",
+   "kit": "marketing",
+   "n": "9",
+   "slug": "weekly-ad-performance-report",
+   "title": "Weekly ad performance report",
+   "summary": "Every Monday, pulls spend and results from Google Ads, Meta and LinkedIn Ads, normalises them, flags anomalies and sends a one-screen report with what to change.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "LinkedIn"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "send",
+    "check"
+   ],
+   "docId": "workflow:marketing/weekly-ad-performance-report",
+   "docPath": "/docs/workflows/marketing/weekly-ad-performance-report"
+  },
+  {
+   "id": "marketing/review-and-testimonial-harvester",
+   "kit": "marketing",
+   "n": "10",
+   "slug": "review-and-testimonial-harvester",
+   "title": "Review and testimonial harvester",
+   "summary": "Collects reviews from G2, Capterra, Trustpilot and app stores, plus praise in support tickets and NPS comments, and turns the best ones into an approved testimonial bank with permission tracking.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "check",
+    "check"
+   ],
+   "docId": "workflow:marketing/review-and-testimonial-harvester",
+   "docPath": "/docs/workflows/marketing/review-and-testimonial-harvester"
+  },
+  {
+   "id": "marketing/event-follow-up-sequence",
+   "kit": "marketing",
+   "n": "11",
+   "slug": "event-follow-up-sequence",
+   "title": "Webinar and event follow-up sequence",
+   "summary": "After a webinar or event, attendees and no-shows get different follow-ups within the hour (recording, slides, a relevant next step), and engaged attendees are scored and routed to sales.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "HubSpot"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:marketing/event-follow-up-sequence",
+   "docPath": "/docs/workflows/marketing/event-follow-up-sequence"
+  },
+  {
+   "id": "marketing/lead-magnet-delivery-and-nurture",
+   "kit": "marketing",
+   "n": "12",
+   "slug": "lead-magnet-delivery-and-nurture",
+   "title": "Lead magnet delivery and nurture",
+   "summary": "When someone downloads a guide, they get it instantly, are added to the right list with consent recorded, and receive a 4-email nurture tied to the guide's topic, stopping as soon as they book a call or reply.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Zapier"
+   ],
+   "apps": [
+    "HubSpot"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:marketing/lead-magnet-delivery-and-nurture",
+   "docPath": "/docs/workflows/marketing/lead-magnet-delivery-and-nurture"
+  },
+  {
+   "id": "engineering/incident-triage",
+   "kit": "engineering",
+   "n": "1",
+   "slug": "incident-triage",
+   "title": "Incident triage",
+   "summary": "When an alert fires, the incident channel gets a summary within two minutes: what is broken, since when, the deploys and config changes just before it, the top errors, the owning team and the runbook.",
+   "free": false,
+   "kitHero": true,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "Slack",
+    "Teams",
+    "GitHub",
+    "Sentry",
+    "PagerDuty",
+    "Datadog"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:engineering/incident-triage",
+   "docPath": "/docs/workflows/engineering/incident-triage"
+  },
+  {
+   "id": "engineering/pr-review-trigger",
+   "kit": "engineering",
+   "n": "2",
+   "slug": "pr-review-trigger",
+   "title": "PR review trigger",
+   "summary": "On every pull request, runs the PR reviewer agent and posts a summary comment plus inline suggestions, skipping drafts, bots and trivial changes, and respecting a per-repo config file.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "git",
+    "spark",
+    "check",
+    "check"
+   ],
+   "docId": "workflow:engineering/pr-review-trigger",
+   "docPath": "/docs/workflows/engineering/pr-review-trigger"
+  },
+  {
+   "id": "engineering/release-notes-from-prs",
+   "kit": "engineering",
+   "n": "3",
+   "slug": "release-notes-from-prs",
+   "title": "Release notes from merged PRs",
+   "summary": "On every release tag, gathers merged PRs since the last tag and writes grouped, customer-readable release notes, published to GitHub Releases and the changelog, with internal notes kept separate.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make",
+    "Zapier"
+   ],
+   "apps": [
+    "Slack",
+    "Notion",
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "git",
+    "spark",
+    "chat",
+    "file"
+   ],
+   "docId": "workflow:engineering/release-notes-from-prs",
+   "docPath": "/docs/workflows/engineering/release-notes-from-prs"
+  },
+  {
+   "id": "engineering/dependency-and-cve-watcher",
+   "kit": "engineering",
+   "n": "4",
+   "slug": "dependency-and-cve-watcher",
+   "title": "Dependency and CVE watcher",
+   "summary": "Scans repos for vulnerable dependencies daily, filters to what is actually reachable and exploitable in your context, and files prioritised issues with the fix version, deduplicated across repos.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Linear",
+    "Jira",
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "git",
+    "check"
+   ],
+   "docId": "workflow:engineering/dependency-and-cve-watcher",
+   "docPath": "/docs/workflows/engineering/dependency-and-cve-watcher"
+  },
+  {
+   "id": "engineering/issue-groomer",
+   "kit": "engineering",
+   "n": "5",
+   "slug": "issue-groomer",
+   "title": "Issue groomer",
+   "summary": "New issues get labels, a type, a likely area owner, duplicate detection and a polite request for missing information, so the backlog stays clean without a weekly grooming meeting.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Linear",
+    "Jira",
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "git",
+    "spark",
+    "check",
+    "check"
+   ],
+   "docId": "workflow:engineering/issue-groomer",
+   "docPath": "/docs/workflows/engineering/issue-groomer"
+  },
+  {
+   "id": "engineering/daily-standup-digest",
+   "kit": "engineering",
+   "n": "6",
+   "slug": "daily-standup-digest",
+   "title": "Daily standup digest",
+   "summary": "Each morning, every team gets a digest of what moved yesterday per person (merged PRs, reviewed PRs, issues closed and started) and what is blocked, so standup is about blockers.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make",
+    "Zapier"
+   ],
+   "apps": [
+    "Slack",
+    "Linear",
+    "Jira",
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "git"
+   ],
+   "docId": "workflow:engineering/daily-standup-digest",
+   "docPath": "/docs/workflows/engineering/daily-standup-digest"
+  },
+  {
+   "id": "engineering/error-spike-summary",
+   "kit": "engineering",
+   "n": "7",
+   "slug": "error-spike-summary",
+   "title": "Error spike summary with owner routing",
+   "summary": "When an error spikes or a new error appears after a deploy, the owning team gets a summary with the stack frame, the suspect commit and affected users, before customers report it.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack",
+    "Linear",
+    "Jira",
+    "GitHub",
+    "Sentry"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "chat",
+    "git"
+   ],
+   "docId": "workflow:engineering/error-spike-summary",
+   "docPath": "/docs/workflows/engineering/error-spike-summary"
+  },
+  {
+   "id": "engineering/docs-drift-checker",
+   "kit": "engineering",
+   "n": "8",
+   "slug": "docs-drift-checker",
+   "title": "Docs drift checker",
+   "summary": "When an API changes, finds the docs pages that describe the changed endpoints or parameters and opens a docs PR with proposed updates.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "git",
+    "check"
+   ],
+   "docId": "workflow:engineering/docs-drift-checker",
+   "docPath": "/docs/workflows/engineering/docs-drift-checker"
+  },
+  {
+   "id": "engineering/flaky-test-tracker",
+   "kit": "engineering",
+   "n": "9",
+   "slug": "flaky-test-tracker",
+   "title": "Flaky test tracker",
+   "summary": "Finds tests that pass and fail on the same commit, tracks their flake rate, files one issue per flaky test with failure samples, and posts a weekly top-10.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Linear",
+    "Jira",
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "git",
+    "check"
+   ],
+   "docId": "workflow:engineering/flaky-test-tracker",
+   "docPath": "/docs/workflows/engineering/flaky-test-tracker"
+  },
+  {
+   "id": "engineering/daily-cloud-cost-digest",
+   "kit": "engineering",
+   "n": "10",
+   "slug": "daily-cloud-cost-digest",
+   "title": "Daily cloud cost digest",
+   "summary": "Daily cost by service and team with anomaly alerts when spend jumps, plus the likely cause (new resource, traffic, misconfiguration).",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "check",
+    "check"
+   ],
+   "docId": "workflow:engineering/daily-cloud-cost-digest",
+   "docPath": "/docs/workflows/engineering/daily-cloud-cost-digest"
+  },
+  {
+   "id": "engineering/new-hire-repo-tour",
+   "kit": "engineering",
+   "n": "11",
+   "slug": "new-hire-repo-tour",
+   "title": "New hire repo tour generator",
+   "summary": "For a new engineer, generates a guided tour of a repo: architecture overview, key directories, how to run it, where to start, and five good first issues, as a Markdown doc in the repo wiki or Notion.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Notion",
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "file",
+    "git"
+   ],
+   "docId": "workflow:engineering/new-hire-repo-tour",
+   "docPath": "/docs/workflows/engineering/new-hire-repo-tour"
+  },
+  {
+   "id": "engineering/changelog-to-launch-posts",
+   "kit": "engineering",
+   "n": "12",
+   "slug": "changelog-to-launch-posts",
+   "title": "Changelog to launch posts",
+   "summary": "Turns each release's highlights into launch drafts (X, LinkedIn, changelog email, in-app announcement) and hands them to the marketing approval queue.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "git",
+    "check"
+   ],
+   "docId": "workflow:engineering/changelog-to-launch-posts",
+   "docPath": "/docs/workflows/engineering/changelog-to-launch-posts"
+  },
+  {
+   "id": "operations/invoice-and-receipt-capture",
+   "kit": "operations",
+   "n": "1",
+   "slug": "invoice-and-receipt-capture",
+   "title": "Invoice and receipt capture",
+   "summary": "Invoices and receipts arriving by email or upload are extracted, checked (math, duplicates, vendor, PO, tax) and posted to the accounting tool as drafts, or to a sheet, with anything doubtful sent for review.",
+   "free": false,
+   "kitHero": true,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "Gmail",
+    "Outlook",
+    "Google Sheets",
+    "Xero",
+    "QuickBooks",
+    "Google Drive"
+   ],
+   "thumbNodes": [
+    "mail",
+    "spark",
+    "check",
+    "check"
+   ],
+   "docId": "workflow:operations/invoice-and-receipt-capture",
+   "docPath": "/docs/workflows/operations/invoice-and-receipt-capture"
+  },
+  {
+   "id": "operations/weekly-kpi-report",
+   "kit": "operations",
+   "n": "2",
+   "slug": "weekly-kpi-report",
+   "title": "Weekly KPI report",
+   "summary": "Every Monday, pulls revenue from billing, product usage from analytics and pipeline from the CRM, computes the company's core KPIs with week-over-week changes, and sends one report leadership actually reads.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "HubSpot",
+    "Salesforce",
+    "Slack",
+    "Notion",
+    "Stripe"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "db",
+    "check"
+   ],
+   "docId": "workflow:operations/weekly-kpi-report",
+   "docPath": "/docs/workflows/operations/weekly-kpi-report"
+  },
+  {
+   "id": "operations/contract-intake",
+   "kit": "operations",
+   "n": "3",
+   "slug": "contract-intake",
+   "title": "Contract intake and renewal reminders",
+   "summary": "Signed contracts dropped in a folder or attached to email get their key terms extracted (parties, dates, value, auto-renewal, notice period, termination, price escalators) into a register, with renewal reminders scheduled before the notice deadline.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack",
+    "Outlook"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "chat",
+    "mail"
+   ],
+   "docId": "workflow:operations/contract-intake",
+   "docPath": "/docs/workflows/operations/contract-intake"
+  },
+  {
+   "id": "operations/spend-anomaly-detection",
+   "kit": "operations",
+   "n": "4",
+   "slug": "spend-anomaly-detection",
+   "title": "Spend anomaly detection",
+   "summary": "Daily, scans card and expense exports for duplicates, unusual amounts, new merchants, weekend spend and policy breaches, and sends finance a short list with reasons.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:operations/spend-anomaly-detection",
+   "docPath": "/docs/workflows/operations/spend-anomaly-detection"
+  },
+  {
+   "id": "operations/meeting-notes-to-action-items",
+   "kit": "operations",
+   "n": "5",
+   "slug": "meeting-notes-to-action-items",
+   "title": "Meeting notes to action items",
+   "summary": "After a meeting, action items from the notes or transcript become tasks in the team's tool with owners and due dates, and the summary goes to the meeting channel.",
+   "free": true,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make",
+    "Zapier"
+   ],
+   "apps": [
+    "Slack",
+    "Notion",
+    "Linear",
+    "Jira"
+   ],
+   "thumbNodes": [
+    "mail",
+    "spark",
+    "chat",
+    "file"
+   ],
+   "docId": "workflow:operations/meeting-notes-to-action-items",
+   "docPath": "/docs/workflows/operations/meeting-notes-to-action-items"
+  },
+  {
+   "id": "operations/vendor-onboarding",
+   "kit": "operations",
+   "n": "6",
+   "slug": "vendor-onboarding",
+   "title": "Vendor onboarding",
+   "summary": "New vendors get a form that collects tax forms, bank details, insurance and security documents; the workflow checks completeness, routes approvals and creates the vendor in the accounting tool.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack",
+    "Xero",
+    "QuickBooks"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "chat",
+    "dollar"
+   ],
+   "docId": "workflow:operations/vendor-onboarding",
+   "docPath": "/docs/workflows/operations/vendor-onboarding"
+  },
+  {
+   "id": "operations/failed-payment-recovery",
+   "kit": "operations",
+   "n": "7",
+   "slug": "failed-payment-recovery",
+   "title": "Failed payment recovery sequence",
+   "summary": "When a subscription payment fails, customers get a well-timed, friendly sequence with a card update link, high-value accounts get a personal touch from their owner, and recovered revenue is tracked.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Make"
+   ],
+   "apps": [
+    "Slack",
+    "Stripe"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "chat",
+    "dollar"
+   ],
+   "docId": "workflow:operations/failed-payment-recovery",
+   "docPath": "/docs/workflows/operations/failed-payment-recovery"
+  },
+  {
+   "id": "operations/month-end-close-checklist",
+   "kit": "operations",
+   "n": "8",
+   "slug": "month-end-close-checklist",
+   "title": "Month-end close checklist automation",
+   "summary": "Creates the month-end close checklist with owners and due dates, runs the automatable checks (bank reconciliation status, unposted bills, uncategorised transactions, accrual reminders) and tracks completion.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack",
+    "Notion",
+    "Linear",
+    "Xero",
+    "QuickBooks"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "file"
+   ],
+   "docId": "workflow:operations/month-end-close-checklist",
+   "docPath": "/docs/workflows/operations/month-end-close-checklist"
+  },
+  {
+   "id": "operations/internal-qa-over-company-docs",
+   "kit": "operations",
+   "n": "9",
+   "slug": "internal-qa-over-company-docs",
+   "title": "Internal Q&A over company docs in Slack",
+   "summary": "Employees ask questions in Slack and get answers grounded in company docs with links, respecting document permissions, and 'I don't know' when the docs don't say.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack",
+    "Notion",
+    "Google Drive"
+   ],
+   "thumbNodes": [
+    "bolt",
+    "spark",
+    "chat",
+    "file"
+   ],
+   "docId": "workflow:operations/internal-qa-over-company-docs",
+   "docPath": "/docs/workflows/operations/internal-qa-over-company-docs"
+  },
+  {
+   "id": "operations/access-checklist-on-off-boarding",
+   "kit": "operations",
+   "n": "10",
+   "slug": "access-checklist-on-off-boarding",
+   "title": "Employee onboarding and offboarding access checklist",
+   "summary": "When someone joins or leaves, creates the access checklist for every tool they need or had, provisions what the APIs allow, assigns the rest to owners, and confirms everything is done, with an audit trail.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack",
+    "GitHub"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "chat",
+    "git"
+   ],
+   "docId": "workflow:operations/access-checklist-on-off-boarding",
+   "docPath": "/docs/workflows/operations/access-checklist-on-off-boarding"
+  },
+  {
+   "id": "operations/purchase-request-approvals",
+   "kit": "operations",
+   "n": "11",
+   "slug": "purchase-request-approvals",
+   "title": "Purchase request approvals",
+   "summary": "Purchase requests go through the right approvers by amount and category, with budget checks, and approved requests create the PO or the vendor task.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n",
+    "Zapier"
+   ],
+   "apps": [
+    "Slack"
+   ],
+   "thumbNodes": [
+    "form",
+    "spark",
+    "chat",
+    "check"
+   ],
+   "docId": "workflow:operations/purchase-request-approvals",
+   "docPath": "/docs/workflows/operations/purchase-request-approvals"
+  },
+  {
+   "id": "operations/investor-update-draft",
+   "kit": "operations",
+   "n": "12",
+   "slug": "investor-update-draft",
+   "title": "Investor update draft",
+   "summary": "On the first of the month, drafts the investor update from the month's metrics, highlights, lowlights and asks, for the founder to edit and send.",
+   "free": false,
+   "kitHero": false,
+   "platforms": [
+    "n8n"
+   ],
+   "apps": [
+    "Slack",
+    "Notion"
+   ],
+   "thumbNodes": [
+    "clock",
+    "spark",
+    "chat",
+    "file"
+   ],
+   "docId": "workflow:operations/investor-update-draft",
+   "docPath": "/docs/workflows/operations/investor-update-draft"
+  }
+ ],
+ "agents": [
+  {
+   "id": "sales/account-research",
+   "kit": "sales",
+   "slug": "account-research",
+   "title": "Account research",
+   "summary": "Given a company domain (and optionally a person and a goal for the meeting), researches the account across the web and the buyer's CRM and returns a cited brief with angles to open with.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 5,
+   "writeTools": 0,
+   "targets": {
+    "pass": "90%+",
+    "p95": "60 s",
+    "cost": "$0.08"
+   },
+   "cardRun": [
+    {
+     "tool": "web_search",
+     "state": "read"
+    },
+    {
+     "tool": "fetch_page",
+     "state": "read"
+    },
+    {
+     "tool": "company_enrich",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:sales/account-research",
+   "docPath": "/docs/agents/sales/account-research"
+  },
+  {
+   "id": "sales/inbound-qualifier",
+   "kit": "sales",
+   "slug": "inbound-qualifier",
+   "title": "Inbound qualifier",
+   "summary": "Qualifies an inbound lead end to end: validates, enriches, scores against the ICP with explainable reasons, assigns an owner and drafts the first touch, then asks for approval before writing to the CRM or messaging anyone.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 4,
+   "writeTools": 2,
+   "targets": {
+    "pass": "92%+",
+    "p95": "25 s",
+    "cost": "$0.02"
+   },
+   "cardRun": [
+    {
+     "tool": "email_check",
+     "state": "read"
+    },
+    {
+     "tool": "company_enrich",
+     "state": "read"
+    },
+    {
+     "tool": "crm_find",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:sales/inbound-qualifier",
+   "docPath": "/docs/agents/sales/inbound-qualifier"
+  },
+  {
+   "id": "sales/outbound-personaliser",
+   "kit": "sales",
+   "slug": "outbound-personaliser",
+   "title": "Outbound personaliser",
+   "summary": "For each lead in a list, finds one genuine, verifiable reason to reach out and writes a first line and a short email that uses it, refusing to fake familiarity.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 3,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": "$0.03"
+   },
+   "cardRun": [
+    {
+     "tool": "web_search",
+     "state": "read"
+    },
+    {
+     "tool": "fetch_page",
+     "state": "read"
+    },
+    {
+     "tool": "company_enrich",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:sales/outbound-personaliser",
+   "docPath": "/docs/agents/sales/outbound-personaliser"
+  },
+  {
+   "id": "sales/meeting-prep-and-follow-up",
+   "kit": "sales",
+   "slug": "meeting-prep-and-follow-up",
+   "title": "Meeting prep and follow-up",
+   "summary": "Before a meeting, writes the brief; after it, turns the transcript into a summary, CRM updates and a follow-up email draft, all waiting for the rep's approval.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 3,
+   "writeTools": 2,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": "$0.10"
+   },
+   "cardRun": [
+    {
+     "tool": "calendar_get_event",
+     "state": "read"
+    },
+    {
+     "tool": "crm_get_deal_context",
+     "state": "read"
+    },
+    {
+     "tool": "transcript_get",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:sales/meeting-prep-and-follow-up",
+   "docPath": "/docs/agents/sales/meeting-prep-and-follow-up"
+  },
+  {
+   "id": "sales/crm-hygiene",
+   "kit": "sales",
+   "slug": "crm-hygiene",
+   "title": "CRM hygiene",
+   "summary": "Audits a CRM slice for duplicates, bad formats and missing data, proposes a patch plan with reasons, and applies approved changes safely in batches.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 3,
+   "writeTools": 2,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "crm_list",
+     "state": "read"
+    },
+    {
+     "tool": "normalise",
+     "state": "read"
+    },
+    {
+     "tool": "dupe_candidates",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:sales/crm-hygiene",
+   "docPath": "/docs/agents/sales/crm-hygiene"
+  },
+  {
+   "id": "sales/proposal-drafter",
+   "kit": "sales",
+   "slug": "proposal-drafter",
+   "title": "Proposal drafter",
+   "summary": "Drafts a proposal for a deal: narrative from call notes, pricing computed by tools (never by the model), timeline and terms from templates, then routes for approval and e-signature.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 3,
+   "writeTools": 1,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": "$0.10"
+   },
+   "cardRun": [
+    {
+     "tool": "crm_get_deal_context",
+     "state": "read"
+    },
+    {
+     "tool": "price_quote",
+     "state": "read"
+    },
+    {
+     "tool": "render_document",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:sales/proposal-drafter",
+   "docPath": "/docs/agents/sales/proposal-drafter"
+  },
+  {
+   "id": "sales/rfp-responder",
+   "kit": "sales",
+   "slug": "rfp-responder",
+   "title": "RFP responder",
+   "summary": "Answers security questionnaires and RFPs from an approved answer library and product docs, with citations, confidence per answer and a list of questions that need an expert.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 3,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "parse_questionnaire",
+     "state": "read"
+    },
+    {
+     "tool": "search_answers",
+     "state": "read"
+    },
+    {
+     "tool": "search_docs",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:sales/rfp-responder",
+   "docPath": "/docs/agents/sales/rfp-responder"
+  },
+  {
+   "id": "sales/objection-coach",
+   "kit": "sales",
+   "slug": "objection-coach",
+   "title": "Objection coach",
+   "summary": "Gives reps grounded responses to objections (price, timing, competitor, security) using the buyer's battlecards, win stories and call history, in a quick chat or after a call.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 3,
+   "writeTools": 0,
+   "targets": {
+    "pass": "90%+",
+    "p95": "8 s",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "search_battlecards",
+     "state": "read"
+    },
+    {
+     "tool": "search_win_stories",
+     "state": "read"
+    },
+    {
+     "tool": "crm_get_deal_context",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:sales/objection-coach",
+   "docPath": "/docs/agents/sales/objection-coach"
+  },
+  {
+   "id": "sales/territory-planner",
+   "kit": "sales",
+   "slug": "territory-planner",
+   "title": "Territory planner",
+   "summary": "Proposes balanced territories and account assignments from accounts, rep capacity and constraints, explaining trade-offs, as a plan the sales leader approves.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "score_accounts",
+     "state": "read"
+    },
+    {
+     "tool": "optimise_assignment",
+     "state": "read"
+    },
+    {
+     "tool": "crm_assign",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:sales/territory-planner",
+   "docPath": "/docs/agents/sales/territory-planner"
+  },
+  {
+   "id": "sales/win-loss-analyst",
+   "kit": "sales",
+   "slug": "win-loss-analyst",
+   "title": "Win-loss analyst",
+   "summary": "Analyses closed deals (notes, call transcripts, loss reasons) and produces win-loss themes with evidence and recommendations each quarter.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "crm_list_closed_deals",
+     "state": "read"
+    },
+    {
+     "tool": "transcript_search",
+     "state": "read"
+    },
+    {
+     "tool": "write_report",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:sales/win-loss-analyst",
+   "docPath": "/docs/agents/sales/win-loss-analyst"
+  },
+  {
+   "id": "marketing/content-repurposer",
+   "kit": "marketing",
+   "slug": "content-repurposer",
+   "title": "Content repurposer",
+   "summary": "Turns one source (article, video, podcast) into channel-ready drafts in the brand's voice, grounded in the source, and queues them for approval.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 2,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": "$0.15"
+   },
+   "cardRun": [
+    {
+     "tool": "fetch_source",
+     "state": "read"
+    },
+    {
+     "tool": "brand_voice_check",
+     "state": "read"
+    },
+    {
+     "tool": "queue_for_approval",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:marketing/content-repurposer",
+   "docPath": "/docs/agents/marketing/content-repurposer"
+  },
+  {
+   "id": "marketing/seo-brief-and-refresh",
+   "kit": "marketing",
+   "slug": "seo-brief-and-refresh",
+   "title": "SEO brief and refresh",
+   "summary": "Builds new-content briefs from live search results and diagnoses decaying pages with specific refresh instructions.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 4,
+   "writeTools": 0,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": "$0.10"
+   },
+   "cardRun": [
+    {
+     "tool": "serp",
+     "state": "read"
+    },
+    {
+     "tool": "fetch_page",
+     "state": "read"
+    },
+    {
+     "tool": "gsc_query",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:marketing/seo-brief-and-refresh",
+   "docPath": "/docs/agents/marketing/seo-brief-and-refresh"
+  },
+  {
+   "id": "marketing/competitor-watcher",
+   "kit": "marketing",
+   "slug": "competitor-watcher",
+   "title": "Competitor watcher",
+   "summary": "Tracks competitor pricing, changelogs and positioning and answers 'what changed and what should we do about it' with evidence.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 3,
+   "writeTools": 0,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "snapshot_get",
+     "state": "read"
+    },
+    {
+     "tool": "fetch_page",
+     "state": "read"
+    },
+    {
+     "tool": "diff_pages",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:marketing/competitor-watcher",
+   "docPath": "/docs/agents/marketing/competitor-watcher"
+  },
+  {
+   "id": "marketing/ad-performance-analyst",
+   "kit": "marketing",
+   "slug": "ad-performance-analyst",
+   "title": "Ad performance analyst",
+   "summary": "Answers questions about ad performance across platforms and writes weekly findings with anomalies and three concrete actions, never inventing numbers.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 3,
+   "writeTools": 0,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "ads_metrics",
+     "state": "read"
+    },
+    {
+     "tool": "compute",
+     "state": "read"
+    },
+    {
+     "tool": "anomalies",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:marketing/ad-performance-analyst",
+   "docPath": "/docs/agents/marketing/ad-performance-analyst"
+  },
+  {
+   "id": "marketing/newsletter-editor",
+   "kit": "marketing",
+   "slug": "newsletter-editor",
+   "title": "Newsletter editor",
+   "summary": "Curates and writes the weekly newsletter from collected links in the publication's voice, with verified links, and creates a draft in the ESP.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "fetch_page",
+     "state": "read"
+    },
+    {
+     "tool": "link_check",
+     "state": "read"
+    },
+    {
+     "tool": "esp_create_draft",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:marketing/newsletter-editor",
+   "docPath": "/docs/agents/marketing/newsletter-editor"
+  },
+  {
+   "id": "marketing/brand-voice-editor",
+   "kit": "marketing",
+   "slug": "brand-voice-editor",
+   "title": "Brand voice editor",
+   "summary": "Edits any draft to match the brand voice guide, explains each change, and scores drafts against the voice rubric; used by other marketing items as a shared checker.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 1,
+   "writeTools": 0,
+   "targets": {
+    "pass": "90%+",
+    "p95": "6 s",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "voice_rules_check",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:marketing/brand-voice-editor",
+   "docPath": "/docs/agents/marketing/brand-voice-editor"
+  },
+  {
+   "id": "marketing/trend-scout",
+   "kit": "marketing",
+   "slug": "trend-scout",
+   "title": "Trend scout",
+   "summary": "Finds rising topics in the buyer's niche from search trends, communities and news, and proposes content angles with evidence of momentum.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 4,
+   "writeTools": 0,
+   "targets": {
+    "pass": "85%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "trends_query",
+     "state": "read"
+    },
+    {
+     "tool": "reddit_search",
+     "state": "read"
+    },
+    {
+     "tool": "hn_search",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:marketing/trend-scout",
+   "docPath": "/docs/agents/marketing/trend-scout"
+  },
+  {
+   "id": "marketing/landing-page-critic",
+   "kit": "marketing",
+   "slug": "landing-page-critic",
+   "title": "Landing page critic",
+   "summary": "Reviews a landing page against conversion and clarity heuristics, with screenshots at desktop and mobile, and returns prioritised fixes tied to elements.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 0,
+   "targets": {
+    "pass": "80%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "render_page",
+     "state": "read"
+    },
+    {
+     "tool": "lighthouse",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:marketing/landing-page-critic",
+   "docPath": "/docs/agents/marketing/landing-page-critic"
+  },
+  {
+   "id": "marketing/community-manager",
+   "kit": "marketing",
+   "slug": "community-manager",
+   "title": "Community manager",
+   "summary": "Monitors community channels (Discord, Slack community, forum), answers common questions from docs with citations, tags and routes the rest, and drafts weekly community digests.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 2,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "community_read",
+     "state": "read"
+    },
+    {
+     "tool": "search_docs",
+     "state": "read"
+    },
+    {
+     "tool": "community_reply",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:marketing/community-manager",
+   "docPath": "/docs/agents/marketing/community-manager"
+  },
+  {
+   "id": "marketing/launch-planner",
+   "kit": "marketing",
+   "slug": "launch-planner",
+   "title": "Launch planner",
+   "summary": "Builds a launch plan for a release: audience, channels, assets checklist, timeline and owners, from the release notes and past launches, as tasks in the team's tool.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "get_release",
+     "state": "read"
+    },
+    {
+     "tool": "past_launches",
+     "state": "read"
+    },
+    {
+     "tool": "tasks_create",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:marketing/launch-planner",
+   "docPath": "/docs/agents/marketing/launch-planner"
+  },
+  {
+   "id": "support/ticket-triage",
+   "kit": "support",
+   "slug": "ticket-triage",
+   "title": "Ticket triage",
+   "summary": "Triages a ticket fully: cleans it, detects language, looks up the customer, classifies category, intent, sentiment and priority with reasons, and routes it, applying writes after approval or by policy.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 3,
+   "writeTools": 2,
+   "targets": {
+    "pass": "92%+",
+    "p95": "8 s",
+    "cost": "$0.005"
+   },
+   "cardRun": [
+    {
+     "tool": "helpdesk_get_ticket",
+     "state": "read"
+    },
+    {
+     "tool": "customer_context",
+     "state": "read"
+    },
+    {
+     "tool": "rules_match",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:support/ticket-triage",
+   "docPath": "/docs/agents/support/ticket-triage"
+  },
+  {
+   "id": "support/grounded-answer",
+   "kit": "support",
+   "slug": "grounded-answer",
+   "title": "Grounded answer agent with citations",
+   "summary": "Answers customer questions only from the knowledge base and policies, with sentence-level citations, and says clearly when the answer is not in the sources.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 3,
+   "writeTools": 1,
+   "targets": {
+    "pass": "92%+",
+    "p95": "12 s",
+    "cost": "$0.02"
+   },
+   "cardRun": [
+    {
+     "tool": "kb_search",
+     "state": "read"
+    },
+    {
+     "tool": "policy_search",
+     "state": "read"
+    },
+    {
+     "tool": "kb_get",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:support/grounded-answer",
+   "docPath": "/docs/agents/support/grounded-answer"
+  },
+  {
+   "id": "support/refund-decision",
+   "kit": "support",
+   "slug": "refund-decision",
+   "title": "Refund decision agent with approval",
+   "summary": "Evaluates a refund or return request against policy and order data, computes the eligible amount with a tool, drafts the customer reply, and executes only after a human approves.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 2,
+   "targets": {
+    "pass": "98%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "order_lookup",
+     "state": "read"
+    },
+    {
+     "tool": "policy_eval",
+     "state": "read"
+    },
+    {
+     "tool": "refund_execute",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:support/refund-decision",
+   "docPath": "/docs/agents/support/refund-decision"
+  },
+  {
+   "id": "support/support-qa-reviewer",
+   "kit": "support",
+   "slug": "support-qa-reviewer",
+   "title": "Support QA reviewer",
+   "summary": "Scores closed conversations against the team's QA rubric with evidence quotes and coaching notes, calibrated to human graders.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 0,
+   "targets": {
+    "pass": "85%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "helpdesk_get_conversation",
+     "state": "read"
+    },
+    {
+     "tool": "kb_get",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:support/support-qa-reviewer",
+   "docPath": "/docs/agents/support/support-qa-reviewer"
+  },
+  {
+   "id": "support/churn-risk-watcher",
+   "kit": "support",
+   "slug": "churn-risk-watcher",
+   "title": "Churn risk watcher",
+   "summary": "Watches support, usage and billing signals, explains which accounts are at risk and why, and proposes a save play for the owner.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "signals",
+     "state": "read"
+    },
+    {
+     "tool": "crm_owner",
+     "state": "read"
+    },
+    {
+     "tool": "notify_owner",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:support/churn-risk-watcher",
+   "docPath": "/docs/agents/support/churn-risk-watcher"
+  },
+  {
+   "id": "support/docs-gap-finder",
+   "kit": "support",
+   "slug": "docs-gap-finder",
+   "title": "Docs gap finder",
+   "summary": "Finds what customers ask that the docs do not answer, clusters it, and drafts the missing articles from the best agent replies.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "unanswered_questions",
+     "state": "read"
+    },
+    {
+     "tool": "kb_search",
+     "state": "read"
+    },
+    {
+     "tool": "kb_create_draft",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:support/docs-gap-finder",
+   "docPath": "/docs/agents/support/docs-gap-finder"
+  },
+  {
+   "id": "support/voice-of-customer-analyst",
+   "kit": "support",
+   "slug": "voice-of-customer-analyst",
+   "title": "Voice of customer analyst",
+   "summary": "Answers 'what are customers telling us' across tickets, surveys, reviews and calls, with themes, trends and quotes, for any segment and period.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 0,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "search_feedback",
+     "state": "read"
+    },
+    {
+     "tool": "aggregate",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:support/voice-of-customer-analyst",
+   "docPath": "/docs/agents/support/voice-of-customer-analyst"
+  },
+  {
+   "id": "support/macro-writer",
+   "kit": "support",
+   "slug": "macro-writer",
+   "title": "Macro writer",
+   "summary": "Finds repetitive replies in solved tickets and proposes reusable macros with variables, linked to the KB, for the team to approve.",
+   "free": true,
+   "nextDrop": true,
+   "readTools": 1,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "solved_replies",
+     "state": "read"
+    },
+    {
+     "tool": "helpdesk_create_macro",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:support/macro-writer",
+   "docPath": "/docs/agents/support/macro-writer"
+  },
+  {
+   "id": "support/escalation-summariser",
+   "kit": "support",
+   "slug": "escalation-summariser",
+   "title": "Escalation summariser",
+   "summary": "When a ticket escalates to engineering or management, writes a crisp summary: customer, impact, timeline, what was tried, open questions and the ask.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "helpdesk_get_conversation",
+     "state": "read"
+    },
+    {
+     "tool": "customer_context",
+     "state": "read"
+    },
+    {
+     "tool": "post_summary",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:support/escalation-summariser",
+   "docPath": "/docs/agents/support/escalation-summariser"
+  },
+  {
+   "id": "support/onboarding-coach",
+   "kit": "support",
+   "slug": "onboarding-coach",
+   "title": "Onboarding coach",
+   "summary": "Guides new customers through setup based on what they have done, answering questions in-app or by email with links to the exact next step.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "product_progress",
+     "state": "read"
+    },
+    {
+     "tool": "search_docs",
+     "state": "read"
+    },
+    {
+     "tool": "send_message",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:support/onboarding-coach",
+   "docPath": "/docs/agents/support/onboarding-coach"
+  },
+  {
+   "id": "engineering/pr-reviewer",
+   "kit": "engineering",
+   "slug": "pr-reviewer",
+   "title": "PR reviewer",
+   "summary": "Reviews a pull request like a careful senior engineer: understands the intent, reads the changed code with surrounding context, finds real bugs, security issues and missing tests, and posts precise inline comments with suggested fixes, without nitpicking style a linter already covers.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 4,
+   "writeTools": 2,
+   "targets": {
+    "pass": "85%+",
+    "p95": "120 s",
+    "cost": "$0.40"
+   },
+   "cardRun": [
+    {
+     "tool": "pr_get",
+     "state": "read"
+    },
+    {
+     "tool": "repo_read_file",
+     "state": "read"
+    },
+    {
+     "tool": "repo_search",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:engineering/pr-reviewer",
+   "docPath": "/docs/agents/engineering/pr-reviewer"
+  },
+  {
+   "id": "engineering/incident-triage",
+   "kit": "engineering",
+   "slug": "incident-triage",
+   "title": "Incident triage",
+   "summary": "Investigates an alert: gathers recent changes, errors, metrics and logs for the affected service, ranks hypotheses with evidence, and keeps the incident channel updated, without claiming a root cause it cannot prove.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 5,
+   "writeTools": 1,
+   "targets": {
+    "pass": "85%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "catalog_lookup",
+     "state": "read"
+    },
+    {
+     "tool": "changes",
+     "state": "read"
+    },
+    {
+     "tool": "errors",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:engineering/incident-triage",
+   "docPath": "/docs/agents/engineering/incident-triage"
+  },
+  {
+   "id": "engineering/release-notes-writer",
+   "kit": "engineering",
+   "slug": "release-notes-writer",
+   "title": "Release notes writer",
+   "summary": "Writes customer-facing and internal release notes from merged PRs and issues, grouped and linked, in the product's voice.",
+   "free": true,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 2,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "prs_between",
+     "state": "read"
+    },
+    {
+     "tool": "issue_get",
+     "state": "read"
+    },
+    {
+     "tool": "release_update",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:engineering/release-notes-writer",
+   "docPath": "/docs/agents/engineering/release-notes-writer"
+  },
+  {
+   "id": "engineering/dependency-and-cve-fixer",
+   "kit": "engineering",
+   "slug": "dependency-and-cve-fixer",
+   "title": "Dependency and CVE fixer",
+   "summary": "Triages vulnerability findings for reachability and real risk, then opens minimal upgrade PRs with changelog notes and test results, escalating breaking upgrades to humans.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 4,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "osv_scan",
+     "state": "read"
+    },
+    {
+     "tool": "epss_kev",
+     "state": "read"
+    },
+    {
+     "tool": "pkg_changelog",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:engineering/dependency-and-cve-fixer",
+   "docPath": "/docs/agents/engineering/dependency-and-cve-fixer"
+  },
+  {
+   "id": "engineering/test-writer",
+   "kit": "engineering",
+   "slug": "test-writer",
+   "title": "Test writer",
+   "summary": "Adds meaningful tests for changed or uncovered code: reads the code and its callers, writes tests in the repo's framework and style, runs them in a sandbox, and keeps only tests that pass and increase coverage.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 4,
+   "writeTools": 1,
+   "targets": {
+    "pass": "85%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "repo_read_file",
+     "state": "read"
+    },
+    {
+     "tool": "repo_search",
+     "state": "read"
+    },
+    {
+     "tool": "coverage_report",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:engineering/test-writer",
+   "docPath": "/docs/agents/engineering/test-writer"
+  },
+  {
+   "id": "engineering/issue-groomer",
+   "kit": "engineering",
+   "slug": "issue-groomer",
+   "title": "Issue groomer",
+   "summary": "Keeps the backlog clean: labels, finds duplicates, asks for missing information once, suggests owners from CODEOWNERS, and closes stale issues by policy.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 3,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "issues_list",
+     "state": "read"
+    },
+    {
+     "tool": "issue_similar",
+     "state": "read"
+    },
+    {
+     "tool": "codeowners",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:engineering/issue-groomer",
+   "docPath": "/docs/agents/engineering/issue-groomer"
+  },
+  {
+   "id": "engineering/migration-assistant",
+   "kit": "engineering",
+   "slug": "migration-assistant",
+   "title": "Migration assistant",
+   "summary": "Plans and executes mechanical code migrations (framework upgrades, API renames) in small verified steps with codemods first and model edits second, opening PRs per step.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 3,
+   "writeTools": 2,
+   "targets": {
+    "pass": "85%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "repo_search",
+     "state": "read"
+    },
+    {
+     "tool": "run_codemod",
+     "state": "read"
+    },
+    {
+     "tool": "apply_edit",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:engineering/migration-assistant",
+   "docPath": "/docs/agents/engineering/migration-assistant"
+  },
+  {
+   "id": "engineering/docs-writer",
+   "kit": "engineering",
+   "slug": "docs-writer",
+   "title": "Docs writer",
+   "summary": "Writes and updates developer docs from code and API changes (OpenAPI, exported types), following the docs site's structure and voice, with runnable examples.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 4,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "openapi_diff",
+     "state": "read"
+    },
+    {
+     "tool": "repo_read_file",
+     "state": "read"
+    },
+    {
+     "tool": "docs_search",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:engineering/docs-writer",
+   "docPath": "/docs/agents/engineering/docs-writer"
+  },
+  {
+   "id": "engineering/on-call-handoff",
+   "kit": "engineering",
+   "slug": "on-call-handoff",
+   "title": "On-call handoff",
+   "summary": "At shift change, writes the handoff: open incidents and their state, noisy alerts, ongoing deploys and risky changes, and what to watch next.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 3,
+   "writeTools": 1,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "incidents",
+     "state": "read"
+    },
+    {
+     "tool": "alerts",
+     "state": "read"
+    },
+    {
+     "tool": "deploys",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:engineering/on-call-handoff",
+   "docPath": "/docs/agents/engineering/on-call-handoff"
+  },
+  {
+   "id": "engineering/cost-optimiser",
+   "kit": "engineering",
+   "slug": "cost-optimiser",
+   "title": "Cloud cost optimiser",
+   "summary": "Finds savings in cloud spend (idle resources, oversized instances, unattached volumes, old snapshots, missing commitments) with estimated monthly savings and safe change plans.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 3,
+   "writeTools": 0,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "cost_breakdown",
+     "state": "read"
+    },
+    {
+     "tool": "resource_inventory",
+     "state": "read"
+    },
+    {
+     "tool": "utilisation",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:engineering/cost-optimiser",
+   "docPath": "/docs/agents/engineering/cost-optimiser"
+  },
+  {
+   "id": "operations/invoice-extractor",
+   "kit": "operations",
+   "slug": "invoice-extractor",
+   "title": "Invoice and receipt extractor",
+   "summary": "Extracts invoices and receipts into structured data with per-field confidence, runs math, duplicate, vendor and PO checks, and posts approved documents to the ledger.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 4,
+   "writeTools": 1,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": "$0.03"
+   },
+   "cardRun": [
+    {
+     "tool": "ocr",
+     "state": "read"
+    },
+    {
+     "tool": "vendor_match",
+     "state": "read"
+    },
+    {
+     "tool": "po_lookup",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:operations/invoice-extractor",
+   "docPath": "/docs/agents/operations/invoice-extractor"
+  },
+  {
+   "id": "operations/kpi-reporter",
+   "kit": "operations",
+   "slug": "kpi-reporter",
+   "title": "KPI reporter",
+   "summary": "Answers metric questions ('why did NRR drop?') and writes the weekly KPI narrative from computed metrics, drilling into drivers with tools rather than guessing.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 0,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "metric",
+     "state": "read"
+    },
+    {
+     "tool": "compare",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:operations/kpi-reporter",
+   "docPath": "/docs/agents/operations/kpi-reporter"
+  },
+  {
+   "id": "operations/contract-analyst",
+   "kit": "operations",
+   "slug": "contract-analyst",
+   "title": "Contract analyst",
+   "summary": "Reads contracts, extracts key terms with clause quotes and page numbers, flags risky or non-standard clauses against the buyer's playbook, and keeps the renewal register current.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 2,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "ocr",
+     "state": "read"
+    },
+    {
+     "tool": "playbook_get",
+     "state": "read"
+    },
+    {
+     "tool": "register_upsert",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:operations/contract-analyst",
+   "docPath": "/docs/agents/operations/contract-analyst"
+  },
+  {
+   "id": "operations/spend-anomaly",
+   "kit": "operations",
+   "slug": "spend-anomaly",
+   "title": "Spend anomaly",
+   "summary": "Reviews card and expense transactions for anomalies and policy breaches, explains each with evidence, and asks cardholders for context through approved messages.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "transactions",
+     "state": "read"
+    },
+    {
+     "tool": "detect",
+     "state": "read"
+    },
+    {
+     "tool": "message_cardholder",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:operations/spend-anomaly",
+   "docPath": "/docs/agents/operations/spend-anomaly"
+  },
+  {
+   "id": "operations/meeting-to-tasks",
+   "kit": "operations",
+   "slug": "meeting-to-tasks",
+   "title": "Meeting to tasks",
+   "summary": "Turns meeting notes or transcripts into decisions and tasks with owners and due dates, creating them in the team's tool with evidence links.",
+   "free": true,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "doc_get",
+     "state": "read"
+    },
+    {
+     "tool": "people_map",
+     "state": "read"
+    },
+    {
+     "tool": "tasks_create",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:operations/meeting-to-tasks",
+   "docPath": "/docs/agents/operations/meeting-to-tasks"
+  },
+  {
+   "id": "operations/internal-knowledge",
+   "kit": "operations",
+   "slug": "internal-knowledge",
+   "title": "Internal knowledge",
+   "summary": "Answers employee questions from company docs with citations, respecting each employee's document permissions, and refuses when the docs do not say.",
+   "free": false,
+   "nextDrop": false,
+   "readTools": 2,
+   "writeTools": 0,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "docs_search",
+     "state": "read"
+    },
+    {
+     "tool": "doc_get",
+     "state": "read"
+    }
+   ],
+   "docId": "agent:operations/internal-knowledge",
+   "docPath": "/docs/agents/operations/internal-knowledge"
+  },
+  {
+   "id": "operations/close-assistant",
+   "kit": "operations",
+   "slug": "close-assistant",
+   "title": "Month-end close assistant",
+   "summary": "Runs the close checklist checks, explains reconciliation gaps, drafts accrual entries for review, and reports close status daily.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "ledger_reports",
+     "state": "read"
+    },
+    {
+     "tool": "bank_feed_status",
+     "state": "read"
+    },
+    {
+     "tool": "draft_journal",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:operations/close-assistant",
+   "docPath": "/docs/agents/operations/close-assistant"
+  },
+  {
+   "id": "operations/vendor-risk-reviewer",
+   "kit": "operations",
+   "slug": "vendor-risk-reviewer",
+   "title": "Vendor risk reviewer",
+   "summary": "Reviews a new vendor's security and compliance documents (SOC 2 report, DPA, insurance, questionnaire) and returns a risk summary with gaps and follow-up questions.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "90%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "ocr",
+     "state": "read"
+    },
+    {
+     "tool": "framework_controls",
+     "state": "read"
+    },
+    {
+     "tool": "store_review",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:operations/vendor-risk-reviewer",
+   "docPath": "/docs/agents/operations/vendor-risk-reviewer"
+  },
+  {
+   "id": "operations/investor-update-writer",
+   "kit": "operations",
+   "slug": "investor-update-writer",
+   "title": "Investor update writer",
+   "summary": "Drafts the monthly investor update in the founder's voice from metrics, highlights, lowlights and asks, with every number traced to the KPI snapshot.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 2,
+   "writeTools": 1,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "kpi_snapshot",
+     "state": "read"
+    },
+    {
+     "tool": "past_updates",
+     "state": "read"
+    },
+    {
+     "tool": "doc_create_draft",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:operations/investor-update-writer",
+   "docPath": "/docs/agents/operations/investor-update-writer"
+  },
+  {
+   "id": "operations/policy-qa",
+   "kit": "operations",
+   "slug": "policy-qa",
+   "title": "Policy Q&A",
+   "summary": "Answers employee questions about company policies (expenses, leave, travel, security) with exact policy citations and the effective date, escalating ambiguous cases to the policy owner.",
+   "free": false,
+   "nextDrop": true,
+   "readTools": 1,
+   "writeTools": 1,
+   "targets": {
+    "pass": "95%+",
+    "p95": "",
+    "cost": ""
+   },
+   "cardRun": [
+    {
+     "tool": "policy_search",
+     "state": "read"
+    },
+    {
+     "tool": "escalate",
+     "state": "approval"
+    }
+   ],
+   "docId": "agent:operations/policy-qa",
+   "docPath": "/docs/agents/operations/policy-qa"
+  }
+ ],
+ "components": [
+  {
+   "slug": "chat-thread",
+   "group": "ai-interaction",
+   "title": "Chat thread",
+   "summary": "The message list for an AI conversation: user and assistant turns, streaming assistant messages, tool-call cards and citations inline, message actions (copy, retry, edit, branch), and sticky scroll that follows the stream without fighting the reader.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     37,
+     42,
+     47,
+     52,
+     57,
+     62,
+     67
+    ],
+    "w1": 42,
+    "w2": 33,
+    "w3": 72
+   },
+   "docId": "component:chat-thread",
+   "docPath": "/docs/components/chat-thread"
+  },
+  {
+   "slug": "streaming-message",
+   "group": "ai-interaction",
+   "title": "Streaming message",
+   "summary": "Renders model output as it streams: Markdown parsed incrementally without flicker, a caret at the insertion point, partial code blocks that stay highlighted, and stable layout so the page does not jump.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     68,
+     36,
+     75,
+     43,
+     82,
+     50,
+     89
+    ],
+    "w1": 42,
+    "w2": 54,
+    "w3": 51
+   },
+   "docId": "component:streaming-message",
+   "docPath": "/docs/components/streaming-message"
+  },
+  {
+   "slug": "prompt-input",
+   "group": "ai-interaction",
+   "title": "Prompt input with slash commands",
+   "summary": "The composer for AI apps: auto-growing textarea, slash commands with a filterable menu, @-mentions for context items, attachments, a model or tool selector slot, and a submit button that becomes Stop while generating.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     79,
+     27,
+     46,
+     65,
+     84,
+     32,
+     51
+    ],
+    "w1": 42,
+    "w2": 47,
+    "w3": 72
+   },
+   "docId": "component:prompt-input",
+   "docPath": "/docs/components/prompt-input"
+  },
+  {
+   "slug": "tool-call-card",
+   "group": "ai-interaction",
+   "title": "Tool-call card",
+   "summary": "Shows an agent's tool call: name, arguments, status (pending, running, needs approval, done, failed), duration and a collapsible result, with an approval affordance when the call needs a human.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     92,
+     68,
+     44,
+     91,
+     67,
+     43,
+     90
+    ],
+    "w1": 42,
+    "w2": 61,
+    "w3": 60
+   },
+   "docId": "component:tool-call-card",
+   "docPath": "/docs/components/tool-call-card"
+  },
+  {
+   "slug": "citation-chip",
+   "group": "ai-interaction",
+   "title": "Citation chip",
+   "summary": "Inline numbered citation that previews its source on hover or focus (title, domain, snippet, favicon) and links out; plus a source list that groups citations under an answer.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     70,
+     86,
+     31,
+     47,
+     63,
+     79,
+     24
+    ],
+    "w1": 42,
+    "w2": 51,
+    "w3": 81
+   },
+   "docId": "component:citation-chip",
+   "docPath": "/docs/components/citation-chip"
+  },
+  {
+   "slug": "reasoning-disclosure",
+   "group": "ai-interaction",
+   "title": "Reasoning disclosure",
+   "summary": "Shows a model's reasoning or plan as a collapsed 'Thought for 12 s' line that expands to the streamed reasoning text, auto-collapsing when the answer starts.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     33,
+     84,
+     64,
+     44,
+     24,
+     75,
+     55
+    ],
+    "w1": 42,
+    "w2": 43,
+    "w3": 72
+   },
+   "docId": "component:reasoning-disclosure",
+   "docPath": "/docs/components/reasoning-disclosure"
+  },
+  {
+   "slug": "model-picker",
+   "group": "ai-interaction",
+   "title": "Model picker",
+   "summary": "Choose a model by provider with capability badges (vision, tools, reasoning), context window, price per million tokens and speed tier, plus search and favorites.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     88,
+     39,
+     61,
+     83,
+     34,
+     56,
+     78
+    ],
+    "w1": 42,
+    "w2": 49,
+    "w3": 57
+   },
+   "docId": "component:model-picker",
+   "docPath": "/docs/components/model-picker"
+  },
+  {
+   "slug": "file-drop",
+   "group": "ai-interaction",
+   "title": "File drop with parsing state",
+   "summary": "Drop zone and file list for AI ingestion that shows each file's lifecycle: uploading, parsing (pages, OCR), chunking, indexed or failed, with progress and per-file errors.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     36,
+     88,
+     69,
+     50,
+     31,
+     83,
+     64
+    ],
+    "w1": 42,
+    "w2": 31,
+    "w3": 69
+   },
+   "docId": "component:file-drop",
+   "docPath": "/docs/components/file-drop"
+  },
+  {
+   "slug": "voice-input-orb",
+   "group": "ai-interaction",
+   "title": "Voice input orb",
+   "summary": "A microphone control that visualises live input level as an orb, shows listening, processing and speaking states, and hands audio to the parent (it does not do speech recognition itself).",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     30,
+     80,
+     59,
+     38,
+     88,
+     67,
+     46
+    ],
+    "w1": 42,
+    "w2": 58,
+    "w3": 48
+   },
+   "docId": "component:voice-input-orb",
+   "docPath": "/docs/components/voice-input-orb"
+  },
+  {
+   "slug": "token-cost-meter",
+   "group": "ai-interaction",
+   "title": "Token and cost meter",
+   "summary": "Shows context window usage and spend for a conversation or run: a segmented bar (system, history, tools, output), totals, cost in currency and a warning as the limit nears.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-ai-interaction",
+    "bars": [
+     68,
+     36,
+     75,
+     43,
+     82,
+     50,
+     89
+    ],
+    "w1": 42,
+    "w2": 50,
+    "w3": 63
+   },
+   "docId": "component:token-cost-meter",
+   "docPath": "/docs/components/token-cost-meter"
+  },
+  {
+   "slug": "approval-card",
+   "group": "agent-control",
+   "title": "Approval card",
+   "summary": "The human-in-the-loop decision unit: what the agent wants to do, why, the exact payload (with a diff when it changes something), risk and confidence, and Approve, Edit, Reject with a reason.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-agent-control",
+    "bars": [
+     50,
+     83,
+     45,
+     78,
+     40,
+     73,
+     35
+    ],
+    "w1": 42,
+    "w2": 34,
+    "w3": 60
+   },
+   "docId": "component:approval-card",
+   "docPath": "/docs/components/approval-card"
+  },
+  {
+   "slug": "run-timeline",
+   "group": "agent-control",
+   "title": "Run timeline",
+   "summary": "A vertical timeline of an agent or workflow run: each step with type (model call, tool call, approval wait, branch, error), duration bar, tokens and cost, expandable inputs and outputs, and live updates while running.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-agent-control",
+    "bars": [
+     39,
+     92,
+     74,
+     56,
+     38,
+     91,
+     73
+    ],
+    "w1": 42,
+    "w2": 31,
+    "w3": 60
+   },
+   "docId": "component:run-timeline",
+   "docPath": "/docs/components/run-timeline"
+  },
+  {
+   "slug": "step-status-list",
+   "group": "agent-control",
+   "title": "Step status list",
+   "summary": "A compact checklist of steps with status icons (pending, running, done, skipped, failed) for showing progress inside cards, toasts and chat.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-agent-control",
+    "bars": [
+     44,
+     75,
+     35,
+     66,
+     26,
+     57,
+     88
+    ],
+    "w1": 42,
+    "w2": 60,
+    "w3": 78
+   },
+   "docId": "component:step-status-list",
+   "docPath": "/docs/components/step-status-list"
+  },
+  {
+   "slug": "diff-viewer",
+   "group": "agent-control",
+   "title": "Diff viewer",
+   "summary": "Shows what an agent wants to change: text diffs (unified or split, word-level highlights), JSON or record field diffs, and code diffs with syntax highlighting, with per-hunk accept or reject when interactive.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-agent-control",
+    "bars": [
+     32,
+     59,
+     86,
+     42,
+     69,
+     25,
+     52
+    ],
+    "w1": 42,
+    "w2": 32,
+    "w3": 63
+   },
+   "docId": "component:diff-viewer",
+   "docPath": "/docs/components/diff-viewer"
+  },
+  {
+   "slug": "human-handoff-banner",
+   "group": "agent-control",
+   "title": "Human handoff banner",
+   "summary": "A banner in an AI conversation that marks when an agent hands off to a human (or a human takes over), showing who, why, expected wait and what the human can see.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-agent-control",
+    "bars": [
+     90,
+     89,
+     88,
+     87,
+     86,
+     85,
+     84
+    ],
+    "w1": 42,
+    "w2": 49,
+    "w3": 54
+   },
+   "docId": "component:human-handoff-banner",
+   "docPath": "/docs/components/human-handoff-banner"
+  },
+  {
+   "slug": "confidence-badge",
+   "group": "agent-control",
+   "title": "Confidence badge",
+   "summary": "Shows a model's confidence as a labelled level (High, Medium, Low) with the numeric value on hover and the reasons behind it, using thresholds the product sets.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-agent-control",
+    "bars": [
+     74,
+     44,
+     85,
+     55,
+     25,
+     66,
+     36
+    ],
+    "w1": 42,
+    "w2": 61,
+    "w3": 75
+   },
+   "docId": "component:confidence-badge",
+   "docPath": "/docs/components/confidence-badge"
+  },
+  {
+   "slug": "retry-undo-toast",
+   "group": "agent-control",
+   "title": "Retry and undo toast",
+   "summary": "Toasts for agent actions that can be undone within a window or retried after failure, with a visible countdown and an action button that stays reachable by keyboard.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-agent-control",
+    "bars": [
+     40,
+     46,
+     52,
+     58,
+     64,
+     70,
+     76
+    ],
+    "w1": 42,
+    "w2": 34,
+    "w3": 63
+   },
+   "docId": "component:retry-undo-toast",
+   "docPath": "/docs/components/retry-undo-toast"
+  },
+  {
+   "slug": "agent-avatar",
+   "group": "agent-control",
+   "title": "Agent avatar with status",
+   "summary": "An avatar for an agent with a live status ring (idle, thinking, acting, waiting for approval, error, offline) and a tooltip with the current activity.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-agent-control",
+    "bars": [
+     71,
+     40,
+     80,
+     49,
+     89,
+     58,
+     27
+    ],
+    "w1": 42,
+    "w2": 58,
+    "w3": 57
+   },
+   "docId": "component:agent-avatar",
+   "docPath": "/docs/components/agent-avatar"
+  },
+  {
+   "slug": "data-grid",
+   "group": "data-display",
+   "title": "Data grid",
+   "summary": "A production table for business data: sorting (multi), filtering per column type, column pinning, resizing and hiding, row selection with bulk actions, inline editing with validation, grouping with subtotals, CSV export, server-side data mode and virtualization for 100k rows.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     30,
+     80,
+     59,
+     38,
+     88,
+     67,
+     46
+    ],
+    "w1": 42,
+    "w2": 59,
+    "w3": 63
+   },
+   "docId": "component:data-grid",
+   "docPath": "/docs/components/data-grid"
+  },
+  {
+   "slug": "kpi-stat",
+   "group": "data-display",
+   "title": "KPI stat with delta",
+   "summary": "A metric tile: label, value, delta versus a comparison period with direction and semantics (up can be bad), optional sparkline and target progress.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     75,
+     69,
+     63,
+     57,
+     51,
+     45,
+     39
+    ],
+    "w1": 42,
+    "w2": 44,
+    "w3": 75
+   },
+   "docId": "component:kpi-stat",
+   "docPath": "/docs/components/kpi-stat"
+  },
+  {
+   "slug": "sparkline",
+   "group": "data-display",
+   "title": "Sparkline",
+   "summary": "A tiny inline trend line or bar with an optional last-point marker and min and max dots, SVG only, no axes.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     67,
+     82,
+     26,
+     41,
+     56,
+     71,
+     86
+    ],
+    "w1": 42,
+    "w2": 32,
+    "w3": 54
+   },
+   "docId": "component:sparkline",
+   "docPath": "/docs/components/sparkline"
+  },
+  {
+   "slug": "line-chart",
+   "group": "data-display",
+   "title": "Line chart",
+   "summary": "Time series line chart with multiple series, scrub tooltip, comparison period overlay (dashed), annotations for events (deploys, campaigns) and gap handling.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     83,
+     56,
+     29,
+     73,
+     46,
+     90,
+     63
+    ],
+    "w1": 42,
+    "w2": 45,
+    "w3": 66
+   },
+   "docId": "component:line-chart",
+   "docPath": "/docs/components/line-chart"
+  },
+  {
+   "slug": "area-chart",
+   "group": "data-display",
+   "title": "Area chart",
+   "summary": "Stacked or overlapping area chart for composition over time (pipeline by stage, cost by model).",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     37,
+     42,
+     47,
+     52,
+     57,
+     62,
+     67
+    ],
+    "w1": 42,
+    "w2": 31,
+    "w3": 54
+   },
+   "docId": "component:area-chart",
+   "docPath": "/docs/components/area-chart"
+  },
+  {
+   "slug": "bar-chart",
+   "group": "data-display",
+   "title": "Bar chart",
+   "summary": "Vertical or horizontal bars, grouped or stacked, with value labels and sorted options.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31
+    ],
+    "w1": 42,
+    "w2": 33,
+    "w3": 60
+   },
+   "docId": "component:bar-chart",
+   "docPath": "/docs/components/bar-chart"
+  },
+  {
+   "slug": "donut-chart",
+   "group": "data-display",
+   "title": "Donut chart",
+   "summary": "Part-to-whole with a center total, a legend with values and percentages, and segment focus.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     26,
+     51,
+     76,
+     30,
+     55,
+     80,
+     34
+    ],
+    "w1": 42,
+    "w2": 43,
+    "w3": 63
+   },
+   "docId": "component:donut-chart",
+   "docPath": "/docs/components/donut-chart"
+  },
+  {
+   "slug": "funnel-chart",
+   "group": "data-display",
+   "title": "Funnel chart",
+   "summary": "Stage-by-stage conversion with counts, step and overall conversion rates, and drop-off highlighting; horizontal bar funnel (not trapezoids) for readability.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     37,
+     42,
+     47,
+     52,
+     57,
+     62,
+     67
+    ],
+    "w1": 42,
+    "w2": 35,
+    "w3": 81
+   },
+   "docId": "component:funnel-chart",
+   "docPath": "/docs/components/funnel-chart"
+  },
+  {
+   "slug": "cohort-heatmap",
+   "group": "data-display",
+   "title": "Cohort heatmap",
+   "summary": "Retention or revenue cohort table with a sequential color scale, values or percentages, row and column hover crosshair and a legend.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     39,
+     92,
+     74,
+     56,
+     38,
+     91,
+     73
+    ],
+    "w1": 42,
+    "w2": 41,
+    "w3": 81
+   },
+   "docId": "component:cohort-heatmap",
+   "docPath": "/docs/components/cohort-heatmap"
+  },
+  {
+   "slug": "activity-timeline",
+   "group": "data-display",
+   "title": "Activity timeline",
+   "summary": "Chronological feed of human and system events on a record (emails, calls, notes, status changes, agent actions) grouped by day, with filters by type and expandable entries.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-data-display",
+    "bars": [
+     73,
+     90,
+     36,
+     53,
+     70,
+     87,
+     33
+    ],
+    "w1": 42,
+    "w2": 44,
+    "w3": 63
+   },
+   "docId": "component:activity-timeline",
+   "docPath": "/docs/components/activity-timeline"
+  },
+  {
+   "slug": "command-palette",
+   "group": "inputs",
+   "title": "Command palette",
+   "summary": "Cmd+K palette with grouped commands, recent items, async search across records, nested pages (drill into 'Assign to...'), shortcuts display and actions that run with feedback.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-inputs",
+    "bars": [
+     71,
+     40,
+     80,
+     49,
+     89,
+     58,
+     27
+    ],
+    "w1": 42,
+    "w2": 62,
+    "w3": 54
+   },
+   "docId": "component:command-palette",
+   "docPath": "/docs/components/command-palette"
+  },
+  {
+   "slug": "combobox",
+   "group": "inputs",
+   "title": "Combobox",
+   "summary": "Searchable single select with async options, create-new, grouped options, rich option rendering and virtualization for long lists.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-inputs",
+    "bars": [
+     70,
+     86,
+     31,
+     47,
+     63,
+     79,
+     24
+    ],
+    "w1": 42,
+    "w2": 44,
+    "w3": 75
+   },
+   "docId": "component:combobox",
+   "docPath": "/docs/components/combobox"
+  },
+  {
+   "slug": "date-range-picker",
+   "group": "inputs",
+   "title": "Date range picker",
+   "summary": "Two-month calendar with presets (Today, Last 7 days, This quarter), comparison range option, typed input, timezone label and min and max constraints.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-inputs",
+    "bars": [
+     56,
+     91,
+     55,
+     90,
+     54,
+     89,
+     53
+    ],
+    "w1": 42,
+    "w2": 61,
+    "w3": 48
+   },
+   "docId": "component:date-range-picker",
+   "docPath": "/docs/components/date-range-picker"
+  },
+  {
+   "slug": "multi-select-tags",
+   "group": "inputs",
+   "title": "Multi-select tags",
+   "summary": "Select many values as removable tags with search, create, max selections and overflow '+3' display.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-inputs",
+    "bars": [
+     63,
+     53,
+     43,
+     33,
+     23,
+     84,
+     74
+    ],
+    "w1": 42,
+    "w2": 54,
+    "w3": 84
+   },
+   "docId": "component:multi-select-tags",
+   "docPath": "/docs/components/multi-select-tags"
+  },
+  {
+   "slug": "number-field",
+   "group": "inputs",
+   "title": "Number field",
+   "summary": "Locale-aware numeric input with steppers, min, max, step, currency and percent formatting while not focused, raw editing while focused, and scrub-to-change on the label.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-inputs",
+    "bars": [
+     35,
+     63,
+     91,
+     48,
+     76,
+     33,
+     61
+    ],
+    "w1": 42,
+    "w2": 45,
+    "w3": 51
+   },
+   "docId": "component:number-field",
+   "docPath": "/docs/components/number-field"
+  },
+  {
+   "slug": "rich-text-editor",
+   "group": "inputs",
+   "title": "Rich text editor",
+   "summary": "Tiptap-based editor for replies, notes and prompts: Markdown shortcuts, slash menu, mentions, variables as atomic chips ({{customer.name}}), links, code, tables optional, Markdown and HTML in and out.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-inputs",
+    "bars": [
+     89,
+     64,
+     39,
+     85,
+     60,
+     35,
+     81
+    ],
+    "w1": 42,
+    "w2": 56,
+    "w3": 81
+   },
+   "docId": "component:rich-text-editor",
+   "docPath": "/docs/components/rich-text-editor"
+  },
+  {
+   "slug": "cron-schedule-picker",
+   "group": "inputs",
+   "title": "Cron schedule picker",
+   "summary": "Build schedules without writing cron: presets (hourly, daily at, weekdays at, monthly on), a visual builder, advanced raw cron with validation, a human-readable summary and the next 5 run times in a chosen timezone.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-inputs",
+    "bars": [
+     52,
+     62,
+     72,
+     82,
+     92,
+     31,
+     41
+    ],
+    "w1": 42,
+    "w2": 39,
+    "w3": 63
+   },
+   "docId": "component:cron-schedule-picker",
+   "docPath": "/docs/components/cron-schedule-picker"
+  },
+  {
+   "slug": "variable-mapper",
+   "group": "inputs",
+   "title": "Variable mapper",
+   "summary": "Map fields from a source (webhook payload, CSV columns, previous step output) to target fields with type hints, auto-match by name, transforms (trim, lower, date format) and a live preview from sample data.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-inputs",
+    "bars": [
+     38,
+     67,
+     25,
+     54,
+     83,
+     41,
+     70
+    ],
+    "w1": 42,
+    "w2": 58,
+    "w3": 84
+   },
+   "docId": "component:variable-mapper",
+   "docPath": "/docs/components/variable-mapper"
+  },
+  {
+   "slug": "node-canvas-viewer",
+   "group": "workflow",
+   "title": "Node canvas viewer",
+   "summary": "Read-only (optionally editable) canvas that renders an n8n, Make or internal workflow graph with auto-layout, zoom and pan, minimap, run-state overlay (which nodes ran, failed, were skipped) and a playback mode that steps through an execution.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-workflow",
+    "bars": [
+     53,
+     87,
+     50,
+     84,
+     47,
+     81,
+     44
+    ],
+    "w1": 42,
+    "w2": 62,
+    "w3": 66
+   },
+   "docId": "component:node-canvas-viewer",
+   "docPath": "/docs/components/node-canvas-viewer"
+  },
+  {
+   "slug": "node-card",
+   "group": "workflow",
+   "title": "Node card",
+   "summary": "The node visual used on canvases and in lists: app icon, name, operation, status, small output count, error badge and ports.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-workflow",
+    "bars": [
+     40,
+     46,
+     52,
+     58,
+     64,
+     70,
+     76
+    ],
+    "w1": 42,
+    "w2": 46,
+    "w3": 54
+   },
+   "docId": "component:node-card",
+   "docPath": "/docs/components/node-card"
+  },
+  {
+   "slug": "connector-line",
+   "group": "workflow",
+   "title": "Connector line",
+   "summary": "Animated connector paths for graphs and diagrams: straight, step and curved or wavy, with data-flow animation, labels and states (idle, active, done, error).",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-workflow",
+    "bars": [
+     80,
+     52,
+     24,
+     67,
+     39,
+     82,
+     54
+    ],
+    "w1": 42,
+    "w2": 35,
+    "w3": 60
+   },
+   "docId": "component:connector-line",
+   "docPath": "/docs/components/connector-line"
+  },
+  {
+   "slug": "run-log-viewer",
+   "group": "workflow",
+   "title": "Run log viewer",
+   "summary": "A fast log viewer for workflow and agent runs: virtualized lines, level filters, search with highlights, JSON pretty-print on expand, follow mode for live logs and copy or download.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-workflow",
+    "bars": [
+     60,
+     49,
+     38,
+     27,
+     87,
+     76,
+     65
+    ],
+    "w1": 42,
+    "w2": 59,
+    "w3": 84
+   },
+   "docId": "component:run-log-viewer",
+   "docPath": "/docs/components/run-log-viewer"
+  },
+  {
+   "slug": "trigger-picker",
+   "group": "workflow",
+   "title": "Trigger picker",
+   "summary": "Choose how a workflow starts: webhook (with URL copy and auth method), schedule (uses cron picker), app event (searchable catalog of apps and events), manual, form; with a test-event step that waits for and shows a sample payload.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-workflow",
+    "bars": [
+     91,
+     43,
+     66,
+     89,
+     41,
+     64,
+     87
+    ],
+    "w1": 42,
+    "w2": 33,
+    "w3": 69
+   },
+   "docId": "component:trigger-picker",
+   "docPath": "/docs/components/trigger-picker"
+  },
+  {
+   "slug": "credential-slot",
+   "group": "workflow",
+   "title": "Credential slot",
+   "summary": "Shows a required credential for an integration: app, scopes needed, connection status, connect or reconnect via OAuth or API key form, test connection, and which steps use it.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-workflow",
+    "bars": [
+     40,
+     46,
+     52,
+     58,
+     64,
+     70,
+     76
+    ],
+    "w1": 42,
+    "w2": 61,
+    "w3": 69
+   },
+   "docId": "component:credential-slot",
+   "docPath": "/docs/components/credential-slot"
+  },
+  {
+   "slug": "sidebar",
+   "group": "shell",
+   "title": "Sidebar",
+   "summary": "App sidebar with sections, nested items, badges, collapsible icon rail mode, pinned items, keyboard navigation and a mobile sheet variant.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-shell",
+    "bars": [
+     48,
+     33,
+     89,
+     74,
+     59,
+     44,
+     29
+    ],
+    "w1": 42,
+    "w2": 30,
+    "w3": 63
+   },
+   "docId": "component:sidebar",
+   "docPath": "/docs/components/sidebar"
+  },
+  {
+   "slug": "top-bar-workspace-switcher",
+   "group": "shell",
+   "title": "Top bar with workspace switcher",
+   "summary": "App top bar with workspace and project switcher (search, recent, create), breadcrumbs, global search trigger, notifications and user menu.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-shell",
+    "bars": [
+     47,
+     79,
+     40,
+     72,
+     33,
+     65,
+     26
+    ],
+    "w1": 42,
+    "w2": 43,
+    "w3": 81
+   },
+   "docId": "component:top-bar-workspace-switcher",
+   "docPath": "/docs/components/top-bar-workspace-switcher"
+  },
+  {
+   "slug": "tabs",
+   "group": "shell",
+   "title": "Tabs",
+   "summary": "Tabs with an animated indicator, overflow scrolling with arrow buttons, badges and counts, and URL sync option.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-shell",
+    "bars": [
+     56,
+     91,
+     55,
+     90,
+     54,
+     89,
+     53
+    ],
+    "w1": 42,
+    "w2": 34,
+    "w3": 81
+   },
+   "docId": "component:tabs",
+   "docPath": "/docs/components/tabs"
+  },
+  {
+   "slug": "empty-state",
+   "group": "shell",
+   "title": "Empty state",
+   "summary": "Purposeful empty states with an illustration slot, one-sentence explanation, primary action and optional secondary link, in variants for first use, no results and error.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-shell",
+    "bars": [
+     72,
+     65,
+     58,
+     51,
+     44,
+     37,
+     30
+    ],
+    "w1": 42,
+    "w2": 48,
+    "w3": 63
+   },
+   "docId": "component:empty-state",
+   "docPath": "/docs/components/empty-state"
+  },
+  {
+   "slug": "skeletons",
+   "group": "shell",
+   "title": "Skeletons",
+   "summary": "Skeleton primitives and composed skeletons that match real layouts (table, card, chart, chat, profile) to prevent layout shift.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-shell",
+    "bars": [
+     27,
+     76,
+     54,
+     32,
+     81,
+     59,
+     37
+    ],
+    "w1": 42,
+    "w2": 50,
+    "w3": 54
+   },
+   "docId": "component:skeletons",
+   "docPath": "/docs/components/skeletons"
+  },
+  {
+   "slug": "notification-center",
+   "group": "shell",
+   "title": "Notification center",
+   "summary": "Bell with an inbox popover: grouped notifications (approvals needed, runs failed, mentions), read and unread, actions inline (approve, open), filters and mark all read.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-shell",
+    "bars": [
+     39,
+     92,
+     74,
+     56,
+     38,
+     91,
+     73
+    ],
+    "w1": 42,
+    "w2": 60,
+    "w3": 72
+   },
+   "docId": "component:notification-center",
+   "docPath": "/docs/components/notification-center"
+  },
+  {
+   "slug": "settings-section",
+   "group": "shell",
+   "title": "Settings section",
+   "summary": "A settings layout unit: title, description, controls and a save bar that appears on change, with dirty tracking, validation, reset and destructive zone variant.",
+   "free": false,
+   "thumbnail": {
+    "variant": "c-shell",
+    "bars": [
+     33,
+     84,
+     64,
+     44,
+     24,
+     75,
+     55
+    ],
+    "w1": 42,
+    "w2": 55,
+    "w3": 66
+   },
+   "docId": "component:settings-section",
+   "docPath": "/docs/components/settings-section"
+  },
+  {
+   "slug": "kanban-column",
+   "group": "shell",
+   "title": "Kanban column",
+   "summary": "A board column with header (title, count, WIP limit, sum of values), drag-and-drop cards within and across columns, collapsed state and quick add.",
+   "free": true,
+   "thumbnail": {
+    "variant": "c-shell",
+    "bars": [
+     83,
+     56,
+     29,
+     73,
+     46,
+     90,
+     63
+    ],
+    "w1": 42,
+    "w2": 51,
+    "w3": 66
+   },
+   "docId": "component:kanban-column",
+   "docPath": "/docs/components/kanban-column"
+  }
+ ],
+ "blocks": [
+  {
+   "slug": "hero-split-demo",
+   "group": "landing",
+   "title": "Hero: split with live demo",
+   "summary": "Two equal halves at full viewport height: headline, description, two CTAs and a compact selector on one side; a live, animated product demo (cards connected by flowing lines over a fluid background) on the other.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     39,
+     92,
+     74,
+     56,
+     38,
+     91,
+     73
+    ],
+    "w1": 42,
+    "w2": 60,
+    "w3": 78
+   },
+   "docId": "block:hero-split-demo",
+   "docPath": "/docs/blocks/hero-split-demo"
+  },
+  {
+   "slug": "hero-centered-terminal",
+   "group": "landing",
+   "title": "Hero: centered with terminal",
+   "summary": "Centered headline and CTAs above a terminal window that types an install command and shows the result, for developer products.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     86,
+     60,
+     34,
+     79,
+     53,
+     27,
+     72
+    ],
+    "w1": 42,
+    "w2": 53,
+    "w3": 66
+   },
+   "docId": "block:hero-centered-terminal",
+   "docPath": "/docs/blocks/hero-centered-terminal"
+  },
+  {
+   "slug": "hero-product-shot",
+   "group": "landing",
+   "title": "Hero: product screenshot with depth",
+   "summary": "Headline left, large product screenshot right with a subtle perspective tilt that flattens on scroll, plus floating detail callouts.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     80,
+     52,
+     24,
+     67,
+     39,
+     82,
+     54
+    ],
+    "w1": 42,
+    "w2": 57,
+    "w3": 66
+   },
+   "docId": "block:hero-product-shot",
+   "docPath": "/docs/blocks/hero-product-shot"
+  },
+  {
+   "slug": "hero-kit-pipeline",
+   "group": "landing",
+   "title": "Hero: kit pipeline",
+   "summary": "Headline above a horizontal pipeline that shows a record moving through workflow, agent and dashboard stages on seed data, with tabs for each niche.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     59,
+     24,
+     60,
+     25,
+     61,
+     26,
+     62
+    ],
+    "w1": 42,
+    "w2": 52,
+    "w3": 66
+   },
+   "docId": "block:hero-kit-pipeline",
+   "docPath": "/docs/blocks/hero-kit-pipeline"
+  },
+  {
+   "slug": "feature-grid",
+   "group": "landing",
+   "title": "Feature grid",
+   "summary": "3 or 4 column grid of features with icon, title, one-line description and optional link, plus a section heading.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     84,
+     81,
+     78,
+     75,
+     72,
+     69,
+     66
+    ],
+    "w1": 42,
+    "w2": 43,
+    "w3": 78
+   },
+   "docId": "block:feature-grid",
+   "docPath": "/docs/blocks/feature-grid"
+  },
+  {
+   "slug": "bento-features",
+   "group": "landing",
+   "title": "Bento features",
+   "summary": "Asymmetric bento grid where each tile holds a live mini demo (a real component), not an image.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     64,
+     78,
+     92,
+     35,
+     49,
+     63,
+     77
+    ],
+    "w1": 42,
+    "w2": 62,
+    "w3": 84
+   },
+   "docId": "block:bento-features",
+   "docPath": "/docs/blocks/bento-features"
+  },
+  {
+   "slug": "pricing-table",
+   "group": "landing",
+   "title": "Pricing table",
+   "summary": "Plan cards with monthly or annual toggle, per-seat pricing, feature lists with tooltips, highlighted plan and a comparison table below.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     67,
+     82,
+     26,
+     41,
+     56,
+     71,
+     86
+    ],
+    "w1": 42,
+    "w2": 34,
+    "w3": 60
+   },
+   "docId": "block:pricing-table",
+   "docPath": "/docs/blocks/pricing-table"
+  },
+  {
+   "slug": "pricing-calculator",
+   "group": "landing",
+   "title": "Pricing calculator",
+   "summary": "Interactive calculator: seats, usage sliders and options produce a live price with a breakdown and the recommended plan.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     72,
+     65,
+     58,
+     51,
+     44,
+     37,
+     30
+    ],
+    "w1": 42,
+    "w2": 45,
+    "w3": 51
+   },
+   "docId": "block:pricing-calculator",
+   "docPath": "/docs/blocks/pricing-calculator"
+  },
+  {
+   "slug": "testimonials-wall",
+   "group": "landing",
+   "title": "Testimonials wall",
+   "summary": "Masonry wall of real testimonials with name, role, company and source link, optional slow marquee rows; only renders testimonials with consent flags.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     92,
+     68,
+     44,
+     91,
+     67,
+     43,
+     90
+    ],
+    "w1": 42,
+    "w2": 31,
+    "w3": 78
+   },
+   "docId": "block:testimonials-wall",
+   "docPath": "/docs/blocks/testimonials-wall"
+  },
+  {
+   "slug": "logo-cloud",
+   "group": "landing",
+   "title": "Logo cloud",
+   "summary": "Grid or marquee of integration or customer logos with monochrome treatment and accessible names.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     34,
+     38,
+     42,
+     46,
+     50,
+     54,
+     58
+    ],
+    "w1": 42,
+    "w2": 60,
+    "w3": 75
+   },
+   "docId": "block:logo-cloud",
+   "docPath": "/docs/blocks/logo-cloud"
+  },
+  {
+   "slug": "faq",
+   "group": "landing",
+   "title": "FAQ",
+   "summary": "Accordion FAQ with categories, deep links to questions and JSON-LD FAQ markup.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     72,
+     65,
+     58,
+     51,
+     44,
+     37,
+     30
+    ],
+    "w1": 42,
+    "w2": 54,
+    "w3": 57
+   },
+   "docId": "block:faq",
+   "docPath": "/docs/blocks/faq"
+  },
+  {
+   "slug": "cta-band",
+   "group": "landing",
+   "title": "CTA band",
+   "summary": "Full-width call to action band with headline, sentence and two buttons, optional background slot.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     87,
+     85,
+     83,
+     81,
+     79,
+     77,
+     75
+    ],
+    "w1": 42,
+    "w2": 55,
+    "w3": 69
+   },
+   "docId": "block:cta-band",
+   "docPath": "/docs/blocks/cta-band"
+  },
+  {
+   "slug": "waitlist",
+   "group": "landing",
+   "title": "Waitlist",
+   "summary": "Email capture with consent checkbox, server action submit, duplicate handling, success state with position or referral link.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     76,
+     23,
+     41,
+     59,
+     77,
+     24,
+     42
+    ],
+    "w1": 42,
+    "w2": 47,
+    "w3": 81
+   },
+   "docId": "block:waitlist",
+   "docPath": "/docs/blocks/waitlist"
+  },
+  {
+   "slug": "changelog-page",
+   "group": "landing",
+   "title": "Changelog page",
+   "summary": "Changelog timeline with version, date, tags, rich entries, filters by product area and RSS link.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     70,
+     86,
+     31,
+     47,
+     63,
+     79,
+     24
+    ],
+    "w1": 42,
+    "w2": 58,
+    "w3": 81
+   },
+   "docId": "block:changelog-page",
+   "docPath": "/docs/blocks/changelog-page"
+  },
+  {
+   "slug": "comparison-page",
+   "group": "landing",
+   "title": "Comparison page",
+   "summary": "'Us vs them' comparison with a feature matrix, honest notes where competitors win, and a migration CTA.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-landing",
+    "bars": [
+     49,
+     58,
+     67,
+     76,
+     85,
+     23,
+     32
+    ],
+    "w1": 42,
+    "w2": 46,
+    "w3": 75
+   },
+   "docId": "block:comparison-page",
+   "docPath": "/docs/blocks/comparison-page"
+  },
+  {
+   "slug": "contact-list",
+   "group": "crm",
+   "title": "Contact list",
+   "summary": "Searchable, filterable contact table with saved views, bulk actions (assign, tag, export, add to sequence), and a side panel preview.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-crm",
+    "bars": [
+     88,
+     39,
+     61,
+     83,
+     34,
+     56,
+     78
+    ],
+    "w1": 42,
+    "w2": 41,
+    "w3": 84
+   },
+   "docId": "block:contact-list",
+   "docPath": "/docs/blocks/contact-list"
+  },
+  {
+   "slug": "contact-profile",
+   "group": "crm",
+   "title": "Contact profile with activity timeline",
+   "summary": "Contact page: header with key fields and score, editable details, activity timeline, related deals and tickets, AI summary card with sources.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-crm",
+    "bars": [
+     80,
+     52,
+     24,
+     67,
+     39,
+     82,
+     54
+    ],
+    "w1": 42,
+    "w2": 42,
+    "w3": 54
+   },
+   "docId": "block:contact-profile",
+   "docPath": "/docs/blocks/contact-profile"
+  },
+  {
+   "slug": "deal-pipeline-board",
+   "group": "crm",
+   "title": "Deal pipeline board",
+   "summary": "Kanban pipeline by stage with column totals, weighted value, stale-deal indicators from the nudger workflow and quick edit.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-crm",
+    "bars": [
+     54,
+     41,
+     28,
+     86,
+     73,
+     60,
+     47
+    ],
+    "w1": 42,
+    "w2": 39,
+    "w3": 60
+   },
+   "docId": "block:deal-pipeline-board",
+   "docPath": "/docs/blocks/deal-pipeline-board"
+  },
+  {
+   "slug": "lead-scoring-table",
+   "group": "crm",
+   "title": "Lead scoring table",
+   "summary": "Table of scored leads from the inbound qualifier with tier, fit and intent bars, reasons on hover, owner and SLA timer, plus a rules panel explaining the scoring.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-crm",
+    "bars": [
+     65,
+     32,
+     70,
+     37,
+     75,
+     42,
+     80
+    ],
+    "w1": 42,
+    "w2": 39,
+    "w3": 48
+   },
+   "docId": "block:lead-scoring-table",
+   "docPath": "/docs/blocks/lead-scoring-table"
+  },
+  {
+   "slug": "email-sequence-editor",
+   "group": "crm",
+   "title": "Email sequence editor",
+   "summary": "Build a multi-step email sequence: steps with delays, conditions (replied, opened), variants, rich text with variables, preview per contact and send-window settings.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-crm",
+    "bars": [
+     26,
+     51,
+     76,
+     30,
+     55,
+     80,
+     34
+    ],
+    "w1": 42,
+    "w2": 53,
+    "w3": 54
+   },
+   "docId": "block:email-sequence-editor",
+   "docPath": "/docs/blocks/email-sequence-editor"
+  },
+  {
+   "slug": "task-inbox",
+   "group": "crm",
+   "title": "Task inbox",
+   "summary": "A rep's inbox of tasks and interested replies (from the reply classifier), grouped by due, with keyboard triage (done, snooze, open).",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-crm",
+    "bars": [
+     69,
+     61,
+     53,
+     45,
+     37,
+     29,
+     92
+    ],
+    "w1": 42,
+    "w2": 52,
+    "w3": 54
+   },
+   "docId": "block:task-inbox",
+   "docPath": "/docs/blocks/task-inbox"
+  },
+  {
+   "slug": "company-profile",
+   "group": "crm",
+   "title": "Company profile",
+   "summary": "Account page rendering the account research brief: summary, size, stack, signals with dates and sources, people, deals and tickets.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-crm",
+    "bars": [
+     67,
+     82,
+     26,
+     41,
+     56,
+     71,
+     86
+    ],
+    "w1": 42,
+    "w2": 39,
+    "w3": 51
+   },
+   "docId": "block:company-profile",
+   "docPath": "/docs/blocks/company-profile"
+  },
+  {
+   "slug": "import-mapper",
+   "group": "crm",
+   "title": "Import mapper",
+   "summary": "CSV import flow: upload, column mapping with auto-match, normalisation preview (phones, countries), duplicate detection and a dry-run summary before import.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-crm",
+    "bars": [
+     51,
+     37,
+     23,
+     80,
+     66,
+     52,
+     38
+    ],
+    "w1": 42,
+    "w2": 36,
+    "w3": 51
+   },
+   "docId": "block:import-mapper",
+   "docPath": "/docs/blocks/import-mapper"
+  },
+  {
+   "slug": "saas-metrics",
+   "group": "dashboards",
+   "title": "SaaS metrics dashboard",
+   "summary": "MRR, new, expansion, churn, NRR, active accounts and activation with trends and a movements table.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-dashboards",
+    "bars": [
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31
+    ],
+    "w1": 42,
+    "w2": 46,
+    "w3": 60
+   },
+   "docId": "block:saas-metrics",
+   "docPath": "/docs/blocks/saas-metrics"
+  },
+  {
+   "slug": "sales-pipeline",
+   "group": "dashboards",
+   "title": "Sales pipeline dashboard",
+   "summary": "Pipeline by stage, coverage vs quota, win rate, cycle time, hot leads from the qualifier and stale deals from the nudger.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-dashboards",
+    "bars": [
+     59,
+     24,
+     60,
+     25,
+     61,
+     26,
+     62
+    ],
+    "w1": 42,
+    "w2": 32,
+    "w3": 66
+   },
+   "docId": "block:sales-pipeline",
+   "docPath": "/docs/blocks/sales-pipeline"
+  },
+  {
+   "slug": "support-operations",
+   "group": "dashboards",
+   "title": "Support operations dashboard",
+   "summary": "Volume, backlog, first response and resolution time, SLA attainment, CSAT, top categories from triage, at-risk tickets.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-dashboards",
+    "bars": [
+     56,
+     91,
+     55,
+     90,
+     54,
+     89,
+     53
+    ],
+    "w1": 42,
+    "w2": 52,
+    "w3": 66
+   },
+   "docId": "block:support-operations",
+   "docPath": "/docs/blocks/support-operations"
+  },
+  {
+   "slug": "marketing-attribution",
+   "group": "dashboards",
+   "title": "Marketing attribution dashboard",
+   "summary": "Spend, leads, pipeline and revenue by channel and campaign with first and last touch views, content performance from the repurposer.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-dashboards",
+    "bars": [
+     71,
+     40,
+     80,
+     49,
+     89,
+     58,
+     27
+    ],
+    "w1": 42,
+    "w2": 58,
+    "w3": 57
+   },
+   "docId": "block:marketing-attribution",
+   "docPath": "/docs/blocks/marketing-attribution"
+  },
+  {
+   "slug": "agent-operations",
+   "group": "dashboards",
+   "title": "Agent operations monitor",
+   "summary": "Runs per agent and workflow, success rate, approvals pending and their age, failures by class, latency p50 and p95, live run feed.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-dashboards",
+    "bars": [
+     77,
+     48,
+     90,
+     61,
+     32,
+     74,
+     45
+    ],
+    "w1": 42,
+    "w2": 43,
+    "w3": 72
+   },
+   "docId": "block:agent-operations",
+   "docPath": "/docs/blocks/agent-operations"
+  },
+  {
+   "slug": "ai-cost-usage",
+   "group": "dashboards",
+   "title": "AI cost and usage dashboard",
+   "summary": "Spend by model, item and day, tokens in and out, cost per run trends, budget burn-down with alerts.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-dashboards",
+    "bars": [
+     29,
+     55,
+     81,
+     36,
+     62,
+     88,
+     43
+    ],
+    "w1": 42,
+    "w2": 58,
+    "w3": 69
+   },
+   "docId": "block:ai-cost-usage",
+   "docPath": "/docs/blocks/ai-cost-usage"
+  },
+  {
+   "slug": "incident-board",
+   "group": "dashboards",
+   "title": "Incident board",
+   "summary": "Active incidents by severity with owners, duration, suspects from triage and timeline, plus recent resolved.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-dashboards",
+    "bars": [
+     40,
+     46,
+     52,
+     58,
+     64,
+     70,
+     76
+    ],
+    "w1": 42,
+    "w2": 47,
+    "w3": 57
+   },
+   "docId": "block:incident-board",
+   "docPath": "/docs/blocks/incident-board"
+  },
+  {
+   "slug": "finance-overview",
+   "group": "dashboards",
+   "title": "Finance overview",
+   "summary": "Cash in and out, AP from captured invoices by status, upcoming renewals from contract intake, spend anomalies and failed payment recovery.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-dashboards",
+    "bars": [
+     79,
+     27,
+     46,
+     65,
+     84,
+     32,
+     51
+    ],
+    "w1": 42,
+    "w2": 43,
+    "w3": 48
+   },
+   "docId": "block:finance-overview",
+   "docPath": "/docs/blocks/finance-overview"
+  },
+  {
+   "slug": "funnel-analysis",
+   "group": "analytics",
+   "title": "Funnel analysis",
+   "summary": "Define steps from event names, choose conversion window and breakdown, see conversion and drop-off with comparisons.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-analytics",
+    "bars": [
+     70,
+     86,
+     31,
+     47,
+     63,
+     79,
+     24
+    ],
+    "w1": 42,
+    "w2": 47,
+    "w3": 54
+   },
+   "docId": "block:funnel-analysis",
+   "docPath": "/docs/blocks/funnel-analysis"
+  },
+  {
+   "slug": "cohort-retention",
+   "group": "analytics",
+   "title": "Cohort retention",
+   "summary": "Retention analysis with cohort definition, period and metric controls, heatmap and curves.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-analytics",
+    "bars": [
+     84,
+     81,
+     78,
+     75,
+     72,
+     69,
+     66
+    ],
+    "w1": 42,
+    "w2": 41,
+    "w3": 66
+   },
+   "docId": "block:cohort-retention",
+   "docPath": "/docs/blocks/cohort-retention"
+  },
+  {
+   "slug": "ab-test-readout",
+   "group": "analytics",
+   "title": "A/B test readout",
+   "summary": "Experiment results: variants, sample sizes, conversion, lift with confidence intervals, probability to beat control and guardrail metrics, with a plain-language verdict.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-analytics",
+    "bars": [
+     32,
+     59,
+     86,
+     42,
+     69,
+     25,
+     52
+    ],
+    "w1": 42,
+    "w2": 61,
+    "w3": 84
+   },
+   "docId": "block:ab-test-readout",
+   "docPath": "/docs/blocks/ab-test-readout"
+  },
+  {
+   "slug": "report-builder",
+   "group": "analytics",
+   "title": "Report builder",
+   "summary": "Pick metrics, dimensions, filters and a visual; preview live; save and schedule.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-analytics",
+    "bars": [
+     76,
+     23,
+     41,
+     59,
+     77,
+     24,
+     42
+    ],
+    "w1": 42,
+    "w2": 62,
+    "w3": 48
+   },
+   "docId": "block:report-builder",
+   "docPath": "/docs/blocks/report-builder"
+  },
+  {
+   "slug": "chart-builder",
+   "group": "analytics",
+   "title": "Chart builder",
+   "summary": "Choose chart type and map fields to axes, color and size, with smart defaults and accessible color palettes.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-analytics",
+    "bars": [
+     61,
+     74,
+     87,
+     29,
+     42,
+     55,
+     68
+    ],
+    "w1": 42,
+    "w2": 48,
+    "w3": 51
+   },
+   "docId": "block:chart-builder",
+   "docPath": "/docs/blocks/chart-builder"
+  },
+  {
+   "slug": "segment-builder",
+   "group": "analytics",
+   "title": "Segment builder",
+   "summary": "Nested AND/OR condition groups over properties and events with live count preview.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-analytics",
+    "bars": [
+     39,
+     92,
+     74,
+     56,
+     38,
+     91,
+     73
+    ],
+    "w1": 42,
+    "w2": 56,
+    "w3": 48
+   },
+   "docId": "block:segment-builder",
+   "docPath": "/docs/blocks/segment-builder"
+  },
+  {
+   "slug": "anomaly-feed",
+   "group": "analytics",
+   "title": "Anomaly feed",
+   "summary": "A feed of detected anomalies (spend, metrics, errors) with severity, sparkline context, explanation and acknowledge or snooze.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-analytics",
+    "bars": [
+     22,
+     22,
+     22,
+     22,
+     22,
+     22,
+     22
+    ],
+    "w1": 42,
+    "w2": 54,
+    "w3": 78
+   },
+   "docId": "block:anomaly-feed",
+   "docPath": "/docs/blocks/anomaly-feed"
+  },
+  {
+   "slug": "agent-chat-workspace",
+   "group": "agent-apps",
+   "title": "Agent chat workspace",
+   "summary": "Full agent workspace: conversation list, chat thread with tools and approvals, a right panel for artifacts and run details, model picker and token meter.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-agent-apps",
+    "bars": [
+     83,
+     56,
+     29,
+     73,
+     46,
+     90,
+     63
+    ],
+    "w1": 42,
+    "w2": 31,
+    "w3": 66
+   },
+   "docId": "block:agent-chat-workspace",
+   "docPath": "/docs/blocks/agent-chat-workspace"
+  },
+  {
+   "slug": "approval-inbox",
+   "group": "agent-apps",
+   "title": "Approval inbox",
+   "summary": "Queue of pending approvals across agents and workflows with filters, bulk approve for low-risk kinds, keyboard triage and audit history.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-agent-apps",
+    "bars": [
+     69,
+     61,
+     53,
+     45,
+     37,
+     29,
+     92
+    ],
+    "w1": 42,
+    "w2": 50,
+    "w3": 81
+   },
+   "docId": "block:approval-inbox",
+   "docPath": "/docs/blocks/approval-inbox"
+  },
+  {
+   "slug": "workflow-run-history",
+   "group": "agent-apps",
+   "title": "Workflow run history",
+   "summary": "Runs table with status, duration, cost, trigger and version; run detail with canvas playback and logs; retry from failed step.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-agent-apps",
+    "bars": [
+     87,
+     85,
+     83,
+     81,
+     79,
+     77,
+     75
+    ],
+    "w1": 42,
+    "w2": 46,
+    "w3": 51
+   },
+   "docId": "block:workflow-run-history",
+   "docPath": "/docs/blocks/workflow-run-history"
+  },
+  {
+   "slug": "knowledge-base-manager",
+   "group": "agent-apps",
+   "title": "Knowledge base manager",
+   "summary": "Manage sources and documents for RAG: connectors, documents with index status, chunk preview, gaps from the gap finder, re-index and test a question.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-agent-apps",
+    "bars": [
+     57,
+     45,
+     33,
+     92,
+     80,
+     68,
+     56
+    ],
+    "w1": 42,
+    "w2": 35,
+    "w3": 72
+   },
+   "docId": "block:knowledge-base-manager",
+   "docPath": "/docs/blocks/knowledge-base-manager"
+  },
+  {
+   "slug": "prompt-eval-playground",
+   "group": "agent-apps",
+   "title": "Prompt and eval playground",
+   "summary": "Edit a prompt with variables, run it against an eval dataset across models, see per-case results, grader scores, cost and latency, and diff two prompt versions.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-agent-apps",
+    "bars": [
+     52,
+     62,
+     72,
+     82,
+     92,
+     31,
+     41
+    ],
+    "w1": 42,
+    "w2": 47,
+    "w3": 69
+   },
+   "docId": "block:prompt-eval-playground",
+   "docPath": "/docs/blocks/prompt-eval-playground"
+  },
+  {
+   "slug": "agent-settings",
+   "group": "agent-apps",
+   "title": "Agent settings",
+   "summary": "Configure an agent: model tiers, caps (steps, time, cost), approvals per tool, credentials, data handling (redaction), schedule and test run.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-agent-apps",
+    "bars": [
+     63,
+     53,
+     43,
+     33,
+     23,
+     84,
+     74
+    ],
+    "w1": 42,
+    "w2": 30,
+    "w3": 63
+   },
+   "docId": "block:agent-settings",
+   "docPath": "/docs/blocks/agent-settings"
+  },
+  {
+   "slug": "sign-in-sign-up",
+   "group": "app-shell",
+   "title": "Sign in and sign up",
+   "summary": "Auth screens: magic link, GitHub and Google, email verification state, SSO domain detection, errors and rate limits; works with Better Auth.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-app-shell",
+    "bars": [
+     88,
+     39,
+     61,
+     83,
+     34,
+     56,
+     78
+    ],
+    "w1": 42,
+    "w2": 61,
+    "w3": 48
+   },
+   "docId": "block:sign-in-sign-up",
+   "docPath": "/docs/blocks/sign-in-sign-up"
+  },
+  {
+   "slug": "onboarding-wizard",
+   "group": "app-shell",
+   "title": "Onboarding wizard",
+   "summary": "Multi-step onboarding with progress, skippable steps, connected-apps step, and a final checklist; resumes where the user left.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-app-shell",
+    "bars": [
+     44,
+     75,
+     35,
+     66,
+     26,
+     57,
+     88
+    ],
+    "w1": 42,
+    "w2": 54,
+    "w3": 81
+   },
+   "docId": "block:onboarding-wizard",
+   "docPath": "/docs/blocks/onboarding-wizard"
+  },
+  {
+   "slug": "settings",
+   "group": "app-shell",
+   "title": "Settings page",
+   "summary": "Settings layout with section nav, profile, workspace, notifications and danger zone.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-app-shell",
+    "bars": [
+     64,
+     78,
+     92,
+     35,
+     49,
+     63,
+     77
+    ],
+    "w1": 42,
+    "w2": 57,
+    "w3": 54
+   },
+   "docId": "block:settings",
+   "docPath": "/docs/blocks/settings"
+  },
+  {
+   "slug": "billing-and-plans",
+   "group": "app-shell",
+   "title": "Billing and plans",
+   "summary": "Current plan, seats used, renewal date, invoices list, upgrade with credit preview and a link to the payment provider portal.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-app-shell",
+    "bars": [
+     46,
+     54,
+     62,
+     70,
+     78,
+     86,
+     23
+    ],
+    "w1": 42,
+    "w2": 50,
+    "w3": 60
+   },
+   "docId": "block:billing-and-plans",
+   "docPath": "/docs/blocks/billing-and-plans"
+  },
+  {
+   "slug": "team-and-roles",
+   "group": "app-shell",
+   "title": "Team and roles",
+   "summary": "Members list with roles, invites with expiry, seat limit indicator, role changes with confirmation and removal.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-app-shell",
+    "bars": [
+     33,
+     84,
+     64,
+     44,
+     24,
+     75,
+     55
+    ],
+    "w1": 42,
+    "w2": 54,
+    "w3": 60
+   },
+   "docId": "block:team-and-roles",
+   "docPath": "/docs/blocks/team-and-roles"
+  },
+  {
+   "slug": "api-keys",
+   "group": "app-shell",
+   "title": "API keys",
+   "summary": "Create, name, scope and revoke API tokens; show the secret once; last used and device info; abuse warnings.",
+   "free": false,
+   "thumbnail": {
+    "variant": "b-app-shell",
+    "bars": [
+     80,
+     52,
+     24,
+     67,
+     39,
+     82,
+     54
+    ],
+    "w1": 42,
+    "w2": 48,
+    "w3": 51
+   },
+   "docId": "block:api-keys",
+   "docPath": "/docs/blocks/api-keys"
+  }
+ ]
+}
