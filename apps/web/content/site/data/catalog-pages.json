@@ -1,0 +1,403 @@
+{
+ "workflows": {
+  "title": "Workflows",
+  "sub": "Every workflow ships with one config node, retries and a dead-letter log, an AI-off path, fixtures and a 15-minute setup guide. Built for n8n, with Make and Zapier versions where marked.",
+  "stats": [
+   {
+    "v": "60",
+    "l": "workflows"
+   },
+   {
+    "v": "12",
+    "l": "per kit"
+   },
+   {
+    "v": "10",
+    "l": "free"
+   },
+   {
+    "v": "3",
+    "l": "platforms"
+   }
+  ],
+  "searchPlaceholder": "Search workflows",
+  "filters": [
+   {
+    "title": "Kit",
+    "options": [
+     {
+      "label": "All kits",
+      "count": 60
+     },
+     {
+      "label": "Sales",
+      "count": 12,
+      "trio": [
+       "#F07A2E",
+       "#FFB224",
+       "#FFE3A1"
+      ]
+     },
+     {
+      "label": "Support",
+      "count": 12,
+      "trio": [
+       "#2A8C9C",
+       "#4FD6D8",
+       "#BDF4F2"
+      ]
+     },
+     {
+      "label": "Marketing",
+      "count": 12,
+      "trio": [
+       "#C2185B",
+       "#FF4FA3",
+       "#FFC2DC"
+      ]
+     },
+     {
+      "label": "Engineering",
+      "count": 12,
+      "trio": [
+       "#5B3FD6",
+       "#9B7BFF",
+       "#D9CFFF"
+      ]
+     },
+     {
+      "label": "Operations",
+      "count": 12,
+      "trio": [
+       "#3C8F38",
+       "#7CF46A",
+       "#CDFAC4"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Platform",
+    "options": [
+     {
+      "label": "Any platform",
+      "count": 60
+     },
+     {
+      "label": "n8n",
+      "count": 60
+     },
+     {
+      "label": "Make",
+      "count": 20
+     },
+     {
+      "label": "Zapier",
+      "count": 10
+     }
+    ]
+   },
+   {
+    "title": "Access",
+    "options": [
+     {
+      "label": "Everything",
+      "count": 60
+     },
+     {
+      "label": "Free",
+      "count": 10
+     },
+     {
+      "label": "Kit hero workflows",
+      "count": 5
+     }
+    ]
+   },
+   {
+    "title": "Apps you use",
+    "options": [
+     {
+      "label": "Any app",
+      "count": 60
+     },
+     {
+      "label": "Slack",
+      "count": 32
+     },
+     {
+      "label": "GitHub",
+      "count": 13
+     },
+     {
+      "label": "HubSpot",
+      "count": 11
+     },
+     {
+      "label": "Notion",
+      "count": 11
+     },
+     {
+      "label": "Salesforce",
+      "count": 8
+     },
+     {
+      "label": "Linear",
+      "count": 8
+     },
+     {
+      "label": "Jira",
+      "count": 7
+     },
+     {
+      "label": "Pipedrive",
+      "count": 6
+     },
+     {
+      "label": "Outlook",
+      "count": 6
+     },
+     {
+      "label": "Gmail",
+      "count": 5
+     }
+    ]
+   }
+  ]
+ },
+ "agents": {
+  "title": "Agents",
+  "sub": "Each agent ships as TypeScript code, an Agent Skill, an MCP server and an n8n AI Agent. Every write tool waits for approval by default, and every agent has an eval suite you can run yourself.",
+  "stats": [
+   {
+    "v": "50",
+    "l": "agents"
+   },
+   {
+    "v": "10",
+    "l": "per kit"
+   },
+   {
+    "v": "4",
+    "l": "forms each"
+   },
+   {
+    "v": "3",
+    "l": "free"
+   }
+  ],
+  "searchPlaceholder": "Search agents",
+  "filters": [
+   {
+    "title": "Kit",
+    "options": [
+     {
+      "label": "All kits",
+      "count": 50
+     },
+     {
+      "label": "Sales",
+      "count": 10,
+      "trio": [
+       "#F07A2E",
+       "#FFB224",
+       "#FFE3A1"
+      ]
+     },
+     {
+      "label": "Support",
+      "count": 10,
+      "trio": [
+       "#2A8C9C",
+       "#4FD6D8",
+       "#BDF4F2"
+      ]
+     },
+     {
+      "label": "Marketing",
+      "count": 10,
+      "trio": [
+       "#C2185B",
+       "#FF4FA3",
+       "#FFC2DC"
+      ]
+     },
+     {
+      "label": "Engineering",
+      "count": 10,
+      "trio": [
+       "#5B3FD6",
+       "#9B7BFF",
+       "#D9CFFF"
+      ]
+     },
+     {
+      "label": "Operations",
+      "count": 10,
+      "trio": [
+       "#3C8F38",
+       "#7CF46A",
+       "#CDFAC4"
+      ]
+     }
+    ]
+   },
+   {
+    "title": "Availability",
+    "options": [
+     {
+      "label": "All agents",
+      "count": 50
+     },
+     {
+      "label": "Launch set",
+      "count": 30
+     },
+     {
+      "label": "Next drop",
+      "count": 20
+     }
+    ]
+   },
+   {
+    "title": "Tools",
+    "options": [
+     {
+      "label": "Any",
+      "count": 50
+     },
+     {
+      "label": "Read-only",
+      "count": 13
+     },
+     {
+      "label": "Writes with approval",
+      "count": 37
+     }
+    ]
+   },
+   {
+    "title": "Access",
+    "options": [
+     {
+      "label": "Everything",
+      "count": 50
+     },
+     {
+      "label": "Free",
+      "count": 3
+     }
+    ]
+   }
+  ]
+ },
+ "ui": {
+  "title": "UI",
+  "sub": "Components and blocks for products with agents in them, on shadcn and Tailwind 4. Install with the shadcn CLI, our CLI or your AI tool, into code you own.",
+  "stats": [
+   {
+    "v": "50",
+    "l": "components"
+   },
+   {
+    "v": "50",
+    "l": "blocks"
+   },
+   {
+    "v": "15",
+    "l": "free"
+   },
+   {
+    "v": "2",
+    "l": "themes"
+   }
+  ],
+  "searchPlaceholder": "Search components",
+  "filters": [
+   {
+    "title": "Category",
+    "options": [
+     {
+      "label": "All components",
+      "count": 50
+     },
+     {
+      "label": "AI interaction",
+      "count": 10
+     },
+     {
+      "label": "Agent control",
+      "count": 8
+     },
+     {
+      "label": "Data display",
+      "count": 10
+     },
+     {
+      "label": "Inputs",
+      "count": 8
+     },
+     {
+      "label": "Shell and layout",
+      "count": 8
+     },
+     {
+      "label": "Workflow",
+      "count": 6
+     }
+    ]
+   },
+   {
+    "title": "Access",
+    "options": [
+     {
+      "label": "Everything",
+      "count": 50
+     },
+     {
+      "label": "Free",
+      "count": 15
+     }
+    ]
+   }
+  ],
+  "blocksTab": {
+   "searchPlaceholder": "Search blocks",
+   "filters": [
+    {
+     "title": "Category",
+     "options": [
+      {
+       "label": "All blocks",
+       "count": 50
+      },
+      {
+       "label": "Landing pages",
+       "count": 15
+      },
+      {
+       "label": "Dashboards",
+       "count": 8
+      },
+      {
+       "label": "CRM",
+       "count": 8
+      },
+      {
+       "label": "Analytics",
+       "count": 7
+      },
+      {
+       "label": "Agent apps",
+       "count": 6
+      },
+      {
+       "label": "App shell",
+       "count": 6
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
