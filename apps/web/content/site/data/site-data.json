@@ -1,0 +1,385 @@
+{
+ "kits": [
+  {
+   "slug": "sales",
+   "name": "Sales",
+   "trio": [
+    "#F07A2E",
+    "#FFB224",
+    "#FFE3A1"
+   ],
+   "components": 14,
+   "promise": "Every inbound lead enriched, scored, routed and answered, with a first email ready for the rep to approve.",
+   "heroWorkflow": "inbound-lead-qualifier",
+   "heroAgent": "inbound-qualifier",
+   "dashboardBlock": "sales-pipeline",
+   "apps": "HubSpot, Slack, Apollo, Gmail",
+   "installCommand": "npx ailibrary kit add sales",
+   "docId": "kit:sales"
+  },
+  {
+   "slug": "support",
+   "name": "Support",
+   "trio": [
+    "#2A8C9C",
+    "#4FD6D8",
+    "#BDF4F2"
+   ],
+   "components": 12,
+   "promise": "Every ticket classified and routed, with a grounded reply drafted from your help center for a person to approve.",
+   "heroWorkflow": "ticket-triage",
+   "heroAgent": "grounded-answer",
+   "dashboardBlock": "support-operations",
+   "apps": "Zendesk, Intercom, Slack, Stripe",
+   "installCommand": "npx ailibrary kit add support",
+   "docId": "kit:support"
+  },
+  {
+   "slug": "marketing",
+   "name": "Marketing",
+   "trio": [
+    "#C2185B",
+    "#FF4FA3",
+    "#FFC2DC"
+   ],
+   "components": 11,
+   "promise": "One published post turned into a week of on-brand content, with attribution that shows what it brought back.",
+   "heroWorkflow": "content-repurposer",
+   "heroAgent": "brand-voice-editor",
+   "dashboardBlock": "marketing-attribution",
+   "apps": "LinkedIn, X, Buffer, Ahrefs",
+   "installCommand": "npx ailibrary kit add marketing",
+   "docId": "kit:marketing"
+  },
+  {
+   "slug": "engineering",
+   "name": "Engineering",
+   "trio": [
+    "#5B3FD6",
+    "#9B7BFF",
+    "#D9CFFF"
+   ],
+   "components": 13,
+   "promise": "Every alert grouped and triaged, every pull request reviewed, and release notes written from what merged.",
+   "heroWorkflow": "incident-triage",
+   "heroAgent": "incident-triage",
+   "dashboardBlock": "incident-board",
+   "apps": "GitHub, Sentry, Linear, Slack",
+   "installCommand": "npx ailibrary kit add engineering",
+   "docId": "kit:engineering"
+  },
+  {
+   "slug": "operations",
+   "name": "Operations",
+   "trio": [
+    "#3C8F38",
+    "#7CF46A",
+    "#CDFAC4"
+   ],
+   "components": 12,
+   "promise": "Every invoice captured, matched to its purchase order and posted, with the month-end close tracked in one place.",
+   "heroWorkflow": "invoice-and-receipt-capture",
+   "heroAgent": "invoice-extractor",
+   "dashboardBlock": "finance-overview",
+   "apps": "Gmail, Xero, QuickBooks, Slack",
+   "installCommand": "npx ailibrary kit add operations",
+   "docId": "kit:operations"
+  }
+ ],
+ "free": {
+  "wf": [
+   "sales/reply-classifier",
+   "sales/weekly-pipeline-digest",
+   "support/csat-nps-theme-analysis",
+   "support/weekly-support-ops-report",
+   "marketing/newsletter-curator",
+   "marketing/brand-mention-listener",
+   "engineering/daily-standup-digest",
+   "engineering/flaky-test-tracker",
+   "operations/meeting-notes-to-action-items",
+   "operations/weekly-kpi-report"
+  ],
+  "ag": [
+   "engineering/release-notes-writer",
+   "operations/meeting-to-tasks",
+   "support/macro-writer"
+  ],
+  "ui": [
+   "kpi-stat",
+   "sparkline",
+   "run-timeline",
+   "step-status-list",
+   "empty-state",
+   "skeletons",
+   "tabs",
+   "citation-chip",
+   "confidence-badge",
+   "token-cost-meter",
+   "prompt-input",
+   "streaming-message",
+   "number-field",
+   "kanban-column",
+   "connector-line"
+  ]
+ },
+ "uiGroups": {
+  "components": [
+   [
+    "ai-interaction",
+    "AI interaction"
+   ],
+   [
+    "agent-control",
+    "Agent control"
+   ],
+   [
+    "data-display",
+    "Data display"
+   ],
+   [
+    "inputs",
+    "Inputs"
+   ],
+   [
+    "shell",
+    "Shell and layout"
+   ],
+   [
+    "workflow",
+    "Workflow"
+   ]
+  ],
+  "blocks": [
+   [
+    "landing",
+    "Landing pages"
+   ],
+   [
+    "dashboards",
+    "Dashboards"
+   ],
+   [
+    "crm",
+    "CRM"
+   ],
+   [
+    "analytics",
+    "Analytics"
+   ],
+   [
+    "agent-apps",
+    "Agent apps"
+   ],
+   [
+    "app-shell",
+    "App shell"
+   ]
+  ]
+ },
+ "apps": [
+  {
+   "name": "HubSpot",
+   "icon": "db"
+  },
+  {
+   "name": "Salesforce",
+   "icon": "db"
+  },
+  {
+   "name": "Pipedrive",
+   "icon": "db"
+  },
+  {
+   "name": "Slack",
+   "icon": "chat"
+  },
+  {
+   "name": "Teams",
+   "icon": "chat"
+  },
+  {
+   "name": "Zendesk",
+   "icon": "mail"
+  },
+  {
+   "name": "Intercom",
+   "icon": "chat"
+  },
+  {
+   "name": "Freshdesk",
+   "icon": "mail"
+  },
+  {
+   "name": "Gmail",
+   "icon": "mail"
+  },
+  {
+   "name": "Outlook",
+   "icon": "mail"
+  },
+  {
+   "name": "Google Sheets",
+   "icon": "db"
+  },
+  {
+   "name": "Notion",
+   "icon": "file"
+  },
+  {
+   "name": "Linear",
+   "icon": "git"
+  },
+  {
+   "name": "Jira",
+   "icon": "git"
+  },
+  {
+   "name": "GitHub",
+   "icon": "git"
+  },
+  {
+   "name": "Sentry",
+   "icon": "alert"
+  },
+  {
+   "name": "PagerDuty",
+   "icon": "alert"
+  },
+  {
+   "name": "Datadog",
+   "icon": "gauge"
+  },
+  {
+   "name": "Stripe",
+   "icon": "dollar"
+  },
+  {
+   "name": "Xero",
+   "icon": "dollar"
+  },
+  {
+   "name": "QuickBooks",
+   "icon": "dollar"
+  },
+  {
+   "name": "Typeform",
+   "icon": "form"
+  },
+  {
+   "name": "LinkedIn",
+   "icon": "send"
+  },
+  {
+   "name": "Buffer",
+   "icon": "calendar"
+  },
+  {
+   "name": "Ahrefs",
+   "icon": "search"
+  },
+  {
+   "name": "Webflow",
+   "icon": "globe"
+  },
+  {
+   "name": "Calendly",
+   "icon": "calendar"
+  },
+  {
+   "name": "Gong",
+   "icon": "chat"
+  },
+  {
+   "name": "Apollo",
+   "icon": "globe"
+  },
+  {
+   "name": "Google Drive",
+   "icon": "file"
+  }
+ ],
+ "prices": {
+  "kit": {
+   "solo": 149,
+   "team": 449,
+   "renew": 49,
+   "seat": 69
+  },
+  "ui": {
+   "solo": 249,
+   "team": 749,
+   "renew": 79,
+   "seat": 119
+  },
+  "workflows": {
+   "solo": 249,
+   "team": 749,
+   "renew": 79,
+   "seat": 119
+  },
+  "agents": {
+   "solo": 249,
+   "team": 749,
+   "renew": 79,
+   "seat": 119
+  },
+  "all": {
+   "solo": 499,
+   "team": 1499,
+   "renew": 149,
+   "seat": 239
+  }
+ },
+ "pricingFaq": [
+  {
+   "q": "Do I pay once or every year?",
+      "a": "Once. You keep everything you install, forever. Each plan includes 12 months of new drops and fixes; after that you can renew for updates ({kit.renew} to {all.renew} a year) or keep what you have."
+  },
+  {
+   "q": "Why not sell single workflows or agents?",
+   "a": "A single item is rarely the job. Kits are wired together on the same data, and libraries cover one type across every team. Ten workflows, fifteen components and three agents are free if you want to try first."
+  },
+  {
+   "q": "How does upgrade credit work?",
+      "a": "Everything you paid in the last 12 months counts toward a higher plan. A Sales kit buyer moves to All-Access for {upgrade.kitAll}."
+  },
+  {
+   "q": "What does the licence allow?",
+   "a": "Unlimited personal, commercial and client projects. You cannot resell the items themselves as templates, kits or a library."
+  },
+  {
+   "q": "Can I get a refund?",
+   "a": "Yes, within 14 days, if an item does not work as documented and support cannot fix it. Files are delivered instantly, so we do not offer no-questions refunds."
+  },
+  {
+   "q": "How do team plans work?",
+   "a": "A team plan includes 5 seats, each with their own account and CLI token, plus a shared workspace, seat management, an organisation-wide licence and priority fixes. Add more seats any time, up to 25. Above 25, talk to Studio about Enterprise."
+  },
+  {
+   "q": "How is payment handled?",
+   "a": "Dodo Payments is the merchant of record, so VAT, GST and US sales tax are calculated at checkout and your invoice comes from them."
+  }
+ ],
+ "pricingOwnedOptions": [
+  {
+   "key": "none",
+   "label": "Nothing yet",
+   "credit": 0
+  },
+  {
+   "key": "kit",
+   "label": "A kit ($149)",
+   "credit": 149
+  },
+  {
+   "key": "lib",
+   "label": "A library ($249)",
+   "credit": 249
+  },
+  {
+   "key": "two",
+   "label": "Two kits ($298)",
+   "credit": 298
+  }
+ ]
+}
