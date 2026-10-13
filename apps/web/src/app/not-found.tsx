@@ -1,14 +1,14 @@
 import Link from "next/link";
 
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
     <div className="min-h-svh bg-background text-foreground">
       <header className="border-b border-border">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="font-display text-lg font-bold">
+          <Link href="/" prefetch={false} className="font-display text-lg font-bold">
             AI Library
           </Link>
           <ThemeToggle />
@@ -27,9 +27,7 @@ export default function NotFound() {
             This page may have moved or no longer exists.
           </p>
         </div>
-        <Button asChild>
-          <Link href="/">Return home</Link>
-        </Button>
+        <Link href="/" prefetch={false} className={buttonVariants()} data-slot="button" data-variant="default" data-size="default">Return home</Link>
       </main>
     </div>
   );
