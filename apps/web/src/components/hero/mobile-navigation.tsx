@@ -1,14 +1,18 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Popover } from "radix-ui";
+import * as Popover from "radix-ui/popover";
 import { useEffect, useState } from "react";
 
 import { BrandMark } from "@/components/brand-mark";
 import { ThemeToggle } from "@/components/theme-toggle";
+import type { SearchItem } from "@content/site/catalog";
 
 import s from "./mobile-navigation.module.css";
+
+const SiteNavigation = dynamic(() => import("@/components/site/site-navigation").then(module => module.SiteNavigation));
 
 const links = [
   { href: "#kits", label: "Kits" },
@@ -20,11 +24,16 @@ const links = [
 ] as const;
 
 type HeroNavigationProps = {
+  variant?: "hero";
   multicolor: boolean;
   onColorModeChange: () => void;
-};
+} | { variant: "site"; searchItems: readonly SearchItem[] };
 
-export function HeroNavigation({ multicolor, onColorModeChange }: HeroNavigationProps) {
+export function HeroNavigation(props: HeroNavigationProps) {
+  return props.variant === "site" ? <SiteNavigation /> : <HeroNavigationContent {...props} />;
+}
+
+function HeroNavigationContent({ multicolor, onColorModeChange }: { multicolor: boolean; onColorModeChange: () => void }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
@@ -52,7 +61,7 @@ export function HeroNavigation({ multicolor, onColorModeChange }: HeroNavigation
 
   return (
     <header ref={setPortalContainer} className={s.header} data-scrolled={scrolled}>
-      <Link prefetch={false}
+      <Link
         href="#top"
         className={`${s.brand}${multicolor ? ` ${s.brandMulticolor}` : ""}`}
         aria-label="AI Library home"
@@ -62,7 +71,7 @@ export function HeroNavigation({ multicolor, onColorModeChange }: HeroNavigation
       </Link>
       <nav className={s.desktopLinks} aria-label="Main">
         {links.map((link) => (
-          <Link prefetch={false} href={link.href} key={link.href}>
+          <Link href={link.href} key={link.href}>
             {link.label}
           </Link>
         ))}
@@ -82,7 +91,7 @@ export function HeroNavigation({ multicolor, onColorModeChange }: HeroNavigation
           </span>
         </button>
         <ThemeToggle className={s.icon} />
-        <Link prefetch={false} href="#free" className={s.getStarted}>
+        <Link href="#free" className={s.getStarted}>
           Get started
         </Link>
         <Popover.Root open={open} onOpenChange={setOpen}>
@@ -107,13 +116,13 @@ export function HeroNavigation({ multicolor, onColorModeChange }: HeroNavigation
               <nav aria-label="Mobile main">
                 <div className={s.menuLinks}>
                   {links.map((link) => (
-                    <Link prefetch={false} href={link.href} key={link.href} className={s.menuLink} onClick={close}>
+                    <Link href={link.href} key={link.href} className={s.menuLink} onClick={close}>
                       {link.label}
                     </Link>
                   ))}
                 </div>
                 <div className={s.account}>
-                  <Link prefetch={false} href="#free" className={s.menuSignup} onClick={close}>
+                  <Link href="#free" className={s.menuSignup} onClick={close}>
                     Get started
                   </Link>
                 </div>
