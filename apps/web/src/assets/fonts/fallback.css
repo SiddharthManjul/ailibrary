@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Bricolage Grotesque Fallback";
+  src: local("Arial");
+  ascent-override: 88.21%;
+  descent-override: 25.61%;
+  line-gap-override: 0%;
+  size-adjust: 105.43%;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque Pricing Fallback";
+  src: local("Arial");
+  ascent-override: 96.780150%;
+  descent-override: 28.098171%;
+  line-gap-override: 0%;
+  size-adjust: 96.093882%;
+}
