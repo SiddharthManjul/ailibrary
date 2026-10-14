@@ -4,8 +4,7 @@ export const landingTitle = "AI Library: workflows, agents and UI kits for every
 export const landingDescription = "Production-ready workflows, agents and UI components running standalone & packaged as kits for every team.";
 
 export function getSiteURL() {
-  const hostname = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
-  const configured = process.env.NEXT_PUBLIC_SITE_URL || (hostname ? `https://${hostname}` : undefined);
+  const configured = process.env.NEXT_PUBLIC_SITE_URL;
   if (!configured) return undefined;
   try {
     const url = new URL(configured);
