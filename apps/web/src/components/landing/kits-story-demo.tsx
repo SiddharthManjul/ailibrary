@@ -213,7 +213,7 @@ export function KitsStoryDemo() {
             {[[12, "workflows", "/workflows"], [10, "agents", "/agents"], [1, "dashboard", "/ui"], [kit.comps, "components", "/ui"]].map(([count, label, href]) => <Link className="lp-kt-c" key={label} href={`${href}?kit=${kit.slug}`}><b>{count}</b><span>{label}</span></Link>)}
           </div>
         </div>
-        <div className="lp-kt-in-r"><span className="lp-kt-price">{kit.price}<em>one-time</em></span><Link className="lp-btn lp-btn-p" href={`/kits/${kit.slug}`}>View the {kit.name} kit <Icon name="arrow" /></Link></div>
+        <div className="lp-kt-in-r"><span className="lp-kt-price">{kit.price}<em>one-time</em></span><Link className="lp-btn lp-btn-p" href={`/kits#${kit.slug}`}>View the {kit.name} kit <Icon name="arrow" /></Link></div>
       </div>
     </div>
   );
