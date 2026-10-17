@@ -36,7 +36,7 @@
 .st-ph p{margin:calc(16 * var(--u)) 0 0;max-width:calc(680 * var(--u));font-size:calc(18 * var(--u));line-height:1.55;color:var(--muted)}
 
 .st-kits{display:flex;flex-direction:column;gap:calc(20 * var(--u));margin-top:calc(48 * var(--u))}
-.st-kit{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);border:1px solid var(--line2);border-radius:calc(20 * var(--u));background:var(--panel);overflow:hidden}
+.st-kit{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);border:1px solid var(--line2);border-radius:calc(20 * var(--u));background:var(--panel);overflow:hidden;scroll-margin-top:calc(96 * var(--u))}
 .st-kit-l{padding:calc(32 * var(--u)) calc(36 * var(--u));display:flex;flex-direction:column}
 .st-kit-name{display:flex;align-items:center;gap:calc(14 * var(--u))}
 .st-trio-lg i{width:calc(16 * var(--u));height:calc(16 * var(--u));box-shadow:0 0 0 calc(2 * var(--u)) var(--panel)}
