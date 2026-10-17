@@ -33,7 +33,7 @@ function KitCard({ kit }: { kit: Kit }) {
       ? kitAgents.map((item) => ({ ...item, tag: item.nextDrop ? "next drop" : item.free ? "free" : "" }))
       : [{ ...dashboard, tag: "dashboard" }, ...kitComponents.map((slug) => ({ ...components.find((item) => item.slug === slug)!, tag: "component" }))];
 
-  return <article className="st-kit" data-testid="kit-card">
+  return <article className="st-kit" id={kit.slug} data-testid="kit-card">
     <div className="st-kit-l">
       <div className="st-kit-name"><Trio colors={kit.trio} large /><h2>{kit.name} kit</h2></div>
       <p className="st-kit-p">{kit.promise}</p>
