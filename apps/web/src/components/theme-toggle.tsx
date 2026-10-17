@@ -4,13 +4,11 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
 
-import { cn } from "@/lib/utils";
-
 const subscribe = () => () => {};
 const getSnapshot = () => true;
 const getServerSnapshot = () => false;
 
-export function ThemeToggle({ className, variant = "icon" }: { className?: string; variant?: "icon" | "select" }) {
+export function ThemeToggle({ className, variant = "icon", ariaLabel }: { className?: string; variant?: "icon" | "select"; ariaLabel?: string }) {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const isDark = mounted && resolvedTheme === "dark";
@@ -20,7 +18,7 @@ export function ThemeToggle({ className, variant = "icon" }: { className?: strin
 
   if (variant === "select") {
     return (
-      <label className={cn("grid gap-1 text-xs text-muted-foreground", className)}>
+      <label className={`grid gap-1 text-xs text-muted-foreground${className ? ` ${className}` : ""}`}>
         Theme
         <select
           aria-label="Theme"
@@ -41,13 +39,10 @@ export function ThemeToggle({ className, variant = "icon" }: { className?: strin
   return (
     <button
       type="button"
-      className={cn(
-        "inline-flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-[var(--button-radius)] border-0 bg-transparent text-foreground shadow-none outline-none transition-colors hover:text-primary focus-visible:bg-accent focus-visible:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none",
-        className,
-      )}
+      className={`inline-flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-[var(--button-radius)] border-0 bg-transparent text-foreground shadow-none outline-none transition-colors hover:text-primary focus-visible:bg-accent focus-visible:text-accent-foreground focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 motion-reduce:transition-none${className ? ` ${className}` : ""}`}
       disabled={!mounted}
       onClick={() => setTheme(nextTheme)}
-      aria-label={label}
+      aria-label={ariaLabel || label}
       title={label}
       data-slot="theme-toggle"
     >
