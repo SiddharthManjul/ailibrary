@@ -22,7 +22,7 @@
   --muted-foreground: #55555e;
   --accent: #ecece8;
   --accent-foreground: var(--foreground);
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: #cc000a;
   --destructive-foreground: #ffffff;
   --success: #356a2a;
   --success-foreground: #ffffff;
