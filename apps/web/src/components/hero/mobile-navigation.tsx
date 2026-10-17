@@ -15,11 +15,11 @@ import s from "./mobile-navigation.module.css";
 const SiteNavigation = dynamic(() => import("@/components/site/site-navigation").then(module => module.SiteNavigation));
 
 const links = [
-  { href: "#kits", label: "Kits" },
-  { href: "#workflows", label: "Workflows" },
-  { href: "#agents", label: "Agents" },
-  { href: "#ui", label: "UI" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "/kits", label: "Kits" },
+  { href: "/workflows", label: "Workflows" },
+  { href: "/agents", label: "Agents" },
+  { href: "/ui", label: "UI" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/docs", label: "Docs" },
 ] as const;
 
@@ -71,7 +71,7 @@ function HeroNavigationContent({ multicolor, onColorModeChange }: { multicolor: 
       </Link>
       <nav className={s.desktopLinks} aria-label="Main">
         {links.map((link) => (
-          <Link href={link.href} key={link.href}>
+          <Link href={link.href} prefetch={false} key={link.href}>
             {link.label}
           </Link>
         ))}
@@ -91,7 +91,7 @@ function HeroNavigationContent({ multicolor, onColorModeChange }: { multicolor: 
           </span>
         </button>
         <ThemeToggle className={s.icon} />
-        <Link href="#free" className={s.getStarted}>
+        <Link href="/workflows?access=free" prefetch={false} className={s.getStarted}>
           Get started
         </Link>
         <Popover.Root open={open} onOpenChange={setOpen}>
@@ -116,13 +116,13 @@ function HeroNavigationContent({ multicolor, onColorModeChange }: { multicolor: 
               <nav aria-label="Mobile main">
                 <div className={s.menuLinks}>
                   {links.map((link) => (
-                    <Link href={link.href} key={link.href} className={s.menuLink} onClick={close}>
+                    <Link href={link.href} prefetch={false} key={link.href} className={s.menuLink} onClick={close}>
                       {link.label}
                     </Link>
                   ))}
                 </div>
                 <div className={s.account}>
-                  <Link href="#free" className={s.menuSignup} onClick={close}>
+                  <Link href="/workflows?access=free" prefetch={false} className={s.menuSignup} onClick={close}>
                     Get started
                   </Link>
                 </div>
