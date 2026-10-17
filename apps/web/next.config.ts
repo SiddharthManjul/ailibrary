@@ -11,7 +11,14 @@ const nextConfig: NextConfig = {
     return [{ source: "/docs/:slug*.md", destination: "/markdown/:slug*" }];
   },
   async redirects() {
-    return [{ source: "/changelog", destination: "/docs/reference/changelog", permanent: true }];
+    return [
+      { source: "/changelog", destination: "/docs/reference/changelog", permanent: true },
+      ...["sales", "support", "marketing", "engineering", "operations"].map(kit => ({
+        source: `/kits/${kit}`,
+        destination: `/kits#${kit}`,
+        permanent: true,
+      })),
+    ];
   },
 };
 
