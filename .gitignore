@@ -12,7 +12,7 @@ next-env.d.ts
 .env.*
 .DS_Store
 *.log
-kits/
+/kits/
 .gstack/
 .artifacts/
 AGENTS.md
