@@ -8,7 +8,7 @@ const themes = ["light", "dark"];
 export function ThemeProvider({ children }: { children: ReactNode }) {
   return (
     <NextThemesProvider
-      attribute="class"
+      attribute={["class", "data-theme"]}
       defaultTheme="system"
       storageKey="ai-library-theme"
       themes={themes}
