@@ -102,8 +102,8 @@ export function HeroSection({ className }: { className?: string }) {
               </h1>
               <p className={s.desc}>Production-ready workflows, agents and UI components running standalone &amp; packaged as kits for every team.</p>
               <div className={s.ctas}>
-                <Link href="#kits" className={cn(s.btn, s.btnAcc)}>Browse kits <ArrowRight aria-hidden="true" /></Link>
-                <Link href="#free" className={cn(s.btn, s.btnGhost)}>Get a free item</Link>
+                <Link href="/kits" prefetch={false} className={cn(s.btn, s.btnAcc)}>Browse kits <ArrowRight aria-hidden="true" /></Link>
+                <Link href="/workflows?access=free" prefetch={false} className={cn(s.btn, s.btnGhost)}>Get a free item</Link>
               </div>
             </div>
             <div className={s.kits}
