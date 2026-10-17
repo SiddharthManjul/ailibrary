@@ -2415,7 +2415,7 @@ export const homeCopy = {
         },
         {
           "label": "Drops",
-          "href": "/drops",
+          "href": "/docs/reference/changelog",
           "badge": "weekly"
         },
         {
@@ -2428,7 +2428,7 @@ export const homeCopy = {
         },
         {
           "label": "Test results",
-          "href": "#tested"
+          "href": "/#tested"
         }
       ]
     },
@@ -2441,15 +2441,15 @@ export const homeCopy = {
         },
         {
           "label": "About",
-          "href": "/about"
+          "href": "/#studio"
         },
         {
           "label": "Contact",
-          "href": "/contact"
+          "href": "https://www.thedoomstudio.com/"
         },
         {
           "label": "X",
-          "href": "/contact"
+          "href": null
         }
       ]
     },
@@ -2458,7 +2458,7 @@ export const homeCopy = {
       "links": [
         {
           "label": "Terms",
-          "href": "/terms"
+          "href": null
         },
         {
           "label": "Licence",
@@ -2470,7 +2470,7 @@ export const homeCopy = {
         },
         {
           "label": "Privacy",
-          "href": "/privacy"
+          "href": null
         }
       ]
     }
