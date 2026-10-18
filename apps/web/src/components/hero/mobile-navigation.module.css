@@ -30,7 +30,7 @@
   gap: calc(10 * var(--hero-unit));
   color: var(--hx-ink);
   font-family: var(--font-bricolage-grotesque), "Bricolage Grotesque", system-ui, sans-serif;
-  font-size: calc(18 * var(--hero-unit));
+  font-size: calc((18 * var(--hero-unit)) * var(--website-type-scale));
   font-weight: 650;
   line-height: 1;
   letter-spacing: -0.01em;
@@ -52,7 +52,7 @@
   display: flex;
   gap: calc(28 * var(--hero-unit));
   color: var(--hx-muted);
-  font-size: calc(15 * var(--hero-unit));
+  font-size: calc((15 * var(--hero-unit)) * var(--website-type-scale));
   line-height: 1;
 }
 
@@ -148,7 +148,7 @@
   background: var(--hx-accent);
   color: var(--hx-on-accent);
   font-family: var(--font-bricolage-grotesque), "Bricolage Grotesque", system-ui, sans-serif;
-  font-size: calc(15 * var(--hero-unit));
+  font-size: calc((15 * var(--hero-unit)) * var(--website-type-scale));
   font-weight: 600;
   line-height: 1;
   text-decoration: none;
@@ -183,7 +183,7 @@
   background: var(--hx-panel);
   color: var(--hx-ink);
   font-family: var(--font-bricolage-grotesque), "Bricolage Grotesque", system-ui, sans-serif;
-  font-size: 15px;
+  font-size: calc(15px * var(--website-type-scale));
   line-height: 1.4;
   outline: none;
   transform-origin: var(--radix-popover-content-transform-origin);
@@ -228,7 +228,7 @@
 .menuSignup {
   height: 44px;
   margin-top: 4px;
-  font-size: 15px;
+  font-size: calc(15px * var(--website-type-scale));
 }
 
 @keyframes shine {
@@ -253,7 +253,7 @@
 
 @media (max-width: 640px) {
   .header { height: 64px; padding-inline: 20px; gap: 12px; }
-  .brand { font-size: 17px; }
+  .brand { font-size: calc(17px * var(--website-type-scale)); }
   .controls { gap: 8px; }
   .icon { width: 42px; height: 42px; }
   .getStarted { display: none; }
