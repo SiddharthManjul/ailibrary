@@ -12,6 +12,19 @@
   --font-sans: var(--font-bricolage-grotesque);
   --font-display: var(--font-bricolage-grotesque);
   --font-mono: var(--font-bricolage-grotesque);
+  --text-xs: calc(0.75rem * var(--website-type-scale));
+  --text-sm: calc(0.875rem * var(--website-type-scale));
+  --text-base: calc(1rem * var(--website-type-scale));
+  --text-lg: calc(1.125rem * var(--website-type-scale));
+  --text-xl: calc(1.25rem * var(--website-type-scale));
+  --text-2xl: calc(1.5rem * var(--website-type-scale));
+  --text-3xl: calc(1.875rem * var(--website-type-scale));
+  --text-4xl: calc(2.25rem * var(--website-type-scale));
+  --text-5xl: calc(3rem * var(--website-type-scale));
+  --text-6xl: calc(3.75rem * var(--website-type-scale));
+  --text-7xl: calc(4.5rem * var(--website-type-scale));
+  --text-8xl: calc(6rem * var(--website-type-scale));
+  --text-9xl: calc(8rem * var(--website-type-scale));
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
@@ -68,6 +81,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-size: calc(1rem * var(--website-type-scale));
   }
 
   button {
@@ -86,6 +100,7 @@
 }
 
 :root {
+  --website-type-scale: 0.92;
   --surface-inset: #f3f3ef;
   --surface-raised: #e8e8e2;
   --border-strong: #d2d2cb;
