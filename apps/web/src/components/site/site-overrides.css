@@ -10,23 +10,23 @@
 .st-portals{height:0}
 .st .st-menu-bg{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.5);backdrop-filter:blur(4px)}
 .st .st-sheet{position:fixed;inset:calc(64 * var(--u)) 0 auto;z-index:61;max-height:calc(100svh - 64px);overflow-y:auto;padding:12px 24px 24px;border-radius:0 0 18px 18px}
-.st-sheet-heading{display:flex;align-items:center;justify-content:space-between;padding-bottom:8px;font-size:13px;color:var(--muted)}
+.st-sheet-heading{display:flex;align-items:center;justify-content:space-between;padding-bottom:8px;font-size:calc(13px * var(--website-type-scale));color:var(--muted)}
 .st-sheet nav{display:flex;flex-direction:column}
 .st-sheet a{display:flex;align-items:center;justify-content:space-between}
 .st .st-ib[data-slot=theme-toggle]{width:calc(38 * var(--u));height:calc(38 * var(--u));border:1px solid var(--line2);border-radius:calc(10 * var(--u));background:var(--panel)}
 .st-trio i{width:calc(8 * var(--u));height:calc(8 * var(--u))}
 .st-trio i+i{margin-left:calc(-2 * var(--u))}
 .st-trio.is-lg i{width:calc(12 * var(--u));height:calc(12 * var(--u))}
-.st-chip{display:inline-flex;align-items:center;padding:calc(4 * var(--u)) calc(8 * var(--u));border:1px solid var(--line2);border-radius:calc(6 * var(--u));background:var(--panel2);font-family:var(--mono);font-size:calc(11 * var(--u));color:var(--muted)}
-.st-copy{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:30px;padding:4px 9px;border:1px solid transparent;border-radius:7px;background:transparent;font-size:12px;color:var(--muted);cursor:pointer}
+.st-chip{display:inline-flex;align-items:center;padding:calc(4 * var(--u)) calc(8 * var(--u));border:1px solid var(--line2);border-radius:calc(6 * var(--u));background:var(--panel2);font-family:var(--mono);font-size:calc((11 * var(--u)) * var(--website-type-scale));color:var(--muted)}
+.st-copy{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:30px;padding:4px 9px;border:1px solid transparent;border-radius:7px;background:transparent;font-size:calc(12px * var(--website-type-scale));color:var(--muted);cursor:pointer}
 .st-copy:hover{border-color:var(--line2);color:var(--ink)}
 .st-copy .lp-ic{width:14px;height:14px}
 .st-code-line.is-comment{color:var(--faint)}
 .st-code-line.is-success{color:var(--ok)}
 .st-code-prompt{color:var(--p)}
 .st-table{width:100%;border-collapse:collapse;text-align:left}
-.st-table th{background:var(--panel2);font-weight:500;font-size:calc(11 * var(--u));color:var(--muted)}
-.st-table :is(th,td){padding:calc(12 * var(--u)) calc(16 * var(--u));border-bottom:1px solid var(--line);font-size:calc(13 * var(--u));vertical-align:top}
+.st-table th{background:var(--panel2);font-weight:500;font-size:calc((11 * var(--u)) * var(--website-type-scale));color:var(--muted)}
+.st-table :is(th,td){padding:calc(12 * var(--u)) calc(16 * var(--u));border-bottom:1px solid var(--line);font-size:calc((13 * var(--u)) * var(--website-type-scale));vertical-align:top}
 .st-table tr:last-child td{border-bottom:0}
 .st .st-pal-in input{min-width:0}
 .st .st-pal{max-height:calc(100svh - 140px);overflow-y:auto}
@@ -37,5 +37,5 @@
 .st :is(h1,h2,h3){text-wrap:balance}
 @media(min-width:1101px) and (max-width:1400px){.st .st-hd{gap:calc(18 * var(--u));padding-inline:calc(24 * var(--u))}.st .st-sbtn{width:calc(185 * var(--u))}.st .st-nav a{padding-inline:calc(9 * var(--u))}}
 @media(max-width:1100px){.st .st-pal{top:80px}.st .st-table{min-width:580px}}
-@media(max-width:640px){.st .st-brand{font-size:16px}.st .st-hd{gap:10px}.st .st-hr{gap:6px}.st .st-pal-in input{font-size:14px}.st .st-pal-r span{font-size:10px;max-width:100px}.st .st-pal-r b{font-size:14px}.st .st-pal{width:calc(100vw - 24px)}.st .st-pal-in{padding-left:12px;gap:8px}}
+@media(max-width:640px){.st .st-brand{font-size:calc(16px * var(--website-type-scale))}.st .st-hd{gap:10px}.st .st-hr{gap:6px}.st .st-pal-in input{font-size:calc(14px * var(--website-type-scale))}.st .st-pal-r span{font-size:calc(10px * var(--website-type-scale));max-width:100px}.st .st-pal-r b{font-size:calc(14px * var(--website-type-scale))}.st .st-pal{width:calc(100vw - 24px)}.st .st-pal-in{padding-left:12px;gap:8px}}
 @media(prefers-reduced-motion:reduce){html:not([data-reduced-motion="false"]) .st *,html:not([data-reduced-motion="false"]) .st *::before,html:not([data-reduced-motion="false"]) .st *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
