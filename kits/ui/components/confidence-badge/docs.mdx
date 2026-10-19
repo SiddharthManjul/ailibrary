@@ -1,0 +1,174 @@
+# Confidence badge
+
+A labeled model-confidence score with configurable thresholds and accessible evidence in a details popover.
+
+<LivePreview />
+
+## When to use
+
+Use Confidence Badge beside an extracted field, model classification or generated draft when a person needs to understand the model's score and supporting reasons. The live invoice scene uses the canonical synthetic Doom Studio fixture, including Brightline Supply invoice INV-20931. It demonstrates a review workflow without making an external request.
+
+**When not to use:** use a plain shadcn Badge for generic application status. Use an Approval Card for an approval decision and its audit trail. Confidence describes a model estimate; a human check does not make that estimate certain. In the demo, checking a field keeps its original model score and adds a separate Checked status.
+
+<span id="install" />
+
+## Install
+
+<ComponentInstallation />
+
+For manual setup, start with a React 19, TypeScript and Tailwind CSS 4 application with shadcn initialized. Open the [Confidence Badge source bundle](/docs/ui/confidence-badge/source) for the files, destination paths, required primitives and dependencies. Copy the files to those paths, install the listed dependencies and keep the existing root theme provider. This source bundle is also available when reading the Markdown page outside the website.
+
+Open **Code** beside Preview to inspect and copy the working demo, reusable component, styles and shared dependencies. Each file shows its destination path. Copy the component and its CSS together, retain their relative import, and use your application's existing shadcn primitives and root theme provider. The demo files are optional; they compose the invoice board around the reusable badge.
+
+Confidence Badge uses the host's shadcn `badge` and `popover` primitives, the shared controllable-state hook and scoped design-theme styles. Keep the shared files shown in Code when reproducing the preview. Pass your own extracted fields to the usage example below.
+
+**AI tools.** Read [this Markdown source](/docs/ui/confidence-badge.md) or its `/llms.txt` entry alongside the frontend Code files. npm packages and the hosted component installer are not published yet; the installation panel reports the available path without presenting an unpublished package as ready to install.
+
+## Usage
+
+```tsx
+import { ConfidenceBadge } from "@/components/ailibrary/confidence-badge";
+
+type ExtractedField = {
+  label: string;
+  text: string;
+  confidence: number | null;
+  reasons: readonly string[];
+};
+
+export function InvoiceField({ field }: { field: ExtractedField }) {
+  return (
+    <div data-ui-design>
+      <span>{field.label}: {field.text}</span>{" "}
+      <ConfidenceBadge value={field.confidence} reasons={field.reasons}
+        thresholds={{ high: 0.85, medium: 0.6 }} />
+    </div>
+  );
+}
+```
+
+Pass updated score, thresholds and reasons directly from parent state; no key change or remount is needed. The component never fetches data. Omit `reasons` for a passive inline badge. With reasons, the same visual is a button that opens the details. Optional `data-ui-design` selects the supplied handoff palette; otherwise host semantic tokens are used. Portal content follows that opt-in and the host root theme. Every font role inherits Bricolage Grotesque.
+
+## Anatomy
+
+- `ConfidenceBadge`: the labeled root, a passive shadcn Badge when there are no reasons and a shadcn Popover trigger when evidence exists. It composes its own details body.
+- `ConfidenceDetails`: a reusable details body containing a heading, score/threshold scale, reason list and optional footer. It can render in your own panel without Popover context; its standalone ARIA pattern is a labeled group.
+- `ConfidenceBadgeProps`, `ConfidenceDetailsProps`, `ConfidenceThresholds`, `ConfidenceLabels`, `ConfidenceLabelValues`, `ConfidenceLevel`: exported TypeScript types.
+
+Root slots are `confidence-badge` and `confidence-details`; `data-state` is `high`, `medium`, `low` or `unknown`. The badge also exposes `data-size`, `data-disabled`, and interactive `data-open`. Styling hooks include `confidence-badge-dot`, `confidence-badge-label`, `confidence-badge-value`, `confidence-details-title`, `confidence-details-scale`, `confidence-details-tick`, `confidence-details-value-marker`, `confidence-details-review-marker`, `confidence-details-reasons` and `confidence-details-footer`. These internal slots are not extra React exports.
+
+## API
+
+### ConfidenceBadge
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `number` / `null` | Unknown | The original model score, valid only when finite and within 0..1. Invalid or missing input is Unknown, never clamped. |
+| `thresholds` | `{ high: number; medium: number }` | `{ high: 0.85, medium: 0.6 }` | Inclusive lower bounds, satisfying `0 <= medium < high <= 1`. An invalid configuration falls back to the complete defaults. Classification uses the unrounded score. |
+| `reasons` | readonly `string[]` | None | Evidence shown in details. Empty/whitespace and nonstring runtime entries are omitted; without a nonempty reason the badge is passive. |
+| `size` | `sm` / `md` | `md` | Inline density. Both preserve the minimum target size. |
+| `showValue` | `boolean` | `true` | Show a localized two-decimal score beside the level. Hiding it keeps the percentage in the accessible name and title. |
+| `open` | `boolean` | Uncontrolled | Owner-managed details visibility. Has an effect only with reasons and an enabled trigger. |
+| `defaultOpen` | `boolean` | `false` | Initial uncontrolled visibility; subsequent prop changes do not reset local state. |
+| `onOpenChange` | `(open: boolean) => void` | None | Visibility requests. Controlled owners must update `open`. Removing reasons or disabling an open badge requests close. |
+| `reviewThreshold` | `number` | None | Optional independent human-review marker on the details scale, valid only within 0..1. It changes neither score nor classification. |
+| `detailsFooter` | `ReactNode` | None | Parent-owned action or feedback inside details, for example Mark as checked. |
+| `disabled` | `boolean` | `false` | Disable an interactive badge and close its details. |
+| `locale` | `string` | `en-US` | Valid Intl.NumberFormat locale for decimals, percentages and scale ticks. |
+| `labels` | partial `ConfidenceLabels` | English defaults | Visible and accessible text; see the table below. |
+| `className`, `ref` | string / React ref | None | Root class and a reference to the actual span or button. Remaining native HTML attributes pass to that root. |
+| `aria-label`, `title` | `string` | Generated name | Explicit overrides; retain the level and score where known. |
+
+The score is parent-owned read-only data, so a `defaultValue` or score-change callback would misrepresent the model output. The mutable state is popover visibility, which has the complete controlled/uncontrolled pair. A human verification action, persistence, pending state and failures belong to the parent; the component has no network or async action API.
+
+### ConfidenceDetails
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value`, `thresholds`, `reasons` | Same as badge | Same as badge | Score, boundaries and current evidence. |
+| `locale`, `labels` | Same as badge | Same as badge | Localized strings and number formatting. |
+| `reviewThreshold` | `number` | None | Independent human-review marker. Invalid values are omitted. |
+| `footer` | `ReactNode` | None | Composed action or feedback after the reasons. |
+| `titleId`, `reasonsId` | `string` | Generated stable IDs | Connect your own dialog's `aria-labelledby` and `aria-describedby` to this body. |
+| `className`, `ref`, native div props | Native props | None | Style or reference the details group; native attributes pass through. |
+
+### Labels
+
+| Label | Type | English default |
+| --- | --- | --- |
+| `confidence` | `string` | Confidence |
+| `high`, `medium`, `low`, `unknown` | `string` | High, Medium, Low, Unknown |
+| `reasonsLabel` | `string` | Reasons |
+| `scaleLabel` | `string` | Confidence scale |
+| `accessibleName` | `(values: ConfidenceLabelValues) => string` | Confidence: Medium (71%) |
+| `detailsTitle` | `(values: ConfidenceLabelValues) => string` | Medium confidence · 0.71 |
+| `scaleDescription` | `(values) => string` | Confidence scale. Medium starts at 0.60; high starts at 0.85. Optional human-review boundary. |
+
+`ConfidenceLabelValues` contains localized `confidence` and `level` strings plus formatted `value` and `percentage`, both null for unknown. `scaleDescription` receives `scaleLabel`, formatted `medium`, `high` and nullable `reviewThreshold`. Translate the formatter functions as well as the words. `locale` formats numbers; it does not translate sentences. Invalid or blank level words fall back to the English defaults to keep a label present. Handle invalid locale configuration before rendering.
+
+## States
+
+The live board shows all four states simultaneously and provides threshold and human-check controls. **Replace extraction** loads updated values, reasons and scores; **Restore extraction** returns the original fixture. Every update reaches the existing component roots.
+
+- **High:** finite score at or above the configured high boundary, with a success dot and High label.
+- **Medium:** score at or above medium and below high, with a warning dot and Medium label.
+- **Low:** score below medium, with a destructive dot and Low label.
+- **Unknown:** missing, out-of-range or nonfinite input, with an outlined dashed dot and no invented number or score marker.
+- **Passive:** no usable reasons. The label remains accessible and introduces no keyboard stop.
+- **Open:** evidence in a named details dialog, including a scale whose segments and ticks use the actual thresholds.
+- **Disabled:** an interactive badge is disabled and its details are closed.
+- **Checked:** a demo-owned human status next to the field. The model's classification, numeric value and original evidence remain unchanged; Undo check restores the review flag.
+
+The review threshold is independent of the confidence level boundaries. A Medium result may clear a product's human-review threshold while still displaying Medium. Unknown fields always require review in the demo and cannot be checked without a valid extracted value.
+
+## Motion
+
+The reusable score, dots, numbers and scale markers update immediately, with no entrance, travel, scale or looping animation. The host's shadcn Popover supplies its standard opening/closing behavior. Reduced motion keeps the complete final state and all focus/keyboard feedback; it adds no movement.
+
+The documentation scene starts paused. **Play walkthrough** explicitly starts its sequence of explanations and review thresholds; **Pause walkthrough**, pointer input or keyboard input stops it persistently. Hidden, offscreen and reduced-motion scenes pause; the walkthrough never simulates a person's approval or changes model data. Timers are demo behavior and are never part of Confidence Badge.
+
+## Keyboard
+
+| Key | Result |
+| --- | --- |
+| Tab / Shift+Tab | Reach a badge only when reasons exist; move through focusable details/footer actions when open. Passive badges are skipped. |
+| Enter / Space | Open the focused badge's evidence. Activate a focused parent-composed footer button. |
+| Escape | Dismiss details and return focus to its badge. |
+| Tab out / outside pointer | The host nonmodal Popover dismisses when focus or pointer leaves, following its primitive behavior. |
+| Arrow keys, Home, End | No badge-specific action; these are not menu or listbox options. |
+
+The demo's threshold buttons and pause control are ordinary native/shadcn buttons. They are separate from the component API.
+
+## Accessibility
+
+An interactive badge follows the button plus nonmodal dialog pattern. Its generated name is **Confidence: Medium (71%)**; `aria-expanded` and `aria-controls` come from shadcn Popover. The popup is named by its title and described by its current reason list. Escape/outside dismissal and focus restoration are owned by the host primitive. Standalone details use a labeled group. Passive badges use a named static image role so their full score is available without adding a focus stop.
+
+The visible level always accompanies the score and colored dot. No interpretation depends on color alone. The scale's accessible description states the actual level thresholds and optional review boundary; an unknown score has no fabricated position. Score changes are not an unsolicited live region. A parent can announce significant asynchronous extraction results using its own polite status boundary.
+
+Both themes, keyboard paths, all live stories and open dialogs receive axe checks. Automated checks do not replace testing a consuming workflow with assistive technology. A native title supplies the full percentage on pointer hover; reasons also remain available through keyboard/touch activation.
+
+## Responsive behavior
+
+The badge is inline at 24 px visually. Its md density is 12 px text with 6 px gaps; sm uses 11.5 px text and 5 px gaps. Interactive touch/narrow-screen hit areas grow to 44 px while a 24 px pseudo-element preserves the visible pill. Passive badges do not create targets. Long translated level labels should be tested in the consuming layout.
+
+Details are 280 px wide, constrained to the viewport with collision-aware shadcn positioning. Reason text wraps. The invoice demo uses container queries: the field grid tightens below 520 px, and its threshold group wraps below 800 px. The default preview fits the full article width without horizontal scrolling. Fixed reference widths remain explicit testing options: 320, 324, 712, 910 and 1280 px.
+
+## Performance
+
+The reusable component performs no fetch, timer, document observer or layout measurement. It derives state from the current score, thresholds and reasons on render and uses Intl.NumberFormat for localized numbers. A stable trigger ref reads only whether an ancestor opted into the shared palette; the portal carries that scope and optional preset accent. Changes to an ancestor's design/accent are picked up when the details next open.
+
+There is no unbounded collection or component-owned virtualization. Keep reason lists concise; virtualize a consuming table when it exceeds 100 rows. Bundle measurements exclude shared React, cn, the controllable-state hook and host primitives, and include the component CSS. The standard limit is 15 KB gzip; exact measurements and fresh-consumer evidence are recorded in QA.md and the generated artifact reports.
+
+## Notes for AI
+
+- Pass the original finite 0..1 model score; do not coerce strings, clamp invalid scores or replace a reviewed score with 1.
+- Keep the level word visible. `showValue={false}` hides only the visual decimal, not the accessible percentage.
+- The level boundaries are inclusive and use the raw score. A rounded 0.85 can remain Medium when its raw value is below 0.85.
+- Supply evidence through `reasons`; no reasons means a passive span, not an inert button.
+- For controlled visibility, update `open` in response to `onOpenChange`; `defaultOpen` is read once.
+- Distinguish model-confidence thresholds from `reviewThreshold`, which only marks a human-review policy on the scale.
+- Keep human verification and asynchronous persistence in parent state. Use `detailsFooter` to compose the action and feedback.
+- Copy the component and required shared files from Code, install the host's badge and popover primitives, and keep the colocated CSS import. Use the host's existing root theme provider.
+- Translate formatter functions alongside label words, and pass a valid locale for numeric text.
+- Use optional `data-ui-design` for the handoff palette. Do not restyle the website's docs shell or add a page-level theme provider.
+- Frontend component and demo source is available in Code. That public source display does not establish published npm packages, a hosted installer or platform entitlements.

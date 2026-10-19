@@ -1,0 +1,10 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "ui-design-theme",
+  "type": "registry:style",
+  "title": "Component design theme",
+  "description": "Scoped graphite tokens and existing shadcn primitive styles. Activate with data-ui-design; inherits the host font and .dark theme.",
+  "files": [
+    { "path": "design-theme.css", "type": "registry:style", "target": "components/ailibrary/ui-design-theme.css" }
+  ]
+}

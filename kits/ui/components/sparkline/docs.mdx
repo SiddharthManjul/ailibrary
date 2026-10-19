@@ -1,0 +1,157 @@
+# Sparkline
+
+A tiny, passive SVG trend for a table cell or KPI tile, with line, area and bar variants.
+
+<LivePreview />
+
+## When to use
+
+Use Sparkline beside a labeled metric when the shape of a short, ordered series matters more than individual values. The live preview follows the supplied UI design handoff: four variants and two inline metrics. Its fourteen UTC samples are an explicitly synthetic Doom Studio design scenario, served from the canonical F2 design fixture. They are not measured customer traffic or the original Fieldline record aggregates.
+
+**When not to use:** use a line chart with axes when users must compare dates or read exact values from the plot. Use [Chart frame](/docs/ui/chart-frame) with an explicit summary and a table alternative when the visualization needs keyboard value inspection. Use an ordinary table when exact values are the primary task.
+
+<span id="install" />
+
+## Install
+
+<ComponentInstallation />
+
+For manual setup, start with a React 19, TypeScript and Tailwind CSS 4 application with shadcn initialized. Open the [Sparkline source bundle](/docs/ui/sparkline/source) for the files, destination paths, required primitives and dependencies. Copy the files to those paths, install the listed dependencies and keep the existing root theme provider. This source bundle is also available when reading the Markdown page outside the website.
+
+Open **Code** beside Preview to inspect and copy the working demo, reusable component, styles and shared dependencies. Each file shows its destination path. Copy `sparkline.tsx` and `sparkline.css` together, retain their relative import, and include the shared scoped theme when using the handoff palette. The demo files are optional; they compose the metrics, controls and exact-value table around the reusable plot.
+
+Sparkline uses the host's semantic theme and motion tokens. The demo also uses shadcn Button and shared preview helpers; the installation panel lists the required dependencies. Pass your own ordered values to the usage example below.
+
+**AI tools.** Read [this Markdown source](/docs/ui/sparkline.md) or its `/llms.txt` entry alongside the frontend Code files. npm packages and the hosted component installer are not published yet; the installation panel reports the available path without presenting an unpublished package as ready to install.
+
+## Usage
+
+```tsx
+import { Sparkline } from "@/components/ailibrary/sparkline";
+
+type DailyCount = { date: string; value: number };
+
+export function LeadVolume({ days }: { days: readonly DailyCount[] }) {
+  return (
+    <figure data-ui-design>
+      <figcaption>Daily inbound lead volume · UTC</figcaption>
+      <Sparkline data={days.map(({ value }) => value)}
+        variant="area" height={40} showLast showMinMax />
+      <details>
+        <summary>View daily counts</summary>
+        <ul>{days.map(({ date, value }) => (
+          <li key={date}>{date}: {value} leads</li>
+        ))}</ul>
+      </details>
+    </figure>
+  );
+}
+```
+
+Aggregate and validate the records on the server before passing an ordered numeric series. Registry consumers import their installed local file; this repository also exposes the component through `@ai-library/sparkline`. The component never fetches data. The live preview composes the host’s shadcn Button for pause/resume, adding a point and the equivalent data-table disclosure. These controls are demo composition, not Sparkline API. The registry installs the shared scoped theme alongside the component; `data-ui-design` opts an ancestor into the handoff’s monochrome palette. The component also works with the host’s existing semantic theme without that opt-in.
+
+## Anatomy
+
+- `Sparkline`: one SVG root, with a line, optional area fill or bars, plus optional minimum, maximum and last-value markers.
+- `SparklineProps`, `SparklineLabels`, `SparklineSummary`, `SparklineVariant`: exported TypeScript types for component props, localization, formatted summary values and variant selection.
+
+There are no interactive subparts. Internal `data-slot` values are `sparkline`, `sparkline-line`, `sparkline-area`, `sparkline-bar`, `sparkline-min`, `sparkline-max`, `sparkline-last-ring`, `sparkline-last` and `sparkline-empty`. They are styling hooks rather than separately exported components. The root exposes `data-state`, `data-variant` and `data-trend`.
+
+## API
+
+### Sparkline
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `data` | readonly `number[]` | Required | Ordered samples. Finite samples render in order; unavailable values are omitted and disclosed in the default summary. |
+| `variant` | `line` / `area` / `bar` | `line` | Stroke, filled stroke, or zero-based bars. |
+| `width` | SVG `number` / `string` | `100%` | Width of the SVG viewport; also constrained to its container. |
+| `height` | SVG `number` / `string` | `40` | Reserved viewport height. Set a useful CSS height for percentage sizing. |
+| `showLast` | `boolean` | `false` | Mark the last finite sample. |
+| `showMinMax` | `boolean` | `false` | Mark the first occurrence of the finite minimum and maximum; coincident extrema share one marker. |
+| `locale` | `string` | `en-US` | Valid Intl.NumberFormat locale for summary numbers. |
+| `labels` | partial `SparklineLabels` | English defaults | All built-in accessible strings and the summary formatter. |
+| `aria-label` | `string` | Generated summary | Explicit override; retain trend, minimum, maximum, last and units when replacing it. |
+| `className`, `ref` | Native SVG props | None | Root styling and React 19 reference. Remaining native SVG props pass through. |
+
+`data-state` is `normal`, `flat`, `empty` or `partial`. `data-trend` compares the last finite sample with the first: `up`, `down` or `flat`; it is not a fitted statistical trend. `data-variant` reflects the selected variant. There is no user-editable component state, so controlled/uncontrolled value pairs and change callbacks do not apply. To update it, pass new `data` or display props from the parent. There are no component-side async callbacks or requests.
+
+### Labels
+
+| Label | Type | English default |
+| --- | --- | --- |
+| `empty` | `string` | No trend data. |
+| `up` | `string` | Upward |
+| `down` | `string` | Downward |
+| `flat` | `string` | Flat |
+| `summary` | `(values: SparklineSummary) => string` | Trend, minimum, maximum and last, followed by unavailable-value feedback when applicable. |
+
+`SparklineSummary` contains localized `trend`, formatted `min`, `max`, `last` strings and numeric `count`/`omitted`. Supply a translated `summary` alongside translated trend labels; `locale` formats numbers rather than translating English sentences. The empty state uses `labels.empty`. Invalid locale configuration should be handled by the application before rendering.
+
+## States
+
+Use **Sparkline variant** and **Demo state** in the live preview. Four cards keep line, area, bars and extrema visible. Live updates keep the latest fourteen values; pause them to inspect a fixed series.
+
+- **Normal:** the fourteen synthetic signup samples supplied by the handoff, with a last-point marker. The first-to-last comparison is upward.
+- **Flat:** the same first value repeated across fourteen days, drawn at a stable central height without division by zero.
+- **Empty:** an empty sample selection, a neutral placeholder stroke and the localized empty accessible name.
+- **Partial:** a demonstration with one unavailable day. Finite samples are connected after omitting that value; this is not a gap-preserving timeline. The accessible summary reports the omission, and the equivalent table marks the day unavailable.
+- **Single point:** only the latest selected sample. The summary reports a flat trend and equal minimum, maximum and last; the optional marker makes the point visible.
+- **Negative deviation:** a clearly labeled derived series, daily count minus the latest day's count. Bar geometry uses a zero baseline; these values are deviations rather than negative lead counts.
+- **Loading:** a parent-owned status boundary reserves the chart's height while data loads. No fabricated series is rendered.
+- **Error:** a parent-owned alert boundary reports failure in text. It preserves space and does not present stale values as successfully loaded.
+
+The selected story's table follows the same transformation, including unavailable values. The remaining comparison plots show the same current series; the selected story and its table use the documented transformation.
+
+## Motion
+
+The SVG draws in once when mounted, using `--duration-slow` and `--ease-standard`: a left-to-right clip reveal and opacity expose the whole visual, including bars. The line retains a continuous, fixed-width stroke. The dimensions stay reserved. Updating data, markers or variant does not restart the entrance; Sparkline itself never schedules updates. The documentation demo appends a deterministic point every two seconds and retains a fourteen-point window. Its visible pause/resume button provides persistent control. Pointer/focus inspection pauses updates, which may resume after six idle seconds; hidden pages, offscreen demos and reduced motion pause automatic updates. `#noauto` freezes the initial scene for reference checks.
+
+The source CSS follows the F3 HTML motion override and the operating system's `prefers-reduced-motion` setting. Reduced motion removes the entrance animation entirely and keeps the final plot visible. An explicit full-motion HTML override takes precedence over the OS setting. Keep the colocated CSS file when copying or installing the component.
+
+## Keyboard
+
+| Key | Result |
+| --- | --- |
+| Tab / Shift+Tab | Skip the passive SVG. It introduces no focus stop. |
+| Arrow keys, Home, End, Enter, Space, Escape | No Sparkline action. Exact-value inspection belongs to the nearby table or a larger chart. |
+
+The preview’s focusable chart wrapper supports Arrow keys, Home and End for value inspection with a visible readout. It is separate from the passive SVG. Its shadcn pause/add/data-table buttons are independently keyboard operable with Enter/Space and exposes its expanded state. Theme, motion, width, variant and story controls are documentation controls rather than component API.
+
+## Accessibility
+
+Sparkline uses the static-image ARIA pattern: an SVG with `role="img"`, `focusable="false"` and a localized `aria-label` summarizing trend, minimum, maximum and last. Its child shapes have no separate focus or interaction. A single finite point is flat; an entirely unavailable series uses the empty label. Color comes from `--chart-1`, with status-colored extrema and muted context bars; meaning also appears in the text summary and adjacent metric.
+
+Provide a visible metric label and an equivalent list or native table nearby. The preview supplies a shadcn disclosure button with `aria-expanded` and `aria-controls`, plus a captioned table with column and row headers. A native no-JavaScript fallback exposes the original daily-count table when the disclosure cannot run. Parent loading feedback uses a polite status; blocking load failures use an alert. The SVG itself is not a live region, so frequent streaming updates do not produce unsolicited announcements.
+
+Automated axe coverage and keyboard tests are acceptance evidence. They do not replace manual assistive-technology qualification for a buyer's complete dashboard.
+
+## Responsive behavior
+
+The SVG fills its container by default at 40 px high with a 160×40 viewBox and fixed-width 1.75 px strokes. The preview starts in **Fit to page**, fitting the full stage into the article and reflowing as the page resizes. It uses container queries: four columns from 800 px, two below 800 px, with tighter spacing below 520 px. Select a fixed width to inspect a reference layout: content widths are 910, 712 and 324 px, with additional 320/1280 px coverage. Fixed widths measure content, with dotted stage padding outside it; wider references scroll inside the preview.
+
+The reusable plot has no hover-only affordances or touch targets. The demo’s scrub wrapper also supports keyboard inspection and an exact-value table. Place any surrounding link or button on a separately labeled element with an adequate hit target. The preview's table button remains at least 44 px high on touch layouts. Both light and dark presentations use the existing root theme provider and inherited Bricolage Grotesque font.
+
+## Performance
+
+Sparkline uses SVG and no chart library, observer, network request or per-instance React effect. It filters and scales the supplied data in linear time. Intl formatters are shared in a bounded cache across instances. Keep inline series short and aggregate outside the render path; for more than 100 table rows, virtualize the surrounding table rather than rendering an unbounded list. Sparkline does not own virtualization.
+
+The item budget is 2 KB gzip excluding shared dependencies; the source CSS is part of the measured item. A production-render benchmark exercises 1,000 sparklines in a table with fourteen values each. Exact size, timing, environment and scope are recorded in the item's NOTES and QA reports; rendering speed depends on series length and the host. The live preview serializes only its small design scenario, never the complete Fieldline seed corpus. Shared theme CSS is a separately delivered foundation dependency and is excluded from the per-component budget; the local CSS import is counted.
+
+## Design source and adaptations
+
+The canonical visual resources are `ai-library-ui-design-handoff/components/data-display/sparkline.md` and its four screenshots. Bricolage Grotesque remains the sole font at the user’s request. Smooth midpoint cubic paths, soft area, rounded muted bars, extrema and the last-point ring follow the handoff.
+
+The reusable component scales each finite series using its actual extent. The prototype’s data-specific padded domains are not copied into generic component logic, so the sample wave amplitude can differ. Muted bars are context: the accented latest bar, image summary and table carry equivalent information. No exact-value task relies on their contrast. Focus outlines use the monochrome foreground so all accent presets retain a visible focus indicator.
+
+## Notes for AI
+
+- Pass ordered numeric samples; aggregate and validate source records on the server.
+- Use a nearby label, units and a table or list when users need exact values.
+- Use a full line chart when date alignment, gap preservation or axes matter.
+- Localize `summary` and the trend/empty labels together; `locale` only formats numbers.
+- Treat non-finite samples as unavailable. Omission connects remaining points and can change their spacing.
+- Keep `sparkline.css` beside the installed TSX and supply the F3 semantic and motion tokens.
+- Pass new props for updates; there is no internal value state, fetch or async callback.
+- Loading and errors belong to a parent boundary with reserved chart space and explicit status text.
+- Frontend component and demo source is available in Code. That public source display does not establish published npm packages, a hosted installer or platform entitlements.

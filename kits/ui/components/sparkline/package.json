@@ -1,0 +1,25 @@
+{
+  "name": "@ai-library/sparkline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12" },
+  "exports": { ".": "./sparkline.tsx", "./sparkline.css": "./sparkline.css" },
+  "scripts": { "typecheck": "tsc --noEmit", "test": "vitest run" },
+  "dependencies": { "cn": "0.5.0", "react": "19.3.1" },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "esbuild": "0.28.2",
+    "jsdom": "26.1.0",
+    "react-dom": "19.3.1",
+    "typescript": "6.0.3",
+    "vitest": "5.0.5"
+  }
+}

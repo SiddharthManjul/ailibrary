@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sparkline",
+  "type": "registry:ui",
+  "title": "Sparkline",
+  "description": "An inline SVG trend with line, area and bar variants and a localized accessible summary.",
+  "dependencies": ["cn@0.5.0"],
+  "registryDependencies": ["@ailibrary/ui-foundation", "@ailibrary/ui-design-theme"],
+  "categories": ["data-display", "sales"],
+  "docs": "Pass ordered numeric data and provide a nearby equivalent table when users need exact values. Import and keep the colocated sparkline.css file.",
+  "files": [
+    { "path": "sparkline.tsx", "type": "registry:ui", "target": "components/ailibrary/sparkline.tsx" },
+    { "path": "sparkline.css", "type": "registry:ui", "target": "components/ailibrary/sparkline.css" }
+  ]
+}

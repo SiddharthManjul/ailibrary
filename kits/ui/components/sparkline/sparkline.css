@@ -1,0 +1,19 @@
+@import "../../../packages/ui-foundation/design-theme.css";
+
+.ail-sparkline {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--chart-1);
+  animation: ail-sparkline-draw var(--duration-slow) var(--ease-standard) both;
+}
+
+@keyframes ail-sparkline-draw {
+  from { clip-path: inset(0 100% 0 0); opacity: 0; }
+  to { clip-path: inset(0); opacity: 1; }
+}
+
+html[data-reduced-motion="true"] .ail-sparkline { animation: none; }
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-reduced-motion="false"]) .ail-sparkline { animation: none; }
+}

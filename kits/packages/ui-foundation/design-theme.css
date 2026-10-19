@@ -1,0 +1,178 @@
+/*
+ * Approved component design, deliberately scoped. Import beside the host's
+ * Tailwind stylesheet and place data-ui-design on a component/demo ancestor.
+ * The host's existing .dark class supplies theme state; fonts are inherited.
+ * No :root values or existing public foundation registry defaults are changed.
+ */
+[data-ui-design] {
+  color-scheme: light;
+  --canvas: #F6F6F3;
+  --background: #F6F6F3;
+  --foreground: #111113;
+  --card: #FFFFFF;
+  --card-foreground: #111113;
+  --popover: #FFFFFF;
+  --popover-foreground: #111113;
+  --muted: #F2F2EE;
+  --muted-foreground: #55555E;
+  --subtle-foreground: #6A6A72;
+  --accent: #EDEDE8;
+  --accent-foreground: #111113;
+  --secondary: var(--card);
+  --secondary-foreground: var(--foreground);
+  --border: #E2E2DD;
+  --border-subtle: #ECECE7;
+  --border-strong: #CACAC2;
+  --input: var(--border);
+  --ui-mono-primary: #111113;
+  --ui-mono-primary-foreground: #FFFFFF;
+  --primary: var(--ui-mono-primary);
+  --primary-foreground: var(--ui-mono-primary-foreground);
+  --primary-soft: color-mix(in oklab, var(--primary) 8%, transparent);
+  --primary-line: color-mix(in oklab, var(--primary) 34%, transparent);
+  --primary-text: color-mix(in oklab, var(--primary) 88%, #000);
+  /* Accessibility adaptation: pale/custom accents may fail 3:1 against cards.
+     Keep focus monochrome so every accent retains a visible focus indicator. */
+  --ring: var(--foreground);
+  --success: #137538;
+  --success-foreground: #FFFFFF;
+  --success-soft: rgb(19 117 56 / 9%);
+  --warning: #A54C08;
+  --warning-foreground: #FFFFFF;
+  --warning-soft: rgb(165 76 8 / 9%);
+  --destructive: #C62222;
+  --destructive-foreground: #FFFFFF;
+  --destructive-soft: rgb(198 34 34 / 8%);
+  --info: #225DDC;
+  --info-foreground: #FFFFFF;
+  --info-soft: rgb(34 93 220 / 8%);
+  --chart-1: var(--primary);
+  --chart-2: #0D9488;
+  --chart-3: #D97706;
+  --chart-4: #2563EB;
+  --chart-5: #DB2777;
+  --chart-6: #D6D6CF;
+  --shadow-floating: 0 18px 40px -18px rgb(20 20 40 / 28%), 0 2px 6px -2px rgb(20 20 40 / 8%);
+  --dot-grid: rgb(0 0 0 / 5%);
+  --radius: 12px;
+  --button-radius: 12px;
+  --ui-radius-xl: 18px;
+  --ui-radius-2xl: 24px;
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-slow: 480ms;
+  --ease-standard: cubic-bezier(.2, .8, .2, 1);
+  --ease-enter: cubic-bezier(.16, 1, .3, 1);
+  font-variant-numeric: tabular-nums;
+}
+
+:where(.dark) [data-ui-design],
+[data-ui-design]:where(.dark) {
+  color-scheme: dark;
+  --canvas: #0B0B0E;
+  --background: #0B0B0E;
+  --foreground: #EDEDEF;
+  --card: #121216;
+  --card-foreground: #EDEDEF;
+  --popover: #18181D;
+  --popover-foreground: #EDEDEF;
+  --muted: #1A1A20;
+  --muted-foreground: #A1A1AA;
+  --subtle-foreground: #86868F;
+  --accent: #1F1F26;
+  --accent-foreground: #EDEDEF;
+  --border: #26262D;
+  --border-subtle: #1C1C22;
+  --border-strong: #3A3A44;
+  --ui-mono-primary: #EDEDEF;
+  --ui-mono-primary-foreground: #0B0B0E;
+  --primary-soft: color-mix(in oklab, var(--primary) 13%, transparent);
+  --primary-line: color-mix(in oklab, var(--primary) 40%, transparent);
+  --primary-text: color-mix(in oklab, var(--primary) 82%, #fff);
+  --success: #4ADE80;
+  --success-foreground: #0B0B0E;
+  --success-soft: rgb(74 222 128 / 12%);
+  --warning: #FBBF24;
+  --warning-foreground: #0B0B0E;
+  --warning-soft: rgb(251 191 36 / 12%);
+  --destructive: #F87171;
+  --destructive-foreground: #0B0B0E;
+  --destructive-soft: rgb(248 113 113 / 12%);
+  --info: #60A5FA;
+  --info-foreground: #0B0B0E;
+  --info-soft: rgb(96 165 250 / 12%);
+  --chart-2: #5EEAD4;
+  --chart-3: #F59E0B;
+  --chart-4: #60A5FA;
+  --chart-5: #F472B6;
+  --chart-6: #3A3A44;
+  --shadow-floating: 0 18px 40px -16px rgb(0 0 0 / 65%), 0 2px 6px -2px rgb(0 0 0 / 40%);
+  --dot-grid: rgb(255 255 255 / 4.5%);
+}
+
+[data-accent="violet"] [data-ui-design], [data-ui-design][data-accent="violet"] { --primary: #8B5CF6; --primary-foreground: #0B0B0E; }
+[data-accent="indigo"] [data-ui-design], [data-ui-design][data-accent="indigo"] { --primary: #6265F0; --primary-foreground: #FFFFFF; }
+[data-accent="blue"] [data-ui-design], [data-ui-design][data-accent="blue"] { --primary: #3B82F6; --primary-foreground: #0B0B0E; }
+[data-accent="teal"] [data-ui-design], [data-ui-design][data-accent="teal"] { --primary: #14B8A6; --primary-foreground: #0B0B0E; }
+[data-accent="amber"] [data-ui-design], [data-ui-design][data-accent="amber"] { --primary: #F59E0B; --primary-foreground: #0B0B0E; }
+[data-accent="orange"] [data-ui-design], [data-ui-design][data-accent="orange"] { --primary: #F97316; --primary-foreground: #0B0B0E; }
+[data-accent="rose"] [data-ui-design], [data-ui-design][data-accent="rose"] { --primary: #F43F5E; --primary-foreground: #0B0B0E; }
+[data-ui-design][data-accent="mono"] { --primary: var(--ui-mono-primary); --primary-foreground: var(--ui-mono-primary-foreground); }
+
+/* Maps names to variables only. Visual values are confined to the scope above. */
+@theme inline {
+  --color-subtle-foreground: var(--subtle-foreground);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-line: var(--primary-line);
+  --color-primary-text: var(--primary-text);
+  --color-success-soft: var(--success-soft);
+  --color-warning-soft: var(--warning-soft);
+  --color-destructive-soft: var(--destructive-soft);
+  --color-info-soft: var(--info-soft);
+  --shadow-floating: var(--shadow-floating);
+}
+
+/* Restyle the existing host primitive only inside the approved design scope. */
+[data-ui-design] [data-slot="button"] {
+  position: relative;
+  height: 36px;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-weight: 550;
+  line-height: 1;
+  box-shadow: none;
+  transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+[data-ui-design] [data-slot="button"][data-variant="default"] { background: var(--primary); color: var(--primary-foreground); }
+[data-ui-design] [data-slot="button"][data-variant="default"]:hover { background: color-mix(in oklab, var(--primary) 86%, var(--background)); }
+[data-ui-design] [data-slot="button"]:is([data-variant="outline"], [data-variant="secondary"]) { border: 1px solid var(--border); background: var(--card); color: var(--foreground); }
+[data-ui-design] [data-slot="button"]:is([data-variant="outline"], [data-variant="secondary"]):hover { border-color: var(--border-strong); background: var(--accent); }
+[data-ui-design] [data-slot="button"][data-variant="ghost"] { background: transparent; color: var(--muted-foreground); }
+[data-ui-design] [data-slot="button"][data-variant="ghost"]:hover { background: var(--accent); color: var(--foreground); }
+[data-ui-design] [data-slot="button"][data-variant="destructive"] { border: 1px solid color-mix(in oklab, var(--destructive) 30%, transparent); background: var(--destructive-soft); color: var(--destructive); }
+[data-ui-design] [data-slot="button"][data-variant="destructive"]:hover { background: color-mix(in oklab, var(--destructive) 18%, transparent); }
+[data-ui-design] [data-slot="button"][data-size="sm"] { height: 30px; min-height: 30px; padding-inline: 10px; border-radius: 10px; font-size: 12.5px; }
+[data-ui-design] [data-slot="button"][data-size="lg"] { height: 42px; min-height: 42px; padding-inline: 18px; font-size: 14.5px; }
+[data-ui-design] [data-slot="button"][data-size="icon"] { width: 36px; padding: 0; }
+[data-ui-design] [data-slot="button"][data-size="icon-sm"] { width: 30px; height: 30px; min-height: 30px; padding: 0; border-radius: 10px; }
+[data-ui-design] [data-slot="button"][data-size="icon-lg"] { width: 42px; height: 42px; min-height: 42px; padding: 0; }
+[data-ui-design] [data-slot="button"]:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; box-shadow: none; }
+[data-ui-design] [data-slot="button"]:active:not(:disabled) { transform: translateY(.5px); }
+[data-ui-design] [data-slot="button"]:disabled { opacity: .45; pointer-events: none; }
+[data-ui-design] [data-slot="badge"] { display: inline-flex; align-items: center; gap: 6px; height: 22px; padding-inline: 8px; border: 0; border-radius: 999px; font-size: 11.5px; font-weight: 550; line-height: 1; background: var(--muted); color: var(--muted-foreground); }
+[data-ui-design] [data-slot="badge"][data-status="success"] { background: var(--success-soft); color: var(--success); }
+[data-ui-design] [data-slot="badge"][data-status="warning"] { background: var(--warning-soft); color: var(--warning); }
+[data-ui-design] [data-slot="badge"][data-status="danger"] { background: var(--destructive-soft); color: var(--destructive); }
+[data-ui-design] [data-slot="badge"][data-status="info"] { background: var(--info-soft); color: var(--info); }
+
+@media (pointer: coarse), (hover: none) {
+  [data-ui-design] [data-slot="button"]::after { content: ""; position: absolute; width: 100%; height: 100%; min-width: 44px; min-height: 44px; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-ui-design] [data-slot="button"] { transition: none; }
+}
+:where([data-reduced-motion="true"]) [data-ui-design] [data-slot="button"] { transition: none; }

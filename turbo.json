@@ -2,14 +2,52 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
-      "outputs": [".next/**", "!.next/cache/**"],
-      "env": ["NEXT_PUBLIC_SITE_URL", "VERCEL_PROJECT_PRODUCTION_URL", "VERCEL_URL"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ]
     },
     "dev": {
       "cache": false,
       "persistent": true
     },
     "lint": {},
-    "typecheck": {}
+    "typecheck": {
+      "dependsOn": [
+        "^typecheck"
+      ]
+    },
+    "@ai-library/web#build": {
+      "env": ["NEXT_PUBLIC_SITE_URL", "VERCEL_PROJECT_PRODUCTION_URL", "VERCEL_URL"],
+      "dependsOn": [
+        "@ai-library/seed#compile",
+        "@ai-library/ui-foundation#build"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**"
+      ]
+    },
+    "@ai-library/seed#compile": {
+      "dependsOn": [
+        "@ai-library/contracts#build"
+      ],
+      "outputs": [
+        ".build/**"
+      ]
+    },
+    "@ai-library/contracts#build": {
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "@ai-library/ui-foundation#build": {
+      "outputs": [
+        "registry/**"
+      ]
+    }
   }
 }

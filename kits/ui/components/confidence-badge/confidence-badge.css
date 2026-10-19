@@ -1,0 +1,82 @@
+@import "../../../packages/ui-foundation/design-theme.css";
+
+.ail-confidence-badge {
+  --confidence-background: var(--muted);
+  --confidence-color: var(--muted-foreground);
+  --confidence-border: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 6px;
+  min-height: 24px;
+  height: 24px;
+  padding: 0 9px 0 8px;
+  border: 1px solid var(--confidence-border);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  vertical-align: middle;
+  box-shadow: none;
+  color: var(--confidence-color);
+  background: var(--confidence-background);
+}
+.ail-confidence-badge[data-state="high"] { --confidence-background: var(--success-soft, var(--muted)); --confidence-color: var(--success, var(--foreground)); }
+.ail-confidence-badge[data-state="medium"] { --confidence-background: var(--warning-soft, var(--muted)); --confidence-color: var(--warning, var(--foreground)); }
+.ail-confidence-badge[data-state="low"] { --confidence-background: var(--destructive-soft, var(--muted)); --confidence-color: var(--destructive); }
+.ail-confidence-badge[data-state="unknown"] { --confidence-border: var(--border-subtle, var(--border)); --confidence-color: var(--subtle-foreground, var(--muted-foreground)); }
+.ail-confidence-badge[data-size="sm"] { height: 24px; padding-inline: 7px; gap: 5px; font-size: 11.5px; }
+.ail-confidence-badge [data-slot="confidence-badge-dot"] { width: 7px; height: 7px; flex: none; border-radius: 50%; background: currentColor; }
+.ail-confidence-badge[data-state="unknown"] [data-slot="confidence-badge-dot"] { width: 8px; height: 8px; background: transparent; border: 1.5px dashed currentColor; }
+.ail-confidence-badge [data-slot="confidence-badge-value"] { font-size: 11px; font-weight: 400; }
+button.ail-confidence-badge { cursor: pointer; }
+button.ail-confidence-badge:hover:not(:disabled) { --confidence-border: currentColor; }
+button.ail-confidence-badge:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+button.ail-confidence-badge:disabled { opacity: .45; cursor: default; }
+
+.ail-confidence-popover {
+  width: 280px;
+  max-width: calc(100vw - 24px);
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--ui-radius-xl, calc(var(--radius) + 6px));
+  color: var(--popover-foreground, var(--foreground));
+  background: var(--popover);
+  box-shadow: var(--shadow-floating);
+  font-family: var(--font-sans, inherit);
+  font-variant-numeric: tabular-nums;
+}
+.ail-confidence-details { display: flex; flex-direction: column; min-width: 0; gap: 8px; font-family: inherit; font-size: 12.5px; line-height: 1.5; text-align: start; }
+.ail-confidence-details [data-slot="confidence-details-title"] { margin: 0; padding: 0; font-size: 13px; font-weight: 600; line-height: 1.4; color: var(--foreground); }
+.ail-confidence-scale { min-width: 0; padding-top: 6px; }
+.ail-confidence-track { position: relative; display: grid; gap: 2px; height: 6px; margin-inline: 2px; }
+.ail-confidence-track > span { min-width: 0; border-radius: 3px; }
+.ail-confidence-track > [data-level="low"] { background: var(--destructive); }
+.ail-confidence-track > [data-level="medium"] { background: var(--warning, var(--foreground)); }
+.ail-confidence-track > [data-level="high"] { background: var(--success, var(--foreground)); }
+.ail-confidence-track > i { position: absolute; top: -4px; width: 3px; height: 14px; transform: translateX(-50%); border-radius: 2px; background: var(--foreground); }
+.ail-confidence-track > [data-slot="confidence-details-review-marker"] { top: -6px; height: 18px; width: 0; border-left: 1.5px dashed var(--foreground); border-radius: 0; background: transparent; opacity: .55; }
+.ail-confidence-ticks { position: relative; height: 18px; margin-top: 4px; color: var(--subtle-foreground, var(--muted-foreground)); font-size: 10px; }
+.ail-confidence-ticks > span { position: absolute; transform: translateX(-50%); }
+.ail-confidence-ticks > span:first-child { transform: none; }
+.ail-confidence-ticks > span:last-child { transform: translateX(-100%); }
+.ail-confidence-details [data-slot="confidence-details-reasons"] { display: flex; flex-direction: column; gap: 3px; margin: 2px 0 0; padding-left: 16px; color: var(--muted-foreground); overflow-wrap: anywhere; }
+.ail-confidence-footer { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 8px; }
+
+@media (pointer: coarse), (hover: none), (max-width: 640px) {
+  /* The focusable/touch area grows while the visible pill retains its 24px design. */
+  button.ail-confidence-badge { min-height: 44px; height: 44px; background: transparent; border-color: transparent; }
+  button.ail-confidence-badge::before { content: ""; position: absolute; inset-inline: -1px; top: 50%; height: 24px; transform: translateY(-50%); border: 1px solid var(--confidence-border); border-radius: inherit; background: var(--confidence-background); }
+  button.ail-confidence-badge > span { position: relative; }
+}
+
+/* Host shadcn styles may animate the Popup. Keep the final state visible
+   under the shared motion override as well as the operating system setting. */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-reduced-motion="false"]) .ail-confidence-popover { animation: none; transition: none; transform: none; }
+}
+html[data-reduced-motion="true"] .ail-confidence-popover { animation: none; transition: none; transform: none; }

@@ -1,0 +1,55 @@
+{
+  "name": "@ai-library/seed",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "main": "./.build/src/index.js",
+  "types": "./.build/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./.build/src/index.d.ts",
+      "default": "./.build/src/index.js"
+    },
+    "./load": {
+      "types": "./.build/src/load.d.ts",
+      "default": "./.build/src/load.js"
+    },
+    "./generator": {
+      "types": "./.build/src/generator.d.ts",
+      "default": "./.build/src/generator.js"
+    },
+    "./design": {
+      "types": "./.build/src/design.d.ts",
+      "default": "./.build/src/design.js"
+    }
+  },
+  "scripts": {
+    "compile": "pnpm --filter @ai-library/contracts build && tsc -p tsconfig.json",
+    "typecheck": "pnpm --filter @ai-library/contracts build && tsc -p tsconfig.json --noEmit",
+    "build": "pnpm compile && node .build/src/cli.js build",
+    "load": "pnpm compile && node .build/src/cli.js load",
+    "media": "pnpm compile && node .build/src/media.js",
+    "resources:sync": "node scripts/sync-resources.mjs",
+    "resources:check": "node scripts/sync-resources.mjs --check",
+    "test": "pnpm compile && pnpm resources:check && node --test .build/tests/*.test.js",
+    "test:parity": "pnpm compile && node tests/parity.mjs",
+    "test:media": "pnpm compile && node tests/media.mjs",
+    "snapshot": "pnpm compile && node scripts/update-golden.mjs",
+    "check": "pnpm compile && pnpm resources:check && node scripts/check-snapshot.mjs",
+    "test:postgres": "pnpm build && node tests/postgres.mjs"
+  },
+  "dependencies": {
+    "@ai-library/contracts": "workspace:*",
+    "@fontsource-variable/bricolage-grotesque": "5.3.0",
+    "@pdf-lib/fontkit": "1.1.1",
+    "pdf-lib": "1.17.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "typescript": "6.0.3"
+  }
+}

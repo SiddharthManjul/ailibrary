@@ -1,0 +1,68 @@
+{
+  "format": "ai-library.design-scenes.v1",
+  "diffViewer": {
+    "source": "ai-library-ui-design-handoff/components/agent-control/diff-viewer.md",
+    "context": "Synthetic support reply and approval-required Brooklyn expansion proposal for Doom Studio. Separate from the original Fieldline business records; preview applications only update local UI state.",
+    "reply": {
+      "title": "Reply to ticket #9918",
+      "before": "Hi Brooklyn,\nThanks for reaching out. We will look into the charge and get back to you.\n\nIf anything else looks off, reply to this email.\nWe are here 9 to 6 IST.  \n\nBest, Support",
+      "after": "Hi Brooklyn,\nThanks for reaching out. You were charged twice on Oct 3, and I have refunded the duplicate $49.00.\nIt will appear on your Visa ending 4242 in 5 to 10 business days.\n\nIf anything else looks off, reply to this email.\nWe are here 9 to 6 IST.\n\nBest, Maya at Doom Studio"
+    },
+    "updatedReply": {
+      "title": "Reply to ticket #9918",
+      "before": "Hi Brooklyn,\nThanks for reaching out. We will look into the charge and get back to you.\n\nIf anything else looks off, reply to this email.\nWe are here 9 to 6 IST.  \n\nBest, Support",
+      "after": "Hi Brooklyn,\nThanks for reaching out. Your duplicate $49.00 charge from Oct 3 is ready for review.\nWe will confirm by email after the refund has been approved.\n\nIf anything else looks off, reply to this email.\nWe are here 9 to 6 IST.\n\nBest, Maya at Doom Studio"
+    },
+    "crm": {
+      "title": "HubSpot · Brooklyn",
+      "agent": "inbound-qualifier",
+      "before": { "dealstage": "Qualified", "amount": "$72,000", "close_date": "Dec 15, 2026", "next_step": "·" },
+      "after": { "dealstage": "Proposal sent", "amount": "$84,000", "close_date": "Nov 30, 2026", "next_step": "Send pricing for 40 seats" }
+    },
+    "updatedCrm": {
+      "title": "HubSpot · Brooklyn",
+      "agent": "inbound-qualifier",
+      "before": { "dealstage": "Qualified", "amount": "$72,000", "close_date": "Dec 15, 2026", "next_step": "·" },
+      "after": { "dealstage": "Proposal sent", "amount": "$90,000", "close_date": "Nov 23, 2026", "next_step": "Review pricing for 45 seats" }
+    }
+  },
+  "confidenceBadge": {
+    "source": "ai-library-ui-design-handoff/components/agent-control/confidence-badge.md",
+    "context": "Synthetic invoice extraction for Doom Studio and Brooklyn. Model scores and ambiguous fields are demonstration data, separate from the original Fieldline business records.",
+    "rows": [
+      { "id": "vendor", "label": "Vendor", "value": "Brightline Supply", "confidence": 0.98, "reasons": ["Matches a known vendor in Xero", "Same name on the PDF header and footer"] },
+      { "id": "invoice-number", "label": "Invoice number", "value": "INV-20931", "confidence": 0.95, "reasons": ["Printed label next to the value"] },
+      { "id": "total", "label": "Total", "value": "$12,480.00", "confidence": 0.71, "reasons": ["Two totals on the page: $12,480.00 and $12,840.00", "Picked the one next to \"Amount due\""] },
+      { "id": "due-date", "label": "Due date", "value": "Nov 15, 2026", "confidence": 0.38, "reasons": ["Date format is ambiguous (11/15 or 15/11)", "No \"due\" label found"] },
+      { "id": "po-number", "label": "PO number", "value": "·", "confidence": null, "reasons": ["Not found on the document"] }
+    ],
+    "updatedRows": [
+      { "id": "vendor", "label": "Vendor", "value": "Brightline Supply", "confidence": 0.98, "reasons": ["Matches a known vendor in Xero", "Same name on the PDF header and footer"] },
+      { "id": "invoice-number", "label": "Invoice number", "value": "INV-20931", "confidence": 0.95, "reasons": ["Printed label next to the value"] },
+      { "id": "total", "label": "Total", "value": "$12,840.00", "confidence": 0.91, "reasons": ["A second extraction found the labelled amount due", "The line items add up to $12,840.00"] },
+      { "id": "due-date", "label": "Due date", "value": "Nov 15, 2026", "confidence": 0.83, "reasons": ["The payment terms confirm the calendar date", "The document uses month/day order"] },
+      { "id": "po-number", "label": "PO number", "value": "PO-1048", "confidence": 0.64, "reasons": ["Found in the purchase order attachment", "The printed reference is faint"] }
+    ]
+  },
+  "sparkline": {
+    "source": "ai-library-ui-design-handoff/components/data-display/sparkline.md",
+    "context": "Synthetic UI design scenario for Doom Studio: Brooklyn (brooklyn@doomstudio.example), fixed at 2026-10-21T00:00:00Z. Separate from the original Fieldline business records.",
+    "days": [
+      { "date": "2026-10-08", "label": "Oct 8", "value": 140 },
+      { "date": "2026-10-09", "label": "Oct 9", "value": 152 },
+      { "date": "2026-10-10", "label": "Oct 10", "value": 149 },
+      { "date": "2026-10-11", "label": "Oct 11", "value": 163 },
+      { "date": "2026-10-12", "label": "Oct 12", "value": 158 },
+      { "date": "2026-10-13", "label": "Oct 13", "value": 171 },
+      { "date": "2026-10-14", "label": "Oct 14", "value": 166 },
+      { "date": "2026-10-15", "label": "Oct 15", "value": 180 },
+      { "date": "2026-10-16", "label": "Oct 16", "value": 176 },
+      { "date": "2026-10-17", "label": "Oct 17", "value": 188 },
+      { "date": "2026-10-18", "label": "Oct 18", "value": 183 },
+      { "date": "2026-10-19", "label": "Oct 19", "value": 196 },
+      { "date": "2026-10-20", "label": "Oct 20", "value": 192 },
+      { "date": "2026-10-21", "label": "Oct 21", "value": 205 }
+    ],
+    "failures": [8, 6, 9, 5, 7, 4, 6, 9, 11, 8, 7, 10, 6, 7]
+  }
+}

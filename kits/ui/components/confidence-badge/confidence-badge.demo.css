@@ -1,0 +1,62 @@
+.ail-cf-demo { container: ail-confidence-demo / inline-size; width: 100%; max-width: 640px; min-width: 0; margin-inline: auto; color: var(--foreground); font-family: inherit; font-variant-numeric: tabular-nums; }
+.ail-cf-demo-top { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 18px; }
+.ail-cf-demo-examples { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.ail-cf-demo-threshold { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; margin-left: auto; font-size: 12px; }
+.ail-cf-demo-threshold-label { color: var(--subtle-foreground); }
+.ail-cf-demo-segmented { display: inline-flex; padding: 3px; border: 1px solid var(--border-subtle); border-radius: 12px; background: var(--muted); }
+.ail-cf-demo-segmented button { position: relative; display: inline-flex; align-items: center; justify-content: center; height: 24px; min-width: 38px; padding: 0 8px; border: 1px solid transparent; border-radius: 9px; background: transparent; color: var(--muted-foreground); font: inherit; font-size: 11.5px; font-weight: 550; cursor: pointer; }
+.ail-cf-demo-segmented button[aria-pressed="true"] { border-color: var(--border); background: var(--card); color: var(--foreground); }
+.ail-cf-demo-segmented button:hover { background: var(--accent); }
+.ail-cf-demo-segmented button:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; z-index: 1; }
+.ail-cf-demo-segmented button:active { transform: translateY(.5px); }
+.ail-cf-demo-table-frame { width: 100%; border: 1px solid var(--border); border-radius: var(--ui-radius-xl,18px); background: var(--card); }
+.ail-cf-demo-table { width: 100%; table-layout: fixed; border-collapse: separate; border-spacing: 0; font-size: 13px; line-height: 1.5; }
+.ail-cf-demo-field-column { width: 140px; }
+.ail-cf-demo-confidence-column { width: 170px; }
+.ail-cf-demo-table th, .ail-cf-demo-table td { height: 46px; padding: 8px 6px; border-top: 1px solid var(--border-subtle); text-align: left; vertical-align: middle; font-weight: 400; overflow-wrap: anywhere; }
+.ail-cf-demo-table th:first-child { padding-left: 16px; }
+.ail-cf-demo-table td:last-child, .ail-cf-demo-table thead th:last-child { padding-right: 16px; }
+.ail-cf-demo-table thead th { height: 38px; border-top: 0; color: var(--subtle-foreground); font-size: 11.5px; font-weight: 550; }
+.ail-cf-demo-table tbody th { color: var(--subtle-foreground); }
+.ail-cf-demo-table tr[data-review="true"] > * { background: color-mix(in oklab,var(--warning) 5%,transparent); }
+.ail-cf-demo-table tbody tr:last-child > :first-child { border-bottom-left-radius: var(--ui-radius-xl,18px); }
+.ail-cf-demo-table tbody tr:last-child > :last-child { border-bottom-right-radius: var(--ui-radius-xl,18px); }
+.ail-cf-demo-value { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.ail-cf-demo-review, .ail-cf-demo-checked { display: inline-flex; align-items: center; gap: 3px; padding: 1px 6px; border-radius: 6px; background: var(--warning-soft); color: var(--warning); font-size: 10.5px; font-style: normal; font-weight: 600; line-height: 1.5; }
+.ail-cf-demo-checked { background: var(--success-soft); color: var(--success); }
+.ail-cf-demo-checked svg { width: 11px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.ail-cf-demo-verification { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.ail-cf-demo-verified-note { color: var(--muted-foreground); font-size: 11.5px; }
+.ail-cf-demo-verification .ail-cf-demo-check { min-height: 30px; height: auto; padding: 5px 10px; border-radius: 10px; background: var(--card); color: var(--foreground); font: inherit; font-size: 12.5px; font-weight: 550; }
+.ail-cf-demo-verification .ail-cf-demo-check:hover { background: var(--accent); }
+.ail-cf-demo-verification .ail-cf-demo-check svg { width: 14px; height: 14px; }
+.ail-cf-demo p.ail-cf-demo-summary { margin: 18px 0 0; color: var(--subtle-foreground); font-size: 12px; line-height: 1.6; }
+.ail-cf-demo-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
+.ail-cf-demo-tools .ail-cf-demo-walkthrough, .ail-cf-demo-tools .ail-cf-demo-replace { min-height: 30px; height: auto; padding: 5px 9px; border-radius: 10px; color: var(--muted-foreground); font: inherit; font-size: 11.5px; font-weight: 550; }
+.ail-cf-demo-tools .ail-cf-demo-walkthrough svg { width: 10px; height: 10px; }
+.ail-cf-demo-motion-note { color: var(--subtle-foreground); font-size: 11px; }
+.ail-cf-demo-table .ail-cf-demo-empty { padding: 16px; color: var(--muted-foreground); }
+.ail-cf-demo-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@container ail-confidence-demo (width < 520px) {
+  .ail-cf-demo-threshold { justify-content: flex-start; margin-left: 0; }
+  .ail-cf-demo-field-column { width: 84px; }
+  .ail-cf-demo-confidence-column { width: 116px; }
+  .ail-cf-demo-table { font-size: 12.5px; }
+  .ail-cf-demo-table th, .ail-cf-demo-table td { padding-inline: 4px; }
+  .ail-cf-demo-table th:first-child { padding-left: 12px; }
+  .ail-cf-demo-table td:last-child, .ail-cf-demo-table thead th:last-child { padding-right: 12px; }
+  .ail-cf-demo-value { gap: 5px; }
+}
+@container ail-confidence-demo (width < 300px) {
+  .ail-cf-demo-field-column { width: 60px; }
+  .ail-cf-demo-confidence-column { width: 108px; }
+  .ail-cf-demo-table { font-size: 11.5px; }
+  .ail-cf-demo-table td:last-child, .ail-cf-demo-table thead th:last-child { padding-right: 8px; }
+  .ail-cf-demo-table .ail-confidence-badge { gap: 4px; padding-inline: 6px; font-size: 11px; }
+}
+@media (pointer:coarse), (max-width:640px) {
+  .ail-cf-demo-segmented button { min-width: 44px; height: 44px; }
+  .ail-cf-demo-verification [data-slot="button"][data-size="sm"].ail-cf-demo-check,
+  .ail-cf-demo-tools [data-slot="button"][data-size="sm"].ail-cf-demo-walkthrough,
+  .ail-cf-demo-tools [data-slot="button"][data-size="sm"].ail-cf-demo-replace { min-height: 44px; }
+}

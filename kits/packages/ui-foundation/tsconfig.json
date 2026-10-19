@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": [
+      "ES2023",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": [
+      "node",
+      "vitest/globals",
+      "@testing-library/jest-dom"
+    ],
+    "paths": {
+      "@/*": [
+        "../../../apps/web/src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "examples/**/*.tsx",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "e2e/**/*.ts",
+    "vitest.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "fixtures",
+    ".artifacts",
+    "registry"
+  ]
+}

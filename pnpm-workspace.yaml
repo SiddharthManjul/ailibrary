@@ -1,5 +1,12 @@
 packages:
-  - apps/web
+  - apps/*
+  - packages/*
+  - kits
+  - kits/packages/*
+  - kits/workflows/*/*/typescript
+  - kits/agents/*/*/typescript
+  - kits/ui/components/*
+  - kits/ui/blocks/*
 
 onlyBuiltDependencies:
   - '@tailwindcss/oxide'

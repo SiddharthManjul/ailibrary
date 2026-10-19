@@ -1,0 +1,28 @@
+.ail-diff-demo { container: ail-diff-demo / inline-size; display: flex; flex-direction: column; width: 100%; max-width: 910px; min-width: 0; margin-inline: auto; gap: 24px; color: var(--foreground); font-family: inherit; font-variant-numeric: tabular-nums; }
+.ail-diff-demo-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; }
+.ail-diff-demo .ail-diff-demo-button { min-height: 30px; height: auto; padding: 5px 10px; border-radius: calc(var(--radius,12px) - 2px); font: inherit; font-size: 12.5px; font-weight: 550; }
+.ail-diff-demo .ail-diff-demo-button svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.ail-diff-demo-applied { display: inline-flex; align-items: center; gap: 5px; min-height: 22px; padding: 2px 8px; border-radius: 999px; background: var(--success-soft); color: var(--success); font-size: 11.5px; font-weight: 550; }
+.ail-diff-demo-applied svg { width: 12px; height: 12px; }
+.ail-diff-demo-footer { display: flex; flex-direction: column; gap: 12px; margin-top: -8px; }
+.ail-diff-demo p.ail-diff-demo-note { margin: 0; }
+.ail-diff-demo-note { color: var(--subtle-foreground); font-size: 11.5px; line-height: 1.6; }
+.ail-diff-demo-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.ail-diff-demo-tools .ail-diff-demo-button { font-size: 11.5px; }
+.ail-diff-demo p.ail-diff-demo-error { margin: 0; color: var(--destructive); font-size: 12.5px; }
+.ail-diff-demo-record { border: 1px solid var(--border); border-radius: var(--radius,12px); background: var(--card); font-size: 12.5px; }
+.ail-diff-demo-record summary { padding: 10px 12px; color: var(--muted-foreground); cursor: pointer; }
+.ail-diff-demo-record summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; border-radius: var(--radius,12px); }
+.ail-diff-demo-record dl { display: grid; gap: 0; margin: 0; padding: 0 12px 8px; }
+.ail-diff-demo-record dl > div { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 10px; padding: 6px 0; border-top: 1px solid var(--border-subtle); }
+.ail-diff-demo-record dt { color: var(--subtle-foreground); }
+.ail-diff-demo-record dd { margin: 0; overflow-wrap: anywhere; }
+.ail-diff-demo-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@container ail-diff-demo (width < 520px) {
+  .ail-diff-demo-actions { justify-content: flex-start; }
+  .ail-diff-demo-record dl > div { grid-template-columns: 86px minmax(0,1fr); }
+  .ail-diff-demo .ail-diff-demo-button { min-height: 44px; }
+}
+@media (pointer:coarse), (max-width:640px) {
+  .ail-diff-demo [data-slot="button"].ail-diff-demo-button { min-height: 44px; }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "@ai-library/ui-foundation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./button-example": "./examples/button-example.tsx",
+    "./foundation.css": "./foundation.css",
+    "./design-theme.css": "./design-theme.css"
+  },
+  "scripts": {
+    "build": "node scripts/registry.mjs",
+    "check": "node scripts/registry.mjs --check",
+    "registry:validate": "pnpm --filter @ai-library/web exec shadcn registry validate registry.json --cwd ../../kits/packages/ui-foundation",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:browser": "playwright test --config e2e/playwright.config.ts",
+    "test:install": "node tests/install-registry.mjs"
+  },
+  "dependencies": {
+    "cn": "0.5.0",
+    "motion": "14.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.8",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "jsdom": "26.1.0",
+    "typescript": "6.0.3",
+    "vitest": "5.0.5"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "people": [
+    {"id":"person-001","name":"Elara Venn","email":"elara.venn@fieldline.example","roles":["sales_rep"]},
+    {"id":"person-002","name":"Tavian Rell","email":"tavian.rell@fieldline.example","roles":["sales_rep"]},
+    {"id":"person-003","name":"Neris Fenn","email":"neris.fenn@fieldline.example","roles":["sdr","finance_lead"]},
+    {"id":"person-004","name":"Ivara Quill","email":"ivara.quill@fieldline.example","roles":["support_lead"]},
+    {"id":"person-005","name":"Lioren Vale","email":"lioren.vale@fieldline.example","roles":["support_agent"]},
+    {"id":"person-006","name":"Seryn Mott","email":"seryn.mott@fieldline.example","roles":["support_agent"]},
+    {"id":"person-007","name":"Orven Dax","email":"orven.dax@fieldline.example","roles":["support_agent"]},
+    {"id":"person-008","name":"Maelin Voss","email":"maelin.voss@fieldline.example","roles":["engineering_manager"]},
+    {"id":"person-009","name":"Zevra Pell","email":"zevra.pell@fieldline.example","roles":["engineer","marketer"]},
+    {"id":"person-010","name":"Kelrin Tove","email":"kelrin.tove@fieldline.example","roles":["engineer"]},
+    {"id":"person-011","name":"Avenna Dray","email":"avenna.dray@fieldline.example","roles":["engineer"]},
+    {"id":"person-012","name":"Ruvik Senn","email":"ruvik.senn@fieldline.example","roles":["engineer"]}
+  ],
+  "accountPrefixes":["Velora","Kestrin","Orlune","Fenmora","Tavren","Zerith"],
+  "accountSuffixes":["Haulage","Transit","Coldchain","Utilities","Coachworks","Agrifleet","Courier","Portworks","Rentals","Municipal"],
+  "industries":["Freight","Passenger transport","Cold storage","Utilities","Vehicle manufacturing","Agriculture","Parcel delivery","Port services","Equipment rental","Local services"],
+  "countries":["US","IN","PT","DE","ES","GB"],
+  "cities":["Austin","Bangalore","Lisbon","Hamburg","Valencia","Bristol"],
+  "firstNames":["Arel","Belora","Cevin","Davra","Evrin","Fenla","Gavren","Helora","Iven","Jorra","Kavri","Lethan","Mavelle","Nivren","Orell","Pevra","Quelin","Ravelle","Selrin","Tovra"],
+  "lastNames":["Veyl","Norr","Kelm","Drenn","Rusk","Fale","Tarn","Mell","Vorren","Siv","Nelm","Dorr"],
+  "vendors":["Veylan Cloud","Orlune Supplies","Kestrin Hosting","Fenmora Travel","Tavren Devices","Zerith Office","Lunera Design","Kelvara Networks","Rivora Facilities","Neralis Training"],
+  "ticketCategories":["access","billing","work_orders","parts","scheduling","mobile","integrations","reporting"],
+  "languages":["en","es","de","pt-BR","hi"],
+  "ticketText":{
+    "en":{"open":"Our maintenance team needs help with","detail":"The task remains pending after saving. We tried signing out and repeating the steps on a second device. Please explain a safe next step before tomorrow's shift.","sign":"Fleet coordinator","quote":"Previous message: We confirmed the asset number and the team workspace."},
+    "es":{"open":"Nuestro equipo de mantenimiento necesita ayuda con","detail":"La tarea sigue pendiente después de guardar. Probamos cerrar la sesión y repetir los pasos en otro dispositivo. Necesitamos una solución segura antes del turno de mañana.","sign":"Coordinación de flota","quote":"Mensaje anterior: Confirmamos el número del vehículo y el espacio del equipo."},
+    "de":{"open":"Unser Wartungsteam braucht Hilfe bei","detail":"Die Aufgabe bleibt nach dem Speichern offen. Wir haben uns abgemeldet und die Schritte auf einem zweiten Gerät wiederholt. Bitte nennen Sie einen sicheren nächsten Schritt vor der nächsten Schicht.","sign":"Fuhrparkkoordination","quote":"Vorherige Nachricht: Fahrzeugnummer und Teamarbeitsbereich sind bestätigt."},
+    "pt-BR":{"open":"Nossa equipe de manutenção precisa de ajuda com","detail":"A tarefa continua pendente após salvar. Tentamos sair da conta e repetir as etapas em outro aparelho. Precisamos de um próximo passo seguro antes do turno de amanhã.","sign":"Coordenação de frota","quote":"Mensagem anterior: Confirmamos o número do veículo e o espaço da equipe."},
+    "hi":{"open":"हमारी रखरखाव टीम को इस विषय पर सहायता चाहिए:","detail":"सहेजने के बाद भी काम लंबित है। हमने साइन आउट करके दूसरे उपकरण पर यही चरण दोहराए। कल की पाली से पहले कृपया सुरक्षित अगला कदम बताएं।","sign":"बेड़ा समन्वयक","quote":"पिछला संदेश: वाहन संख्या और टीम कार्यक्षेत्र की पुष्टि कर दी गई है।"}
+  },
+  "kbTopics":["Create a workspace","Invite a technician","Reset a password","Set role permissions","Require two factor sign in","Archive a member","Create a work order","Assign a work order","Add inspection photos","Set a recurring service","Close a work order","Export work order history","Create a parts catalog","Receive a stock delivery","Set reorder thresholds","Transfer parts between depots","Reserve parts for a job","Count stock safely","Create technician shifts","Assign a shift","Set time off","View the dispatch calendar","Resolve a scheduling conflict","Export a shift roster","Install the mobile app","Sync a device","Capture work offline","Upload inspection photos","Manage mobile notifications","Sign out a lost device","Read the billing summary","Change a seat count","Download an invoice","Update a billing contact","Understand Growth features","Request an Enterprise review","Connect the CRM","Rotate an API token","Configure a webhook","Read integration logs","Export an asset report","Schedule a weekly report","Filter maintenance metrics","Read service intervals","Contact the support team"],
+  "gaps":["SAML certificate rotation without downtime","Cross-region data residency migration","Bulk rollback of imported work orders","Tax exemption for multi-country billing","Offline conflict resolution for shared tablets","Custom calendar integration retry policy"],
+  "contentTopics":["A practical preventive maintenance checklist","Plan the next depot inspection","How fleet teams measure repair backlog","Make parts counts reliable","Schedule technicians across depots","Read maintenance cost trends","Write useful work order notes","Prepare a vehicle service handoff","Choose reorder thresholds","Reduce repeat inspection work","Track downtime by asset","Keep shift coverage visible","Prepare monthly fleet reporting","Build an asset service history","Run a safe inventory transfer","Document workshop escalation paths","Organize recurring service plans","Review maintenance team permissions","Design a weekly operations review","Measure work order turnaround"]
+}

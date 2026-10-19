@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "types": ["node"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "rootDir": ".",
+    "outDir": ".build"
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts", "recipe/data.json", "recipe/design-scenes.json"],
+  "exclude": [".build", "dist", "node_modules", "python", "recipe/service"]
+}

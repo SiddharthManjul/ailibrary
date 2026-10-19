@@ -1,0 +1,147 @@
+# Button example
+
+A small React composition over a local shadcn button, with controlled state and accessible async feedback.
+
+<LivePreview />
+
+## When to use
+
+Use this sample to verify the foundation registry installs into your chosen shadcn style and to study a small boolean preference control with an optional async save. Try the uncontrolled example, simulate a failure, retry it and compare the parent-controlled example.
+
+## When not to use
+
+Use your local shadcn `Button` for a stateless action or link. Use a shadcn checkbox or switch for a preference inside a form with a separate submit step. This sample demonstrates an immediate toggle action; it does not replace all button or form primitives.
+
+## Install
+
+From a fresh Next.js project with a shadcn Base UI or Radix style initialized, install the public local item while the library web app is running:
+
+Add the namespace to your existing `components.json` before installation so the item’s foundation dependencies resolve:
+
+```json
+{
+  "registries": {
+    "@ailibrary": "http://localhost:3000/r/{name}.json"
+  }
+}
+```
+
+```sh
+pnpm dlx shadcn@4.22.0 add @ailibrary/button-example
+```
+
+The equivalent direct URL is `http://localhost:3000/r/button-example.json`; keep the namespace mapping because its shared dependencies also use `@ailibrary`. The registry installs the consumer's shadcn button dependency and copies the sample plus required state hook. For copy installation, use the file contents and dependencies in [the registry JSON](/r/button-example.json). AI tools can read [the same Markdown source](/docs/ui/button-example.md) and use this shadcn command. The AI Library CLI and hosted MCP installation remain reserved platform integrations. No account or Bearer token is needed for this public foundation sample.
+
+## Usage
+
+```tsx
+"use client";
+import { useState } from "react";
+import { ButtonExample } from "@ai-library/ui-foundation";
+
+export function NotificationPreference() {
+  const [enabled, setEnabled] = useState(false);
+  return (
+    <ButtonExample
+      value={enabled}
+      onValueChange={setEnabled}
+      onAction={async (next) => {
+        const response = await fetch("/api/preferences", {
+          method: "POST",
+          body: JSON.stringify({ notifications: next }),
+        });
+        if (!response.ok) throw new Error("Preference update failed");
+      }}
+    />
+  );
+}
+```
+
+This workspace import is for the repository. Registry installs use the local copied component path. The snippet's application endpoint is illustrative and is not implemented by this foundation. The owning application supplies authentication, validation and persistence. For uncontrolled state, omit `value` and provide `defaultValue` when needed.
+
+## Anatomy
+
+- `ButtonExample`: root wrapper, containing the shadcn toggle button and reserved async feedback.
+- The internal button: `aria-pressed` represents the committed value; its label follows the committed off/on state, while pending status is announced separately.
+- The feedback area: announces pending/success politely and exposes failures as an alert.
+- The retry button: appears after a failed action and repeats the requested update.
+
+Only `ButtonExample` is exported as a component; its props and labels types are exported separately. Native `div` props and a React 19 ref go to the root wrapper. Use `className` and `data-slot` attributes to style the wrapper and internal parts without replacing the local shadcn primitive.
+
+## API
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `boolean` | Uncontrolled | Owner-provided committed state |
+| `defaultValue` | `boolean` | `false` | Initial uncontrolled state |
+| `onValueChange` | `(next: boolean) => void` | None | Change request after successful action |
+| `onAction` | `(next: boolean) => void` or Promise | None | Optional application action; rejection keeps the prior value |
+| `disabled` | `boolean` | `false` | Prevent activation and retries |
+| `labels` | Partial labels object | English defaults | Toggle, pending, success, error and retry text |
+| `className` | `string` | None | Root wrapper styling |
+| `children` | React node | State label | Optional custom trigger content; provide an accessible name |
+| `ref` | `Ref<HTMLDivElement>` | None | Root reference |
+
+### Labels
+
+| Key | Type | English default |
+| --- | --- | --- |
+| `off` | `string` | Enable notifications |
+| `on` | `string` | Notifications enabled |
+| `pending` | `string` | Saving preference… |
+| `success` | `string` | Preference saved. |
+| `error` | `string` | Preference could not be saved. Try again. |
+| `retry` | `string` | Retry preference update |
+
+Use descriptive labels for the actual preference. Keep off/on labels understandable as both the action and the current pressed state. Errors use the provided localized error message; raw server errors should not be exposed to the user.
+
+## States
+
+The live preview contains all sample interactions:
+
+- **Off**: uncontrolled and controlled toggles start unpressed.
+- **On**: successful activation commits the new value and pressed state.
+- **Pending**: the local async example takes 3 seconds and shows pending text; repeated requests are blocked.
+- **Success**: a polite live message confirms the committed preference.
+- **Error**: enable **Simulate failure**, activate the uncontrolled toggle and observe the failure alert. Its previous value is retained.
+- **Retry**: clear **Simulate failure** and activate the retry action to repeat the requested update successfully.
+- **Disabled**: the separate disabled example retains its off value and cannot be activated.
+- **Controlled**: the daily-digest example displays the value owned by its parent, and the parent updates it from `onValueChange`.
+
+## Motion
+
+This control does not use spatial motion. The primitive's color transition uses the shared fast duration and is disabled for reduced motion. Pending, success, error and retry states remain visible when motion is reduced. The feedback region reserves space so an announcement does not shift surrounding controls.
+
+## Keyboard
+
+| Key | Result |
+| --- | --- |
+| Tab / Shift+Tab | Focus the toggle, error retry and preview settings in normal document order |
+| Space / Enter | Activate a focused enabled toggle |
+| Space / Enter on retry | Retry the failed requested value |
+| Arrow keys in native preview selects | Change theme, motion or width |
+
+A disabled or pending control cannot start another action. No custom arrow-key navigation is added to the button itself.
+
+## Accessibility
+
+The sample uses a native toggle button pattern with `aria-pressed`, composed through the consumer's local shadcn button. Pending state is communicated by text and busy state; success is a polite status, and a failed save uses an alert with a plainly labeled retry. Focus remains visible using the shared ring token. Status never relies on color alone. The root wrapper is not a second interactive element. Both themes, reduced motion, keyboard behavior and async states are part of the shared test harness.
+
+## Responsive behavior
+
+The sample works from a 320 px container. Text wraps where needed and controls retain a minimum 44 px height for touch. Feedback has reserved space rather than being positioned over neighboring content. The preview can inspect actual 320, 768 and 1280 px containers within a local scroll region.
+
+## Performance
+
+The sample has no network calls of its own; `onAction` belongs to the application. Only one request can run at a time. Use a server endpoint and pass only the intended boolean update; do not put credentials or persistence logic in the component. There is no list or virtualization requirement. Component bundle measurements exclude shared React/Motion/shadcn dependencies and are recorded in F3 verification.
+
+## Notes for AI
+
+- Import and compose the consumer's local shadcn button; do not import Base UI or Radix directly in this sample.
+- Use `value` with `onValueChange` for controlled state; otherwise use `defaultValue`.
+- Update the parent value in controlled mode; emitting a callback does not mutate owner state.
+- Supply `onAction` for async persistence and throw/reject on failure so the previous value is retained.
+- Keep server validation, authentication and secrets in the application layer.
+- Override all labels together when adapting the example to a different preference or locale.
+- Preserve the native `aria-pressed` state, feedback regions, retry action and visible focus ring.
+- Use the stateless shadcn button or an appropriate form control when a boolean immediate-action toggle is not the task.

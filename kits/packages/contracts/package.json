@@ -1,0 +1,28 @@
+{
+  "name": "@ai-library/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/src/index.d.ts", "default": "./dist/src/index.js" },
+    "./fixtures": { "types": "./dist/src/fixtures.d.ts", "default": "./dist/src/fixtures.js" },
+    "./columns": { "types": "./dist/src/columns.d.ts", "default": "./dist/src/columns.js" }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "generate": "pnpm build && node dist/scripts/generate.js",
+    "generate:check": "pnpm build && node dist/scripts/generate.js --check",
+    "test": "pnpm generate:check && node --test dist/tests/*.test.js",
+    "test:postgres": "pnpm generate:check && node tests/postgres.mjs"
+  },
+  "dependencies": { "zod": "4.6.7" },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "typescript": "6.0.3"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ailibrary",
+  "homepage": "http://localhost:3100/docs",
+  "items": [
+    {
+      "name": "ui-foundation",
+      "type": "registry:theme",
+      "title": "AI Library foundation",
+      "description": "Semantic light/dark tokens and motion timing. Bricolage Grotesque is supplied by the host.",
+      "files": []
+    },
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Motion presets",
+      "dependencies": ["motion@14.3.0"],
+      "files": [{ "path": "src/motion.ts", "type": "registry:lib", "target": "lib/ailibrary/motion.ts" }]
+    },
+    {
+      "name": "use-controllable-state",
+      "type": "registry:hook",
+      "title": "Controlled or local state",
+      "files": [{ "path": "src/hooks/use-controllable-state.ts", "type": "registry:hook", "target": "hooks/ailibrary/use-controllable-state.ts" }]
+    },
+    {
+      "name": "use-container-size",
+      "type": "registry:hook",
+      "title": "ResizeObserver container measurement",
+      "files": [{ "path": "src/hooks/use-container-size.ts", "type": "registry:hook", "target": "hooks/ailibrary/use-container-size.ts" }]
+    },
+    {
+      "name": "use-reduced-motion",
+      "type": "registry:hook",
+      "title": "Reactive motion preference",
+      "dependencies": ["motion@14.3.0"],
+      "files": [{ "path": "src/hooks/use-reduced-motion.ts", "type": "registry:hook", "target": "hooks/ailibrary/use-reduced-motion.ts" }]
+    },
+    {
+      "name": "button-example",
+      "type": "registry:ui",
+      "title": "Button example",
+      "description": "Public foundation smoke test with controlled state, async feedback and retry.",
+      "dependencies": ["cn@0.5.0"],
+      "registryDependencies": ["button", "@ailibrary/ui-foundation", "@ailibrary/use-controllable-state"],
+      "files": [{ "path": "examples/button-example.tsx", "type": "registry:ui", "target": "components/ailibrary/button-example.tsx" }]
+    },
+    {
+      "name": "chart-frame",
+      "type": "registry:ui",
+      "title": "Accessible chart frame",
+      "description": "A numeric-series frame with keyboard tooltips, a summary and a data table.",
+      "dependencies": ["cn@0.5.0"],
+      "registryDependencies": ["button", "@ailibrary/ui-foundation", "@ailibrary/use-controllable-state", "@ailibrary/use-reduced-motion"],
+      "files": [{ "path": "src/chart-frame.tsx", "type": "registry:ui", "target": "components/ailibrary/chart-frame.tsx" }]
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+# Chart frame
+
+A shared chart wrapper with keyboard inspection, a readable summary and an equivalent data table.
+
+<LivePreview />
+
+## When to use
+
+Use Chart frame for a small chart that needs a title, a meaningful text summary, focusable values and a table alternative. The preview groups real deterministic Fieldline F2 deal records by stage on the server and sends seven aggregate rows to the client.
+
+## When not to use
+
+Use an ordinary table when exact values are the primary task. Use an item-specific chart component for axes, legends, many series or complex interactions. Chart frame supplies the accessible frame and value inspection; its plot slot accepts your visualization.
+
+## Install
+
+With the web app and registry running locally:
+
+Add the namespace to your existing `components.json` before installation so the item’s foundation dependencies resolve:
+
+```json
+{
+  "registries": {
+    "@ailibrary": "http://localhost:3000/r/{name}.json"
+  }
+}
+```
+
+```sh
+pnpm dlx shadcn@4.22.0 add @ailibrary/chart-frame
+```
+
+The direct URL is `http://localhost:3000/r/chart-frame.json`; keep the namespace mapping so shared dependencies resolve. The registry resolves its shadcn button dependency through the consumer's Base UI or Radix style. Copy installation uses the files and dependencies in [the registry item](/r/chart-frame.json). The AI Library CLI and hosted MCP installation remain reserved platform work; AI tools can read [the source Markdown](/docs/ui/chart-frame.md) and use the shadcn command. These foundation samples are public; paid Bearer-token delivery is documented separately in the registry README.
+
+## Usage
+
+```tsx
+"use client";
+import { ChartFrame, ChartFramePlot, ChartFramePoint }
+  from "@ai-library/ui-foundation";
+
+const rows = [
+  { id: "qualified", label: "Qualified", value: 18 },
+  { id: "proposal", label: "Proposal", value: 9 },
+];
+
+export function Pipeline() {
+  return (
+    <ChartFrame title="Pipeline" rows={rows}
+      summary="Qualified deals outnumber proposals two to one.">
+      {({ rows, formatValue }) => (
+        <ChartFramePlot>
+          {rows.map((row, index) => (
+            <ChartFramePoint key={row.id} index={index}>
+              {row.label}: {formatValue(row.value)}
+            </ChartFramePoint>
+          ))}
+        </ChartFramePlot>
+      )}
+    </ChartFrame>
+  );
+}
+```
+
+Workspace imports are shown above. Registry consumers import the copied component at the local path recorded by the registry. For application data, aggregate and validate records on the server before passing rows. The frame never fetches data.
+
+## Anatomy
+
+- `ChartFrame`: named figure, caption, status/plot area, tooltip space and table disclosure.
+- `ChartFrameTitle`: visible heading used to name the figure.
+- `ChartFrameDescription`: text summary describing the finding and any partial-data limitation.
+- `ChartFramePlot`: named group containing focusable values.
+- `ChartFramePoint`: one chart value with a stable row index and roving keyboard focus.
+- `ChartFrameTooltip`: text for the inspected row; its space is reserved to avoid shifting the plot.
+- `ChartFrameTable`: captioned table with row and column headers.
+
+The root supplies title, description, tooltip and table automatically. Place plot and point parts inside its render-function child. Additional exports allow composition inside the existing frame context. Every part accepts `className`, a React 19 `ref` prop and remaining native element props. Parts expose `data-slot`; the root exposes `data-state` and `data-reduced-motion`, and points expose active/idle state.
+
+## API
+
+### ChartFrame
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `title` | `string` | Required | Figure name and visible heading |
+| `summary` | `string` | Required | Main finding, units and data limitations; do not repeat the title |
+| `rows` | readonly `ChartFrameRow[]` | Required | Ordered finite numeric values with stable unique IDs |
+| `children` | React node or render function | Accessible value list | Optional custom plot |
+| `state` | `ready`, `loading`, `empty`, `error` | `ready` | Explicit plot state; no rows resolves ready to empty |
+| `locale` | `string` | `en-US` | Locale for Intl.NumberFormat |
+| `valueFormat` | `Intl.NumberFormatOptions` | Intl defaults | Decimal, percentage or currency formatting |
+| `tableOpen` | `boolean` | Uncontrolled | Controlled table disclosure |
+| `defaultTableOpen` | `boolean` | `false` | Initial uncontrolled disclosure |
+| `onTableOpenChange` | `(open: boolean) => void` | None | Disclosure change request |
+| `labels` | partial `ChartFrameLabels` | English defaults | Every interface string and formatted accessible row label |
+| `className`, `ref` | Native figure props | None | Root styling and reference |
+
+### Rows and render context
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `row.id` | `string` | Stable unique ID |
+| `row.label` | `string` | Human-readable row/stage name |
+| `row.value` | `number` | Valid finite numeric value |
+| `context.rows` | readonly row array | The supplied rows |
+| `context.formatValue` | `(value: number) => string` | Shared locale-aware formatter |
+| `context.palette` | readonly six token colors | `var(--chart-1)` through `var(--chart-6)` |
+| `context.activeIndex` | `number` or `null` | Current inspected row |
+
+### Parts
+
+| Part | Element / props | Additional behavior |
+| --- | --- | --- |
+| `ChartFrameTitle` | `h3` native props | Figure heading |
+| `ChartFrameDescription` | `p` native props | Visible summary |
+| `ChartFramePlot` | `div` native props | Named group; clears inspection when focus leaves |
+| `ChartFramePoint` | `button` native props plus required numeric `index` | Index must match the ordered rows; keyboard and tooltip wiring |
+| `ChartFrameTooltip` | `div` native props | Follows pointer or keyboard inspection, not pointer position |
+| `ChartFrameTable` | `table` native props | Caption, column headers and numeric cells |
+
+### Labels
+
+| Label | Type | English default |
+| --- | --- | --- |
+| `showTable`, `hideTable` | `string` | Show data table / Hide data table |
+| `tableCaption` | `(title: string) => string` | Title followed by “— data table” |
+| `labelColumn`, `valueColumn` | `string` | Label / Value |
+| `loading` | `string` | Loading chart data… |
+| `empty` | `string` | No chart data yet. |
+| `error` | `string` | Chart data could not be displayed. |
+| `chartNavigation` | `string` | Instructions for arrows, Home, End and Escape |
+| `point` | `(row, formattedValue) => string` | Label followed by formatted value |
+
+## States
+
+Use **Demo state** in the preview to inspect each state:
+
+- **Default**: all seven real Fieldline stage counts; inspect a value or show the table.
+- **Loading**: reserved plot space, a polite loading message and `aria-busy` on the figure.
+- **Error**: a text error with an alert role. Data is not presented as successfully loaded.
+- **Empty**: no points and a polite “No chart data yet” message.
+- **Partial**: the first three stages, with the limitation explicitly stated in the summary. Partial is an application-level ready state with a smaller row set.
+
+Focus/active points have a visible ring and a text tooltip. Table-open and table-closed states use an explicit disclosure button; a controlled owner can update `tableOpen` through `onTableOpenChange`.
+
+## Motion
+
+The foundation frame has no spatial animation. Values, focus feedback and table state update immediately. The tooltip has reserved space; opening it does not push later content. Custom chart motion should use shared motion tokens and `useReducedMotion`; preserve final values and keyboard feedback when motion is reduced. The preview's motion control also exercises the hook's HTML override.
+
+## Keyboard
+
+| Key | Result |
+| --- | --- |
+| Tab / Shift+Tab | Enter/leave the plot as one stop; reach table disclosure and the open table |
+| ArrowRight / ArrowDown | Focus the next value, wrapping at the end |
+| ArrowLeft / ArrowUp | Focus the previous value, wrapping at the beginning |
+| Home / End | Focus the first/last value |
+| Escape | Dismiss the tooltip while retaining point focus |
+| Space / Enter on table disclosure | Show or hide the equivalent table |
+
+## Accessibility
+
+The frame uses a native figure and figcaption, a named group of button values with roving focus, a tooltip associated with the active value, and a native table. It does not claim to be an ARIA grid. Each point announces its label and formatted value; a focus-linked tooltip supplies the same text that pointer inspection shows. The table toggle has `aria-expanded` and `aria-controls`; the table has a caption, column headers and row headers. A visible summary communicates the chart's meaning without relying on color. Loading/empty feedback is polite; errors use an alert. Text labels always accompany bars.
+
+## Responsive behavior
+
+The frame sizes to its container from 320 px. Header content wraps, table content can scroll locally and touch controls are at least 44 px high. The sample plot uses container queries below 400 px to shorten label space while keeping labels and values visible. There are no hover-only actions; every point is keyboard inspectable and the table is always available.
+
+## Performance
+
+The demo transfers seven aggregate rows, never the full Fieldline dataset. It has no chart library or network fetch. The frame does not virtualize; keep this pattern to at most 100 points and use an aggregate chart or virtualized data table beyond that. Compute aggregates outside the client render path. The component's bundle budget excludes shared React/Motion/shadcn dependencies; measured bundle evidence is recorded with F3 verification.
+
+## Notes for AI
+
+- Supply a useful summary with units, the main finding and any partial-data caveat.
+- Give rows stable unique IDs and finite values; validate server data before rendering.
+- Keep point indexes aligned with row order so keyboard focus and tooltip labels remain correct.
+- Use `ChartFramePlot` and `ChartFramePoint` inside the frame to retain keyboard inspection.
+- Use the render context's formatter for visible numbers and token palette for chart colors.
+- Do not fetch or generate the complete seed dataset in a client component.
+- Update the owner value when using controlled `tableOpen`; the callback alone does not change it.
+- Use a plain or virtualized table for large datasets; the frame intentionally has no large-list virtualization.

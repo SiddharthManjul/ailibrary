@@ -1,0 +1,219 @@
+# Diff viewer
+
+Review proposed text, code, JSON and record changes with word highlights, folded context and per-change decisions.
+
+<LivePreview />
+
+## When to use
+
+Use Diff Viewer before an agent changes a support reply, document, code snippet or CRM record. The live board compares a proposed reply to ticket #9918 and four HubSpot field proposals from the canonical synthetic Doom Studio/Brooklyn seed scene. Replace proposal passes a second revision to the existing component instances.
+
+**When not to use:** use a full code-review application for repository navigation, threaded reviews, merges and patch application. Use Approval Card when a review also needs an approval policy and audit trail. Diff Viewer displays proposals and requests decisions; your application owns validation, authorization and persistence.
+
+<span id="install" />
+
+## Install
+
+<ComponentInstallation />
+
+Start with a React 19, TypeScript and Tailwind CSS 4 application with shadcn initialized. Open the [Diff Viewer source bundle](/docs/ui/diff-viewer/source) for every destination path, exact dependency and required primitive. Copy the component, model, lazy syntax helper and CSS together. Keep the shared hooks and theme files shown in Code, and use your existing root theme provider and font.
+
+Open **Code** beside Preview to inspect and copy the actual component, complete demo and shared files. The example contains the same synthetic support reply and record values as the preview. Demo files are optional; the reusable component uses your own immutable snapshots and callbacks.
+
+The component composes the host's shadcn Button, the shared controllable-state hook, jsdiff and TanStack Virtual. Code mode loads Shiki and its supported grammars only when needed. The dependency panel provides pnpm, npm, yarn and bun commands. npm packages and hosted AI Library registry delivery remain unpublished; manual source is usable now.
+
+**AI tools:** read [this Markdown source](/docs/ui/diff-viewer.md), the source bundle and the `/llms.txt` entry together. The frontend source viewer is separate from authenticated registry delivery.
+
+## Usage
+
+```tsx
+"use client";
+
+import { DiffViewer, type DiffDecisions } from "@/components/ailibrary/diff-viewer";
+import { useState } from "react";
+
+type Proposal = {
+  id: string;
+  revision: number;
+  before: Readonly<Record<string, unknown>>;
+  after: Readonly<Record<string, unknown>>;
+};
+
+export function RecordProposal({ proposal }: { proposal: Proposal }) {
+  const [review, setReview] = useState<{
+    id: string; revision: number; decisions: DiffDecisions;
+  }>();
+  const decisions = review?.id === proposal.id && review.revision === proposal.revision
+    ? review.decisions : {};
+  return (
+    <div data-ui-design>
+      <DiffViewer mode="fields" title="Proposed CRM changes"
+        before={proposal.before} after={proposal.after} interactive decisions={decisions}
+        onDecisionsChange={(next) => setReview({ id: proposal.id,
+          revision: proposal.revision, decisions: next })} />
+    </div>
+  );
+}
+```
+
+Pass fresh immutable snapshots and a new revision when a proposal changes. The example binds its owner-managed map to both proposal ID and revision; a decision belongs to the exact proposal a person reviewed. No key change or remount is required. Text and code accept strings. JSON accepts a JSON string or plain record and compares a stable, indented representation. Fields accepts plain records, compares top-level keys and preserves the difference between an absent key and an explicitly present value. Date, Map, Set and class instances are not record roots.
+
+Use `mode="text"` for prose, `mode="code" language="typescript"` for source, `mode="json"` for structured JSON displayed as lines, and `mode="fields"` for a record table. Code is rendered as escaped React text, including syntax tokens; source never executes as HTML.
+
+## Anatomy
+
+- `DiffViewer`: comparison, state, responsive view, keyboard navigation and async decision owner.
+- `DiffToolbar`: title, addition/removal counts, whitespace switch, view controls and composed application actions.
+- `DiffHunk`: a named, focusable change region with optional decision buttons and pending/error feedback.
+- `DiffFieldTable`: top-level field changes with before/after values and decisions.
+- `getDiffFieldId`: returns a stable field identifier such as `field:amount` for owner-managed field decisions.
+
+All four components export their prop types, accept `className` and a React 19 `ref`, and forward native root attributes. The root slots are `diff-viewer`, `diff-toolbar`, `diff-hunk` and `diff-field-table`. Internal styling slots include `diff-counts`, `diff-row`, `diff-context`, `diff-fold`, `diff-viewport`, `diff-hunk-accept` and `diff-hunk-reject`. The root exposes `data-mode`, `data-state`, `data-view` and `data-requested-view`; each hunk exposes `data-hunk-id` and its decision state.
+
+## API
+
+### DiffViewer
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `before`, `after` | `DiffInput` | Required | Immutable strings for text/code, JSON strings or records for JSON, and records for fields. |
+| `mode` | `text` / `json` / `fields` / `code` | `text` | Comparison and rendering mode. |
+| `language` | `string` | `typescript` | Code grammar. Supported: TypeScript, TSX, JavaScript, Python, JSON and CSS, with `ts`, `js`, `py` and `jsx` aliases. Unsupported languages remain plain text. |
+| `title`, `icon` | `ReactNode` | Proposed changes / none | Application context and an optional decorative icon. |
+| `view`, `defaultView`, `onViewChange` | `DiffView`, `DiffView`, callback | Uncontrolled / unified / none | Controlled or uncontrolled requested view. Split temporarily becomes unified below a 640px container and returns when space permits. |
+| `hideWhitespace`, `defaultHideWhitespace`, `onHideWhitespaceChange` | boolean pair and callback | Uncontrolled / true / none | Ignore leading/trailing whitespace-only line changes while enabled. Revealing whitespace recomputes line counts and highlights. |
+| `interactive` | `boolean` | `false` | Show decision buttons and enable a/r shortcuts. |
+| `decisions`, `defaultDecisions`, `onDecisionsChange` | `DiffDecisions` pair and callback | Uncontrolled / empty map / none | Owner-managed or local accepted/rejected hunk IDs. Controlled owners must update the map. |
+| `onHunkDecision` | `(id, decision) => void` or Promise | None | Optional persistence/validation callback. A decision commits after success; failure retains the previous decision and exposes retryable feedback. |
+| `expandedRegions`, `defaultExpandedRegions`, `onExpandedRegionsChange` | readonly string array pair and callback | Uncontrolled / empty / none | IDs of expanded unchanged regions. |
+| `collapseThreshold` | `number` | `6` | Unchanged regions longer than this value initially fold. The reference demo explicitly uses 3 to reproduce its four-line fold. |
+| `maxHeight` | `number` | `480` | Maximum height in pixels of a virtualized list viewport. |
+| `disabled` | `boolean` | `false` | Disable view, whitespace and decision controls. Your application can lock a proposal while applying it. |
+| `toolbarActions`, `toolbarStatus` | `ReactNode` | None | Application-owned bulk review, Apply/Undo and status composition. |
+| `labels` | partial `DiffLabels` | English defaults | Built-in visible and accessible strings, including formatter functions. |
+| `locale` | `string` | `en-US` | Valid Intl locale for displayed numeric counts. Field strings retain the formatting supplied by the owner. |
+| `className`, `ref`, native div props | Native props | None | Root styling, DOM reference, events and accessibility attributes. |
+
+`DiffView` is unified or split. `DiffDecision` is accept or reject. `DiffDecisions` is a readonly record keyed by hunk ID. `DiffInput` is a string or readonly string-keyed record of unknown values. Text hunk IDs describe comparison positions; they are not durable approval receipts. Bind persisted decisions to your own proposal ID and content revision.
+
+A new input or unmount suppresses stale UI completion; it cannot cancel an already-running persistence callback. Capture the proposal ID/revision in server requests and enforce revision checks, authorization and idempotency there.
+
+### DiffToolbar
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `title`, `icon`, `status`, `actions` | `ReactNode` | Default title / none | Compose context and application actions. |
+| `view`, `onViewChange` | `DiffView` and callback | Unified / none | Owner-controlled view selector. DiffViewer supplies its own controlled/uncontrolled state. |
+| `hideWhitespace`, `onHideWhitespaceChange` | boolean and callback | true / none | Owner-controlled whitespace switch. |
+| `additions`, `removals` | `number` | `0` | Summary counts supplied by the owner. |
+| `showViewControls`, `disabled` | `boolean` | true / false | Fields mode hides text controls; disabled blocks them. |
+| `labels`, `locale` | Same as root | English / en-US | Text and numeric formatting. |
+| `className`, `ref`, native div props | Native props | None | Root customization. |
+
+### DiffHunk
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `hunkId`, `index`, `total` | string, number, number | Required | Stable comparison ID and one-based ordinal for the named region. |
+| `interactive`, `disabled` | `boolean` | false / false | Whether local decision controls are shown and enabled. |
+| `decision` | `DiffDecision` | None | Current outcome, supplied by the owner. |
+| `pending`, `error` | `boolean` | false / false | Async action feedback supplied by the owner. |
+| `onDecision` | `(id, decision) => void` | None | Decision request. DiffViewer adds async handling around it. |
+| `labels`, `children` | partial labels / ReactNode | English / none | Region name, actions and change content. |
+| `className`, `ref`, native section props | Native props | None | Root customization, including an explicit accessible-name override. |
+
+### DiffFieldTable
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `fields` | readonly `DiffField[]` | Required | Prepared field models: ID, key, before/after values, presence flags and added/removed/changed kind. |
+| `interactive`, `disabled`, `decisions` | boolean, boolean, map | false / false / empty | Owner-managed review presentation. |
+| `pendingIds`, `errorIds` | readonly `string[]` | Empty | Fields awaiting completion or showing an action failure. |
+| `onDecision` | `(id, decision) => void` | None | Owner-managed decision request. |
+| `maxHeight` | `number` | `480` | Maximum virtualized list height. |
+| `navigationRef` | `Ref<{ scrollToIndex(index: number): void }>` | None | Populated for virtualized field lists above 100 rows; DiffViewer uses it to reveal a keyboard-selected row. |
+| `labels`, `className`, `ref`, native div props | Native props | English / none | Text and root customization. |
+
+### Labels
+
+| Keys | Type | English defaults |
+| --- | --- | --- |
+| `title`, `unified`, `split`, `view`, `hideWhitespace` | `string` | Proposed changes, Unified, Split, Diff view, Hide whitespace |
+| `before`, `after`, `field`, `actions` | `string` | Before, After, Field, Decisions |
+| `accept`, `reject`, `accepted`, `rejected` | `string` | Accept, Reject, Accepted, Rejected |
+| `pending`, `loading`, `noChanges` | `string` | Saving decision, Comparing changes…, No changes |
+| `added`, `removed`, `changed`, `unchanged`, `missing` | `string` | Added, Removed, Changed, Unchanged, Not present |
+| `collapse`, `error`, `retry`, `codeFallback` | `string` | Collapse unchanged lines, Could not complete this change, Retry, plain-code fallback message |
+| `hunk` | `(index, total) => string` | Change 2 of 5 |
+| `showLines` | `(count) => string` | Show 12 unchanged lines |
+| `decision` | `(action, name) => string` | Accept amount |
+| `counts` | `(added, removed) => string` | 3 additions, 2 removals |
+
+Translate formatter functions alongside label words. Blank or invalid string labels fall back to defaults so controls keep names. Supply a valid locale. Titles, field names, values and composed toolbar actions are application content, so localize those where they are created.
+
+## States
+
+- **No changes:** a named empty state, including whitespace-only differences hidden by the current setting.
+- **Small diff:** added and removed lines, original line numbers, prefixes and changed-word highlights. Split aligns old/new line pairs.
+- **Large diff:** long unchanged regions fold, and lists over 100 rows virtualize within a bounded scroll area. Expand context to inspect it.
+- **Fields:** top-level additions, removals and modifications have textual cues and plus/minus markers, before/after values and independently named review regions.
+- **Loading:** async comparison exposes busy state and Comparing changes feedback. A replacement input never presents the previous result as current.
+- **Interactive:** each hunk starts undecided, then becomes accepted or rejected after a successful action. Decisions do not mutate the snapshots.
+- **Pending/error:** async callbacks lock duplicate requests for the same hunk. A failed decision shows an error; activating its action again retries it.
+- **Plain code:** source renders before optional highlighting completes. Unsupported syntax stays readable; highlighting failures preserve the diff and its decisions.
+- **Applied:** the demo locks its reviewed record after a local save, shows the accepted values in View local record, and offers Undo. This is demo-owned state.
+
+The live board demonstrates reply/field decisions, whitespace, folds, local Apply/Undo and replacement data. Use **Diff example** above the preview to try No changes, a 5,000-line diff, JSON, code and Async decisions. The async story provides a Simulate failure toggle so its error and retry behavior can be tested. The component itself has no demo timer, data fetch, CRM integration or patch-application API.
+
+## Motion
+
+Decision state uses a brief opacity fade with the shared fast duration. There is no travel, scale, looping or animated text. Reduced motion makes the outcome immediate and preserves focus, state and feedback. The root theme's existing motion override is respected.
+
+The presentation walkthrough is demo-only and starts paused. Play walkthrough changes view and whitespace settings; it never accepts, rejects or applies a proposal. Pointer/key input pauses it persistently. Reduced motion, hidden documents and offscreen scenes suspend it. Apply uses a simulated local async completion rather than an external request.
+
+## Keyboard
+
+| Key | Result |
+| --- | --- |
+| Tab / Shift+Tab | Reach toolbar controls, folds and visible decision buttons. |
+| Enter / Space | Activate a focused button, whitespace switch or fold. |
+| n / p | Move focus to the next/previous changed hunk within this viewer, wrapping at the ends. |
+| a / r | Accept/reject the focused hunk when interactive and enabled. |
+| Page Up / Page Down, arrow keys | Native scrolling in a focused virtualized viewport. |
+
+Shortcuts are scoped to the viewer. Modified key combinations and editable text/combobox targets are left to the application. The view selector uses pressed buttons in a labeled group; it is not a tablist with a separate panel for each rendering.
+
+## Accessibility
+
+Each hunk is a region named Change 2 of 5. Fields use the same region pattern, with Before/After and change-kind text associated with each value. Additions and removals carry spoken prefixes and visible plus/minus cues; color is additional information. Decision buttons have unique names such as Accept amount and expose pressed state.
+
+The root is a named, keyboard-focusable group (`tabIndex=0` by default); n/p can enter a read-only comparison without adding every hunk to the tab order. The whitespace control follows the switch pattern with checked state. Folds expose expanded state. Comparison loading, async action outcomes and failures have busy/status/alert feedback. The demo announces only meaningful local review/application changes and never moves focus when data updates. Source is escaped text, and decorative icons/gutters are hidden from assistive technology.
+
+Automated checks cover both themes, narrow containers, interactive states and expanded context. Virtualized lists mount only visible rows; navigating to a hunk scrolls it into view. Test a consuming workflow with assistive technology, especially long comparisons and translated content.
+
+## Responsive behavior
+
+The component sizes to its container, with the handoff's panel borders, rounded controls and graphite surfaces. Split falls back to unified below 640px container width while retaining the requested view. Toolbars also wrap below 640px. The field table hides its visual Before column below 520px while retaining before/after context in accessible text. Field names and values wrap when necessary.
+
+All actions reach a 44px touch target in narrow/coarse-pointer layouts. Long source lines wrap inside their row. The default docs preview fits the page and stays centered; 320, 324, 712, 910 and 1280px reference widths remain explicit test options. Bricolage Grotesque remains the sole font in the component and docs.
+
+## Performance
+
+Line comparison runs through jsdiff's asynchronous callback path. Word comparison is bounded, and post-processing yields between batches. A comparison beyond 256 line-edit steps falls back to a whole-document replacement diff. Every original/proposed line remains available, but this fallback may not be the smallest possible patch. Lists above 100 rows use TanStack Virtual; unchanged context folds above six lines by default.
+
+Code mode lazy-loads Shiki's JavaScript engine and a limited grammar set. Syntax work yields in batches and ignores stale completions. Plain source remains available throughout. Text/fields modes do not load the syntax engine. JSON inputs should be valid, finite, serializable values; validation and size limits belong at the application's input boundary.
+
+The item budget is 25 KB gzip excluding Shiki and shared dependencies. Bundle reports include component/model code, jsdiff, virtualization, used icons and component CSS. Shared React/ReactDOM, cn, host primitives, hooks and theme are reported separately. The 5,000-line browser benchmark measures sparse and broad edits, long tasks, mounted row count and scroll reachability. Exact local measurements and installation evidence are recorded in QA.md; they are not a promise for every device or arbitrary input.
+
+## Notes for AI
+
+- Pass immutable before/after snapshots and select the matching mode; never treat accepted display state as authorization to write data.
+- Keep decisions tied to your proposal ID and revision. Clear owner-managed decisions when that revision changes.
+- Use `getDiffFieldId(key)` for fields; text hunk IDs are comparison-local and can change when whitespace or input changes.
+- Controlled owners must update view, whitespace, expanded-region and decision props in response to their callbacks. Defaults initialize local state once.
+- Put persistence validation in `onHunkDecision`, or compose a separate Apply action through `toolbarActions`. Handle application failures and authorization on the server.
+- Keep the component, model, lazy syntax helper, CSS and required shared files together when copying from Code.
+- Code highlighting is optional. Keep plain text usable and do not replace React token rendering with untrusted HTML.
+- Translate formatter functions and owner-provided field strings, and pass a valid Intl locale for numeric display.
+- Preserve the existing root theme provider. Use optional `data-ui-design` for the supplied component palette; keep preview styling out of the docs shell.
+- The local demo's Apply and Undo update a synthetic snapshot. They do not write to HubSpot or establish a hosted installer or npm release.

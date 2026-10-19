@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "confidence-badge", "type": "registry:ui", "title": "Confidence Badge",
+  "description": "A localized, labeled confidence score with configurable thresholds and keyboard-accessible reasons.",
+  "dependencies": ["cn@0.5.0"],
+  "registryDependencies": ["badge", "popover", "@ailibrary/ui-foundation", "@ailibrary/ui-design-theme", "@ailibrary/use-controllable-state"],
+  "categories": ["agent-control"],
+  "docs": "Pass the original 0..1 model score and reasons. Keep the colocated CSS file; use data-ui-design on an ancestor for the handoff palette.",
+  "files": [
+    { "path": "confidence-badge.tsx", "type": "registry:ui", "target": "components/ailibrary/confidence-badge.tsx" },
+    { "path": "confidence-badge.css", "type": "registry:ui", "target": "components/ailibrary/confidence-badge.css" }
+  ]
+}

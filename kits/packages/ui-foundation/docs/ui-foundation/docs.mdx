@@ -1,0 +1,155 @@
+# UI foundation
+
+Semantic theme tokens, motion presets and React hooks for small, accessible shadcn compositions.
+
+<LivePreview />
+
+## When to use
+
+Use this foundation when building an AI Library component, block or local demo. Its tokens connect the component to the existing app theme; its hooks share state, container measurement and motion preferences.
+
+## When not to use
+
+Use your existing shadcn `Button`, `Dialog` or other primitive for a basic control. The foundation supplies shared behavior and tokens; it does not replace primitive accessibility or implement a workflow backend. Use [Chart frame](/docs/ui/chart-frame) when presenting chart data.
+
+## Install
+
+Build the registry and run the web app from the repository root:
+
+```sh
+pnpm ui:build
+pnpm dev
+```
+
+Add the theme using the local public registry:
+
+```sh
+pnpm dlx shadcn@4.22.0 add http://localhost:3000/r/ui-foundation.json
+```
+
+Configure `@ailibrary` in `components.json` to use the namespace:
+
+```json
+{
+  "registries": {
+    "@ailibrary": "http://localhost:3000/r/{name}.json"
+  }
+}
+```
+
+Then `pnpm dlx shadcn@4.22.0 add @ailibrary/ui-foundation` uses that registry. This sample endpoint is public. Bearer-token delivery for paid items remains a platform integration; no token is needed for these samples. The AI Library CLI and hosted MCP delivery are reserved; use the working shadcn command or copy the files listed in the registry JSON. Read the canonical [Markdown source](/docs/ui/ui-foundation.md) with an AI coding tool.
+
+## Usage
+
+```tsx
+"use client";
+import {
+  useControllableState, useContainerSize, useReducedMotion,
+} from "@ai-library/ui-foundation";
+
+export function Preview() {
+  const [open, setOpen] = useControllableState({ defaultValue: false });
+  const { ref, width } = useContainerSize<HTMLDivElement>();
+  const reducedMotion = useReducedMotion();
+  return (
+    <div ref={ref} data-reduced-motion={reducedMotion}>
+      <button type="button" onClick={() => setOpen(!open)}>
+        {open ? "Close" : "Open"}
+      </button>
+      <p>{Math.round(width)} px</p>
+    </div>
+  );
+}
+```
+
+The workspace import above is for this repository. A registry install copies the hooks beside the installed components; use the local import paths shown in the generated registry files.
+
+## Anatomy
+
+- `foundation.css`: semantic light/dark, status, six chart colors, radius and CSS motion tokens.
+- `motion.ts`: `spring`, `duration`, `easing` and `reducedMotionTransition` presets for Motion.
+- `useReducedMotion`: Motion's operating-system preference plus an explicit HTML test override.
+- `useControllableState`: controlled/uncontrolled state with functional updates and change callbacks.
+- `useContainerSize`: a callback ref and measured container width/height.
+
+## API
+
+### Theme and motion tokens
+
+| Token | Meaning | Default |
+| --- | --- | --- |
+| `--background`, `--foreground` | Page surface and text | Separately tuned light/dark values |
+| `--card`, `--popover` and foreground pairs | Raised and overlay surfaces | Semantic surface values |
+| `--primary`, `--secondary`, `--accent` and foreground pairs | Actions, secondary surfaces and selection | Purple primary, neutral secondary/accent |
+| `--muted`, `--muted-foreground`, `--border`, `--input`, `--ring` | Supporting text, boundaries and focus | Theme-specific values |
+| `--success`, `--warning`, `--destructive`, `--info` and foreground pairs | Status roles | Status-specific values |
+| `--chart-1` through `--chart-6` | Chart palette | Six semantic colors |
+| `--radius` | Base corner radius | Shared app radius |
+| `--duration-fast`, `--duration-base`, `--duration-slow` | CSS transition durations | 150 ms, 240 ms, 480 ms |
+| `--ease-standard`, `--ease-enter` | CSS easing | Shared cubic-bezier family |
+
+| Motion export | Value | Use |
+| --- | --- | --- |
+| `spring.snappy` | visualDuration 0.24, bounce 0.1 | Presses and toggles |
+| `spring.smooth` | visualDuration 0.38, bounce 0 | Panels and layout changes |
+| `spring.morph` | visualDuration 0.42, bounce 0.15 | Shared highlights |
+| `spring.track` | stiffness 520, damping 38 | Pointer tracking |
+| `duration` | fast 0.15, base 0.24, slow 0.48 seconds | Motion transitions |
+| `easing` | standard `[0.2, 0.8, 0.2, 1]`, enter `[0.16, 1, 0.3, 1]` | Motion easing |
+| `reducedMotionTransition` | 0.15-second standard opacity transition | Optional non-spatial feedback |
+
+### Hooks
+
+| Hook / option | Type | Default | Behavior |
+| --- | --- | --- | --- |
+| `useReducedMotion()` | `boolean` | Operating-system preference | Honors `html[data-reduced-motion="true"]` and `"false"`; absent or `"system"` uses the OS |
+| `useControllableState({ value, defaultValue, onChange })` | readonly `[T, Dispatch<SetStateAction<T>>]` | Local state | A defined `value` selects controlled mode |
+| `value` | `T` or `undefined` | `undefined` | Owner-provided state; prop changes do not fire `onChange` |
+| `defaultValue` | `T` | Required | Initial local value, read once |
+| `onChange` | `(next: T) => void` | None | Called for changed requests; equal values are ignored |
+| `useContainerSize<T>()` | `{ ref, width, height }` | Zero before measurement | Measures the element's border box with ResizeObserver |
+| `ref` | React callback ref | Required on measured element | The actual element to measure |
+
+The hooks have no user-facing labels. Labels belong to the consuming component. Use the existing root `ThemeProvider` and `ThemeToggle` for Light, Dark and System preferences; no additional provider or manual theme storage is needed.
+
+## States
+
+The live preview shows primary, outline and disabled controls, six labeled semantic swatches, measured content width and the resolved motion preference. Theme, motion and container-width controls update the same preview. A zero measurement is the deterministic server-rendering/detached state; the measurement is displayed after mounting. Controlled state reflects its owner's value, while uncontrolled state retains local state.
+
+## Motion
+
+Nothing animates while reading. New components should use shared presets only when they explain a state change. Respect `useReducedMotion`: preserve focus, end states and feedback; remove travel, scaling, looping and parallax. Use an instant change or `reducedMotionTransition` for opacity feedback. CSS must honor both the OS preference and the HTML override; the override is available for deterministic tests.
+
+## Keyboard
+
+| Key | Result |
+| --- | --- |
+| Tab / Shift+Tab | Move through theme, motion, width and demo controls |
+| Arrow keys | Change options inside a focused native select |
+| Space / Enter | Activate the focused button |
+| Tab then Enter on Skip to documentation | Focus the main content |
+
+The hooks do not create a keyboard pattern themselves. Each component remains responsible for its correct native or WAI-ARIA interaction pattern.
+
+## Accessibility
+
+Use semantic HTML, explicit labels, visible token-based focus rings and at least 24 px targets; demo controls use 44 px on touch layouts. Status is always labeled in text. The page uses a single main landmark, a named documentation navigation and a skip link. Chart consumers need a descriptive summary and table alternative. Both palettes and state combinations belong in browser/axe checks; a passing automated audit does not replace a screen-reader review.
+
+## Responsive behavior
+
+Components respond to their container, starting at 320 px. The preview presets set actual 320, 768 and 1280 px containers inside a separately scrollable canvas, so a narrow docs viewport can inspect a larger component without widening the page. The swatches use container queries and shift from three columns to two below 400 px.
+
+## Performance
+
+Container measurements run through ResizeObserver; there is no polling. State hooks have no network requests. Import only the modules you need. WebGL, GSAP and marketing motion are absent from these docs. These foundation samples do not render large lists; future lists above 100 rows require virtualization. Bundle size and mobile performance budgets remain per-item acceptance checks.
+
+## Notes for AI
+
+- Keep the existing root theme provider and Bricolage Grotesque font; do not add page-level theme storage.
+- Treat semantic tokens as the source of truth; never hard-code a status color or duration in a component.
+- Give every user-controlled state a controlled/uncontrolled prop pair backed by `useControllableState`.
+- A controlled setter requests a change; the parent must update its value for the UI to change.
+- Treat an initial zero container size as unmeasured; avoid making a server-rendered layout depend on it.
+- Use the reduced-motion hook for JS motion and the matching HTML/CSS overrides for tests.
+- Keep all data fetching in a server or owning application layer; components receive typed props.
+- Install shadcn primitives through the consumer's chosen style and import those local primitives.

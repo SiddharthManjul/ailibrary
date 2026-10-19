@@ -1,0 +1,44 @@
+.ail-sp-demo {
+  container: ail-sparkline-demo / inline-size;
+  width: 100%; min-width: 0;
+  color: var(--foreground); font-family: inherit; font-variant-numeric: tabular-nums;
+}
+.ail-sp-demo p { margin: 0; }
+.ail-sp-demo-top { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; min-height: 30px; font-size: 12.5px; }
+.ail-sp-demo .ail-sp-demo-top .ail-sp-demo-live { height: 24px; min-height: 24px; padding: 0 9px; gap: 6px; border: 0; border-radius: calc(var(--radius) * 9); background: var(--muted); color: var(--muted-foreground); font-size: 11.5px; font-weight: 550; }
+.ail-sp-demo .ail-sp-demo-top .ail-sp-demo-live[data-live="true"] { color: var(--success); background: var(--success-soft); }
+.ail-sp-demo .ail-sp-demo-top .ail-sp-demo-live-icon { width: 10px; height: 10px; }
+.ail-sp-demo .ail-sp-demo-top .ail-sp-demo-add { padding-inline: 8px; }
+.ail-sp-demo-hint { margin-left: auto; color: var(--subtle-foreground); white-space: nowrap; }
+.ail-sp-demo-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
+.ail-sp-demo-card { display: flex; min-width: 0; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid var(--border-subtle); border-radius: var(--ui-radius-xl); background: var(--card); cursor: crosshair; }
+.ail-sp-demo-card:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+.ail-sp-demo-caption { color: var(--subtle-foreground); font-size: 10.5px; font-weight: 500; line-height: 16px; letter-spacing: 1.25px; text-transform: uppercase; }
+.ail-sp-demo-chart { position: relative; height: 40px; }
+.ail-sp-demo-value { color: var(--foreground); font-size: 13px; font-weight: 500; line-height: 20px; overflow-wrap: anywhere; }
+.ail-sp-demo .ail-sp-demo-up { color: var(--success); }
+.ail-sp-demo .ail-sp-demo-down, .ail-sp-demo .ail-sp-demo-danger { color: var(--destructive); }
+.ail-sp-demo-fail { color: var(--muted-foreground); }
+.ail-sp-demo-dot { position: absolute; width: 8px; height: 8px; margin: -4px 0 0 -4px; border: 2px solid var(--card); border-radius: 50%; background: var(--primary); pointer-events: none; }
+.ail-sp-demo-dot.ail-sp-demo-fail { background: var(--muted-foreground); }
+.ail-sp-demo p.ail-sp-demo-inline { margin: 20px 0 0; color: var(--muted-foreground); font-size: 14px; line-height: 22px; }
+.ail-sp-demo-inline b { color: var(--foreground); font-weight: 600; }
+.ail-sp-demo .ail-sp-demo-inline-chart { display: inline-block; width: 72px; height: 18px; vertical-align: -3px; }
+.ail-sp-demo p.ail-sp-demo-description { margin-top: 20px; color: var(--muted-foreground); font-size: 12px; line-height: 1.6; }
+.ail-sp-demo-disclosure { margin-top: 16px; }
+.ail-sp-demo-boundary { display: flex; height: 40px; align-items: center; color: var(--muted-foreground); font-size: 11px; line-height: 1.2; }
+.ail-sp-demo-boundary[role="alert"] { color: var(--destructive); }
+.ail-sp-demo-table-wrap { max-width: 100%; margin-top: 16px; overflow-x: auto; }
+.ail-sp-demo table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.5; }
+.ail-sp-demo caption { margin-bottom: 8px; text-align: left; color: var(--muted-foreground); }
+.ail-sp-demo th, .ail-sp-demo td { padding: 8px; border-bottom: 1px solid var(--border); text-align: left; font-weight: 400; white-space: nowrap; }
+.ail-sp-demo thead th { font-weight: 600; }
+.ail-sp-demo-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+@container ail-sparkline-demo (width < 800px) {
+  .ail-sp-demo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ail-sp-demo-hint { white-space: normal; }
+}
+@container ail-sparkline-demo (width < 520px) {
+  .ail-sp-demo-top { flex-wrap: wrap; }
+  .ail-sp-demo-hint { display: none; }
+}
