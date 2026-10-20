@@ -1,15 +1,34 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
+import dynamic from "next/dynamic";
 import { useTheme } from "next-themes";
-import { useSyncExternalStore } from "react";
+import { useId, useSyncExternalStore } from "react";
 
 const subscribe = () => () => {};
 const getSnapshot = () => true;
 const getServerSnapshot = () => false;
+const ThemeSelect = dynamic(() => import("./theme-select").then((module) => module.ThemeSelect), {
+  loading: () => (
+    <button
+      type="button"
+      aria-label="Theme"
+      disabled
+      data-slot="theme-toggle"
+      data-value="system"
+      className="inline-flex h-9 w-full items-center justify-between gap-2 rounded-xl border border-input bg-card px-3 text-sm text-foreground opacity-45"
+    >
+      <span>System</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </button>
+  ),
+});
 
 export function ThemeToggle({ className, variant = "icon", ariaLabel }: { className?: string; variant?: "icon" | "select"; ariaLabel?: string }) {
   const { theme, resolvedTheme, setTheme } = useTheme();
+  const id = useId();
   const mounted = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const isDark = mounted && resolvedTheme === "dark";
   const nextTheme = isDark ? "light" : "dark";
@@ -18,20 +37,14 @@ export function ThemeToggle({ className, variant = "icon", ariaLabel }: { classN
 
   if (variant === "select") {
     return (
-      <label className={`grid gap-1 text-xs text-muted-foreground${className ? ` ${className}` : ""}`}>
-        Theme
-        <select
-          aria-label="Theme"
+      <label htmlFor={id} className={`grid min-w-0 gap-2 text-xs text-muted-foreground${className ? ` ${className}` : ""}`}>
+        <span>Theme</span>
+        <ThemeSelect
+          id={id}
           value={mounted ? theme ?? "system" : "system"}
           disabled={!mounted}
-          onChange={(event) => setTheme(event.target.value)}
-          className="min-h-11 rounded-md border border-input bg-card px-3 text-sm text-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-          data-slot="theme-toggle"
-        >
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-          <option value="system">System</option>
-        </select>
+          onValueChange={setTheme}
+        />
       </label>
     );
   }

@@ -1,0 +1,85 @@
+.preview { container: preview-shell / inline-size; margin: 32px 0 40px; border: 1px solid var(--border); border-radius: 18px; overflow: hidden; background: var(--card); color: var(--card-foreground); }
+.toolbar { display: grid; gap: 20px; padding: 20px 24px 24px; border-bottom: 1px solid var(--border); }
+.previewIntro { display: flex; flex-direction: column; gap: 4px; }
+.previewHeading { margin: 0 !important; font-weight: 600; font-size: calc(14px * var(--website-type-scale)); line-height: 1.5; }
+.previewLabel { margin: 0 !important; font-size: calc(12px * var(--website-type-scale)); line-height: 1.5; color: var(--muted-foreground); }
+.controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 12px; align-items: end; }
+.control { display: flex; min-width: 0; flex-direction: column; gap: 8px; color: var(--muted-foreground); font-size: calc(11.5px * var(--website-type-scale)); line-height: 1.4; font-weight: 500; }
+.control :is([role="combobox"], [data-slot="theme-toggle"]) { width: 100%; height: 36px; min-height: 36px; border-radius: 12px; font-size: calc(13px * var(--website-type-scale)); }
+.viewport { overflow-x: auto; padding: 28px; background: var(--background); }
+.canvas { container-type: inline-size; min-width: 0; min-height: 280px; margin: 0 auto; padding: 24px; border: 1px dashed var(--border); border-radius: var(--radius); background: var(--card); }
+.canvas[data-width="320"] { width: 320px; }
+.canvas[data-width="768"] { width: 768px; }
+.canvas[data-width="1280"] { width: 1280px; }
+.caption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border); padding: 10px 20px; font-size: calc(11px * var(--website-type-scale)); color: var(--muted-foreground); }
+.sample { min-width: 0; display: flex; flex-direction: column; gap: 20px; }
+.sampleRow { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.sampleLabel { margin: 0 !important; font-size: calc(12px * var(--website-type-scale)); font-weight: 600; }
+.sampleDescription { margin: 0 !important; font-size: calc(12px * var(--website-type-scale)); line-height: 1.6; color: var(--muted-foreground); }
+.sampleGroup { display: flex; flex-direction: column; gap: 12px; }
+.sampleStatus { min-height: 24px; font-size: calc(12px * var(--website-type-scale)); color: var(--muted-foreground); }
+.sampleStatus[data-error="true"] { color: var(--destructive); }
+.palette { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.swatch { border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
+.swatchColor { height: 44px; }
+.swatchText { padding: 8px 10px; font-size: calc(11px * var(--website-type-scale)); background: var(--card); color: var(--foreground); }
+.metrics { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 12px; border-top: 1px solid var(--border); }
+.metrics div { display: flex; flex-direction: column; font-size: calc(12px * var(--website-type-scale)); }
+.metrics dt { color: var(--muted-foreground); }
+.metrics dd { margin: 0; font-variant-numeric: tabular-nums; font-weight: 600; }
+.bars { display: flex; flex-direction: column; gap: 8px; }
+.barPoint { display: grid !important; grid-template-columns: 100px minmax(0, 1fr) 28px; align-items: center; gap: 12px; width: 100%; min-height: 44px; text-align: left; font-size: calc(12px * var(--website-type-scale)); }
+.bar { height: 12px; min-width: 2px; border-radius: var(--radius-sm); background: var(--chart-1); }
+.barValue { text-align: right; font-variant-numeric: tabular-nums; }
+.emptyPlot { min-height: 160px; }
+@container (max-width: 400px) {
+  .palette { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .barPoint { grid-template-columns: 68px minmax(0, 1fr) 24px; gap: 8px; font-size: calc(11px * var(--website-type-scale)); }
+}
+@media (max-width: 800px) {
+  .toolbar { padding: 18px 16px 20px; }
+  .controls { gap: 16px 12px; }
+  .control :is([role="combobox"], [data-slot="theme-toggle"]) { height: 44px; min-height: 44px; }
+  .viewport { padding: 16px; }
+  .canvas { padding: 16px; }
+  .caption { padding: 12px 16px; }
+}
+
+.failureControl { display: flex; align-items: center; gap: 8px; min-height: 44px; width: fit-content; font-size: calc(12px * var(--website-type-scale)); cursor: pointer; }
+.failureControl input { width: 20px; height: 20px; accent-color: var(--primary); }
+.canvas [data-slot="chart-frame-title"] { margin: 0; }
+.canvas [data-slot="chart-frame-description"] { margin: 4px 0 0; font-size: calc(12px * var(--website-type-scale)); }
+
+.viewport:focus-visible { outline: 2px solid var(--ring); outline-offset: -4px; }
+
+.preview .previewTitle { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (min-width: 1500px) {
+  .viewport { padding: 20px; }
+}
+
+/* Reference widths measure component content; stage padding stays outside it. */
+.canvas[data-ui-design] { box-sizing: content-box; padding: 40px; border: 1px solid var(--border-subtle); background-color: var(--canvas); background-image: radial-gradient(var(--dot-grid) 1px, transparent 1px); background-size: 16px 16px; color: var(--foreground); }
+.canvas[data-width="324"] { width: 324px; }
+.canvas[data-width="712"] { width: 712px; }
+.canvas[data-width="910"] { width: 910px; }
+.canvas[data-ui-design]:is([data-width="712"], [data-width="768"]) { padding: 24px; }
+.canvas[data-ui-design]:is([data-width="320"], [data-width="324"]) { padding: 16px; }
+
+/* Fit the whole stage to the article by default. Fixed widths above remain
+   exact content widths for deliberate responsive testing. */
+.canvas[data-width="fit"] { box-sizing: border-box; width: 100%; max-width: 100%; }
+
+@container preview-shell (max-width: 800px) {
+  .canvas[data-ui-design][data-width="fit"] { padding: 24px; }
+}
+@container preview-shell (max-width: 520px) {
+  .canvas[data-ui-design][data-width="fit"] { padding: 16px; }
+}
+
+@container preview-shell (max-width: 620px) {
+  .controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@container preview-shell (max-width: 350px) {
+  .controls { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,7 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "lenis/dist/lenis.css";
-@import "../styles/foundation.css";
+@import "@ai-library/ui-foundation/foundation.css";
+@import "@ai-library/ui-foundation/design-theme.css";
+
+@source "../../../../kits/packages/ui-foundation/src";
+@source "../../../../kits/packages/ui-foundation/examples";
+@source "../../../../kits/ui/components/sparkline";
+@source "../../../../kits/ui/components/diff-viewer";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -65,7 +71,8 @@
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: var(--ui-radius-xl, calc(var(--radius) + 4px));
+  --radius-2xl: var(--ui-radius-2xl, 1rem);
 }
 
 @layer base {

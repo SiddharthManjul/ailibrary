@@ -6,6 +6,7 @@
 .st-dl em.is-soon{color:var(--p)}
 .st-doc .st-crumb{flex-wrap:wrap;line-height:1.5}
 .st-doc .st-crumb>span{display:inline-flex;align-items:center;gap:calc(6 * var(--u))}
+.st-doc .st-crumb a{display:inline-flex;align-items:center;min-height:24px;padding-block:4px;margin-block:-4px}
 .st-doc .st-crumb .is-on{color:var(--ink)}
 .st-doc .st-h2{position:relative;scroll-margin-top:-4px}
 .st-heading-anchor{margin-left:.4em;color:var(--p);opacity:0;font-weight:400}

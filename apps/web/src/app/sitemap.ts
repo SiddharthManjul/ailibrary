@@ -3,5 +3,5 @@ import { docsPages } from "@content/site/docs";
 import { siteOrigin } from "@/lib/site-metadata";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return ["/", "/kits", "/workflows", "/agents", "/ui", "/pricing", ...docsPages.map((page) => page.path)].map((path) => ({ url: `${siteOrigin}${path}`, changeFrequency: path.startsWith("/docs") ? "weekly" : "monthly", priority: path === "/" ? 1 : path === "/docs" ? 0.9 : 0.7 }));
+  return ["/", "/kits", "/workflows", "/agents", "/ui", "/pricing", ...docsPages.map((page) => page.path), "/docs/ui/ui-foundation", "/docs/ui/button-example", "/docs/ui/chart-frame"].map((path) => ({ url: `${siteOrigin}${path}`, changeFrequency: path.startsWith("/docs") ? "weekly" : "monthly", priority: path === "/" ? 1 : path === "/docs" ? 0.9 : 0.7 }));
 }

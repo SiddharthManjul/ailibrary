@@ -1,0 +1,17 @@
+.editor { max-width: 100%; min-height: 360px; max-height: min(76vh, 760px); overflow: auto; overscroll-behavior: contain; border-block: 1px solid var(--border); background: var(--surface-inset); color: var(--foreground); }
+.rows { display: flex; min-width: max-content; min-height: inherit; font-family: var(--font-bricolage-grotesque), sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; letter-spacing: 0; font-variant-numeric: tabular-nums; font-variant-ligatures: none; font-kerning: none; tab-size: 2; }
+.gutter { position: sticky; left: 0; z-index: 1; flex: none; width: 52px; padding: 20px 12px 20px 0; border-right: 1px solid var(--border); background: var(--surface-inset); color: var(--muted-foreground); font-size: 12px; text-align: right; user-select: none; pointer-events: none; }
+.gutter span { display: block; height: 24px; }
+.editor .code { flex: 1; min-width: max-content; margin: 0; padding: 20px 24px 20px 16px; border: 0; background: transparent; color: inherit; font: inherit; white-space: pre; overflow: visible; overflow-wrap: normal; }
+.editor .code code { display: block; font: inherit; white-space: pre; }
+.code :global(span[style]) { color: var(--shiki-light); font-style: var(--shiki-light-font-style, normal); }
+:global(.dark) .code :global(span[style]) { color: var(--shiki-dark); font-style: var(--shiki-dark-font-style, normal); }
+.editor:focus-within { outline: 2px solid var(--ring); outline-offset: -2px; }
+.editor .code:focus-visible { outline: none; }
+.compact { min-height: 0; max-height: 520px; border: 0; }
+.compact .gutter { padding-block: 16px; }
+.compact .code { padding-block: 16px; }
+@media (max-width: 640px) {
+  .gutter { width: 40px; padding-right: 10px; }
+  .editor .code { padding-inline: 12px 20px; }
+}

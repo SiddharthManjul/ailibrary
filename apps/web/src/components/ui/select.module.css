@@ -1,0 +1,181 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--input, var(--border));
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--foreground);
+  font-family: var(--font-bricolage-grotesque), sans-serif;
+  font-size: calc(13.5px * var(--website-type-scale, 1));
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease;
+}
+
+.trigger:hover {
+  border-color: var(--border-strong, var(--border));
+  background: var(--accent);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.trigger[data-state="open"] {
+  border-color: var(--primary-line, var(--border-strong, var(--border)));
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+.trigger[data-placeholder] {
+  color: var(--muted-foreground);
+}
+
+.trigger:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.trigger[aria-invalid="true"] {
+  border-color: var(--destructive);
+}
+
+.value {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  flex: none;
+  color: var(--muted-foreground);
+}
+
+.content {
+  position: relative;
+  z-index: 80;
+  min-width: var(--radix-select-trigger-width);
+  max-width: min(24rem, var(--radix-select-content-available-width));
+  max-height: min(22rem, var(--radix-select-content-available-height));
+  overflow: hidden;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--popover);
+  color: var(--popover-foreground);
+  box-shadow: var(--shadow-floating, 0 12px 32px -12px rgb(0 0 0 / 28%), 0 2px 6px -2px rgb(0 0 0 / 12%));
+  font-family: var(--font-bricolage-grotesque), sans-serif;
+  font-size: calc(13.5px * var(--website-type-scale, 1));
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+  transform-origin: var(--radix-select-content-transform-origin);
+  animation: menuEnter 150ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.viewport {
+  padding: 0;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 34px 6px 10px;
+  border-radius: 10px;
+  cursor: default;
+  outline: none;
+  user-select: none;
+}
+
+.item[data-state="checked"] {
+  background: var(--primary-soft, color-mix(in oklab, var(--primary) 8%, transparent));
+  box-shadow: inset 0 0 0 1px var(--primary-line, color-mix(in oklab, var(--primary) 25%, transparent));
+  font-weight: 550;
+}
+
+.item[data-highlighted] {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.item[data-state="checked"][data-highlighted] {
+  background: color-mix(in oklab, var(--primary) 14%, var(--popover));
+  color: var(--popover-foreground);
+}
+
+.item[data-disabled] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.itemText {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.indicator {
+  position: absolute;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  color: var(--popover-foreground);
+}
+
+.scrollButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  color: var(--muted-foreground);
+}
+
+.label {
+  padding: 8px 10px 5px;
+  color: var(--muted-foreground);
+  font-size: calc(11.5px * var(--website-type-scale, 1));
+  font-weight: 550;
+}
+
+.separator {
+  height: 1px;
+  margin: 5px -5px;
+  background: var(--border);
+}
+
+@keyframes menuEnter {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (pointer: coarse), (max-width: 640px) {
+  .trigger { min-height: 44px; }
+  .item { min-height: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trigger { transition: none; }
+  .content { animation: none; }
+}
+
+:global(html[data-reduced-motion="true"]) .trigger { transition: none; }
+:global(html[data-reduced-motion="true"]) .content { animation: none; }

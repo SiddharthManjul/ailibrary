@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 import { BrandMark } from "@/components/brand-mark";
 import { landingDescription } from "@/components/landing/structured-data";
 
-const font = readFile(join(process.cwd(), "src/assets/fonts/BricolageGrotesque-Regular.ttf"));
+const font = readFile(join(process.cwd(), "../../kits/packages/seed/recipe/fonts/BricolageGrotesque-Regular.ttf"));
 
 export async function GET(request: Request) {
   const light = new URL(request.url).searchParams.get("theme") === "light";

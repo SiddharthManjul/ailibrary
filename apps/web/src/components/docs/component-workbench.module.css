@@ -1,0 +1,51 @@
+.workbench { min-width: 0; margin: 32px 0 40px; overflow: hidden; border: 1px solid var(--border); border-radius: 18px; background: var(--card); color: var(--card-foreground); }
+.quickInstall { width: fit-content; max-width: 100%; margin-top: 22px; }
+.commandRow { display: flex; align-items: center; gap: 12px; min-height: 54px; padding: 4px 6px 4px 16px; border: 1px solid var(--border); border-radius: 14px; background: var(--accent); color: var(--foreground); }
+.commandRow code { min-width: 0; font: inherit; font-size: calc(15px * var(--website-type-scale)); line-height: 1.6; white-space: normal; overflow-wrap: anywhere; }
+.prompt { align-self: flex-start; margin-top: 10px; flex: none; color: var(--muted-foreground); font-size: calc(15px * var(--website-type-scale)); line-height: 1.6; }
+.commandCopy { flex: none; }
+.commandCopy button { display: grid; place-items: center; width: 44px; min-height: 44px; padding: 0; border: 0; border-radius: 10px; background: transparent; color: var(--muted-foreground); cursor: pointer; }
+.commandCopy button:hover { background: var(--card); color: var(--foreground); }
+.commandCopy button:focus-visible { outline: 2px solid var(--ring); outline-offset: 0; }
+.commandCopy svg { width: 17px; height: 17px; }
+.commandCopy button span { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.commandStatus { margin: 8px 0 0; color: var(--muted-foreground); font-size: calc(11px * var(--website-type-scale)); line-height: 1.6; }
+.commandStatus a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.header { padding: 10px 16px; gap: 12px; border-bottom: 1px solid var(--border); }
+.header :global(.st-ctabs) button { min-height: 36px; }
+.meta { margin-left: auto; color: var(--muted-foreground); font-size: calc(11px * var(--website-type-scale)); white-space: nowrap; }
+.previewPanel > section { margin: 0; border: 0; border-radius: 0; }
+.sourceToolbar { display: flex; align-items: flex-end; gap: 12px; padding: 20px; }
+.fileControl { display: flex; flex: 1; min-width: 0; max-width: 100%; flex-direction: column; gap: 8px; }
+.fileControl > span { color: var(--muted-foreground); font-size: calc(11.5px * var(--website-type-scale)); font-weight: 500; }
+.fileControl [role="combobox"] { font-size: calc(12px * var(--website-type-scale)); }
+.fileMenu { max-width: min(36rem, var(--radix-select-content-available-width)); overflow-wrap: anywhere; }
+.fileMenu [role="option"] { font-size: calc(12px * var(--website-type-scale)); }
+.copy button, .sourceButton { display: inline-flex; flex: none; justify-content: center; align-items: center; min-height: 36px; gap: 7px; padding: 0 10px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); color: var(--foreground); font-size: calc(12px * var(--website-type-scale)); font-weight: 550; cursor: pointer; }
+.copy button svg { width: 14px; height: 14px; }
+.copy button:hover, .sourceButton:hover { background: var(--accent); }
+.workbench :is(button,pre):focus-visible, .install button:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+.fileInfo { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 0 20px 12px; color: var(--muted-foreground); font-size: calc(11px * var(--website-type-scale)); }
+.fileInfo > span:first-child { color: var(--foreground); }
+.sourceNote { margin: 0; padding: 14px 20px; color: var(--muted-foreground); font-size: calc(11.5px * var(--website-type-scale)); line-height: 1.6; }
+.sourceNote a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+.install { min-width: 0; margin-top: 18px; }
+.methods { width: fit-content; }
+.manual { margin-top: 24px; }
+.manual :global(.st-code) { max-width: 100%; }
+.manual :global(.st-code pre) { white-space: pre-wrap; overflow-wrap: anywhere; }
+.sourceButton { margin-top: 14px; }
+.pending { margin-top: 18px; padding: 24px; border: 1px solid var(--border); border-radius: 16px; background: var(--card); font-size: calc(13px * var(--website-type-scale)); line-height: 1.7; }
+.pending p { margin: 12px 0 0; color: var(--muted-foreground); }
+.pendingLabel { display: inline-flex; padding: 3px 9px; border: 1px solid var(--border); border-radius: 7px; color: var(--foreground); font-size: calc(11px * var(--website-type-scale)); font-weight: 600; }
+@media (max-width: 640px) {
+  .header { padding: 10px 12px; }
+  .header :global(.st-ctabs) button { min-height: 44px; }
+  .meta { font-size: calc(10px * var(--website-type-scale)); }
+  .sourceToolbar { padding: 16px; flex-wrap: wrap; align-items: center; }
+  .fileControl { flex-basis: 100%; }
+  .fileControl [role="combobox"], .copy button, .sourceButton, .methods button { min-height: 44px; }
+  .fileMenu [role="option"] { min-height: 44px; }
+  .fileInfo, .sourceNote { padding-inline: 16px; }
+  .pending { padding: 18px; }
+}
